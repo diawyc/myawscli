@@ -1,23 +1,18 @@
-# Cloudformation
-## create stack with parameter
+# Inspector
+## check each region's number of unmanaged ec2
 ```
-stackname=macieautotag2ways
 regions=($(aws ec2 describe-regions --query 'Regions[*].RegionName' --output text))
 ```
 ```
-for region in $regions; do
-aws cloudformation create-stack --stack-name $stackname --template-body file://Arch1-template.yaml \
---parameters  \
-ParameterKey=level0,ParameterValue=public  \
-ParameterKey=level1,ParameterValue=internal  \
-ParameterKey=level2,ParameterValue=sensitive  \
-ParameterKey=level3,ParameterValue=topsecret  \
-ParameterKey=tagkey,ParameterValue=datalevel  \
-ParameterKey=s3bucketname,ParameterValue=maciemappingbucket  \
-ParameterKey=s3filepath,ParameterValue=mapping.json \
---capabilities CAPABILITY_IAM \
---region=$region
+for region in $regions;do
 echo $region
+aws inspector2 \
+list-coverage-statistics \
+--group-by SCAN_STATUS_CODE \
+--filter-criteria \
+'resourceType=[{comparison=EQUALS,value=AWS_EC2_INSTANCE}]'  \
+--region=$region \
+--query 'countsByGroup[1].[groupKey,count]' --output text
 done
 
 ```
