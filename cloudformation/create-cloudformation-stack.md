@@ -1,5 +1,5 @@
 # Cloudformation
-## create stack with parameter
+## create stack with parameter in all regions 
 ```
 stackname=macieautotag2ways
 regions=($(aws ec2 describe-regions --query 'Regions[*].RegionName' --output text))
