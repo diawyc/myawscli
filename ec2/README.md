@@ -24,6 +24,8 @@ instanceid=$(aws ec2 describe-instances  --filters Name=network-interface.addres
 
 ```
 ### 查询NACL现有的Rule
+https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-acls.html
+
 ```
 aws ec2 describe-network-acls --output text --query 'NetworkAcls[0].[Entries]' --region=$region
 ```
