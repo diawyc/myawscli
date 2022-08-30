@@ -21,3 +21,6 @@ echo $region
 done
 
 ```
+```
+aws cloudformation delete-stack --stack-name $stackname
+```
