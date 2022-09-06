@@ -23,7 +23,7 @@ email='**@**.com'
 for ((i=1; i<=${#buttonnames[@]}; i++));do
 echo $buttonnames[$i]
 echo $actionids[$i]
-arn$i=$(aws securityhub create-action-target \
+arn=$(aws securityhub create-action-target \
     --name $buttonnames[$i]\
     --description $buttonnames[$i] \
     --id $actionids[$i] --region=$region  --output text --query 'ActionTargetArn')
