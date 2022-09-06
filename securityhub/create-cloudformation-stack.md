@@ -1,5 +1,5 @@
-# Cloudformation
-## create stack with parameter
+# Securityhub
+## create custom action
 ```
 stackname=macieautotag2ways
 regions=($(aws ec2 describe-regions --query 'Regions[*].RegionName' --output text))
