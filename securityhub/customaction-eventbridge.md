@@ -7,10 +7,14 @@ https://aws.amazon.com/blogs/mt/automate-vulnerability-management-and-remediatio
 ## 参数设置
 region为securityhub指定的聚合aggregated region
 ```
-region='eu-west-'
-buttonname='Rem-Inspector-NoRBT'
-actionid='send2email'
-rulename='InspectorRemNoRBT'
+region='eu-west-2'
+buttonnames=('Rem-Inspector-NoRBT',Rem-Inspector-RBT)
+actionids=('InspectorRemNoRBT',InspectorRemRBT)
+
+```
+
+```
+rulename=''
 email='**@**.com'
 
 ```
@@ -22,6 +26,10 @@ buttonarn=$(aws securityhub create-action-target \
     --name $buttonname\
     --description $rulename \
     --id $actionid --region=$region  --output text --query 'ActionTargetArn')
+
+```
+
+```
 aws events put-rule \
 --name $rulename \
 --event-pattern "{\"source\":[\"aws.securityhub\"], \
