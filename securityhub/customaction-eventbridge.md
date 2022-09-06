@@ -1,4 +1,7 @@
 # Securityhub
+From this blog, I change the manual work part into below CLI command. Easier to copy
+https://aws.amazon.com/blogs/mt/automate-vulnerability-management-and-remediation-in-aws-using-amazon-inspector-and-aws-systems-manager-part-1/
+
 ## create custom action
 -----------------------------------------------------------------------
 ## 参数设置
