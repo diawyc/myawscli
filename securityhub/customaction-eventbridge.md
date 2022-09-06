@@ -5,9 +5,9 @@
 region为securityhub指定的聚合aggregated region
 ```
 region='eu-west-'
-buttonname='send2email'
+buttonname='Rem-Inspector-NoRBT'
 actionid='send2email'
-rulename='manualalert'
+rulename='InspectorRemNoRBT'
 email='**@**.com'
 
 ```
