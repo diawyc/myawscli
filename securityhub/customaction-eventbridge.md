@@ -27,7 +27,6 @@ arn$i=$(aws securityhub create-action-target \
     --name $buttonnames[$i]\
     --description $buttonnames[$i] \
     --id $actionids[$i] --region=$region  --output text --query 'ActionTargetArn')
-echo arn$i
 done
 ```
 
