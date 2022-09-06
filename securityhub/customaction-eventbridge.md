@@ -1,23 +1,49 @@
 # Securityhub
 ## create custom action
+-----------------------------------------------------------------------
+## 参数设置
+region为securityhub指定的聚合aggregated region
 ```
-stackname=macieautotag2ways
-regions=($(aws ec2 describe-regions --query 'Regions[*].RegionName' --output text))
-```
-```
-for region in $regions; do
-aws cloudformation create-stack --stack-name $stackname --template-body file://Arch1-template.yaml \
---parameters  \
-ParameterKey=level0,ParameterValue=public  \
-ParameterKey=level1,ParameterValue=internal  \
-ParameterKey=level2,ParameterValue=sensitive  \
-ParameterKey=level3,ParameterValue=topsecret  \
-ParameterKey=tagkey,ParameterValue=datalevel  \
-ParameterKey=s3bucketname,ParameterValue=maciemappingbucket  \
-ParameterKey=s3filepath,ParameterValue=mapping.json \
---capabilities CAPABILITY_IAM \
---region=$region
-echo $region
-done
+region='eu-west-'
+buttonname='send2email'
+actionid='send2email'
+rulename='manualalert'
+email='**@**.com'
 
+```
+## CLI 命令复制粘贴
+```
+snsarn=$(aws sns create-topic   --name  $rulename  --region=$region  --output text --query 'TopicArn')
+aws sns subscribe --topic-arn $snsarn --protocol email --notification-endpoint  $email --region=$region
+buttonarn=$(aws securityhub create-action-target \
+    --name $buttonname\
+    --description $rulename \
+    --id $actionid --region=$region  --output text --query 'ActionTargetArn')
+aws events put-rule \
+--name $rulename \
+--event-pattern "{\"source\":[\"aws.securityhub\"], \
+\"detail-type\": [\"Security Hub Findings - Custom Action\"], \
+  \"resources\": [\"$buttonarn\"]}"  --region=$region
+aws events put-targets --rule $rulename  --targets "Id"="1","Arn"=$snsarn --region=$region
+```
+
+
+## 打开eventbridge rule,复制以下内容至Target-Input transformer-config input transformer
+### Input path
+```
+{
+  "title": "$.detail.findings[0].Title",
+  "Description": "$.detail.findings[0].Description",
+  "account":"$.account",
+  "region":"$.region"
+  
+}
+```
+### Template
+
+```
+"安全团队, there is an alert title : <title> in region:<region>"
+"in account number:<account>"
+"内容为:<Description>"
+"请处理,谢谢!"
 ```
