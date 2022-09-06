@@ -21,12 +21,11 @@ email='**@**.com'
 ## CLI 命令复制粘贴
 ```
 for ((i=1; i<=${#buttonnames[@]}; i++));do
-echo $buttonnames[$i]
-echo $actionids[$i]
 arn=$(aws securityhub create-action-target \
     --name $buttonnames[$i]\
     --description $buttonnames[$i] \
     --id $actionids[$i] --region=$region  --output text --query 'ActionTargetArn')
+echo $arn
 done
 ```
 
