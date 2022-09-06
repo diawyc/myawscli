@@ -20,16 +20,19 @@ email='**@**.com'
 ```
 ## CLI 命令复制粘贴
 ```
-snsarn=$(aws sns create-topic   --name  $rulename  --region=$region  --output text --query 'TopicArn')
-aws sns subscribe --topic-arn $snsarn --protocol email --notification-endpoint  $email --region=$region
-buttonarn=$(aws securityhub create-action-target \
-    --name $buttonname\
+for button in $buttonnames;do
+
+arn=$(aws securityhub create-action-target \
+    --name $button\
     --description $rulename \
     --id $actionid --region=$region  --output text --query 'ActionTargetArn')
-
+echo $arn
+done
 ```
 
 ```
+snsarn=$(aws sns create-topic   --name  $rulename  --region=$region  --output text --query 'TopicArn')
+aws sns subscribe --topic-arn $snsarn --protocol email --notification-endpoint  $email --region=$region
 aws events put-rule \
 --name $rulename \
 --event-pattern "{\"source\":[\"aws.securityhub\"], \
