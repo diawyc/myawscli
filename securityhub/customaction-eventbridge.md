@@ -12,7 +12,6 @@ region为securityhub指定的聚合aggregated region
 region='eu-west-2'
 buttonnames=('Rem-Inspector-NoRBT' 'Rem-Inspector-RBT')
 actionids=('InspectorRemNoRBT' 'InspectorRemRBT')
-
 ```
 
 ## CLI command 
@@ -23,7 +22,9 @@ arn=$(aws securityhub create-action-target \
     --description $buttonnames[$i] \
     --id $actionids[$i] --region=$region  --output text --query 'ActionTargetArn')
 echo $arn
+arnlist[i]=arn
 done
+echo $arnlist
 ```
 
 
