@@ -22,7 +22,7 @@ arn=$(aws securityhub create-action-target \
     --description $buttonnames[$i] \
     --id $actionids[$i] --region=$region  --output text --query 'ActionTargetArn')
 echo $arn
-arnlist[i]=arn
+arnlist[i]=$arn
 done
 echo $arnlist
 ```
