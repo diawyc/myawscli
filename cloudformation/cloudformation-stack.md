@@ -24,3 +24,8 @@ done
 ```
 aws cloudformation delete-stack --stack-name $stackname
 ```
+```
+aws cloudformation create-stack --stack-name $stackname --template-body https://s3.amazonaws.com/cloudformation-examples/community/common-attacks.json \
+--capabilities CAPABILITY_IAM \
+--region=$region
+```
