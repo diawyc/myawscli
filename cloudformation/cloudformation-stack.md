@@ -1,5 +1,5 @@
 # Cloudformation
-## create stack with parameter in all regions 
+## create stack with parameter in all regions from a local template
 ```
 stackname=macieautotag2ways
 regions=($(aws ec2 describe-regions --query 'Regions[*].RegionName' --output text))
@@ -21,11 +21,13 @@ echo $region
 done
 
 ```
+## From s3 url
 ```
-aws cloudformation delete-stack --stack-name $stackname
-```
-```
-aws cloudformation create-stack --stack-name $stackname --template-body https://s3.amazonaws.com/cloudformation-examples/community/common-attacks.json \
+aws cloudformation create-stack --stack-name $stackname --template-url https://s3.amazonaws.com/cloudformation-examples/community/common-attacks.json \
 --capabilities CAPABILITY_IAM \
 --region=$region
+```
+## delete 
+```
+aws cloudformation delete-stack --stack-name $stackname
 ```
