@@ -25,9 +25,10 @@ done
 ```
 stackname=myfirststack
 region=us-east-1
+url='https://s3.amazonaws.com/cloudformation-examples/community/common-attacks.json'
 ```
 ```
-aws cloudformation create-stack --stack-name $stackname --template-url https://s3.amazonaws.com/cloudformation-examples/community/common-attacks.json \
+aws cloudformation create-stack --stack-name $stackname --template-url $url \
 --capabilities CAPABILITY_IAM \
 --region=$region
 ```
