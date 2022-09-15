@@ -1,7 +1,7 @@
 # Cloudformation
 ## create stack with parameter in all regions from a local template
 ```
-stackname=macieautotag2ways
+stackname=myfirststack
 regions=($(aws ec2 describe-regions --query 'Regions[*].RegionName' --output text))
 ```
 ```
@@ -22,6 +22,10 @@ done
 
 ```
 ## From s3 url
+```
+stackname=myfirststack
+region=us-east-1
+```
 ```
 aws cloudformation create-stack --stack-name $stackname --template-url https://s3.amazonaws.com/cloudformation-examples/community/common-attacks.json \
 --capabilities CAPABILITY_IAM \
