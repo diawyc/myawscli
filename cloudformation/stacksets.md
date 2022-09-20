@@ -19,7 +19,7 @@ aws cloudformation create-stack-set \
     --stack-set-name $stacksetname\
     --template-body file://$stacksettemplate \
     --permission-model SERVICE_MANAGED \
-    --auto-deployment Enabled=true,RetainStacksOnAccountRemoval=true
+    --auto-deployment Enabled=true,RetainStacksOnAccountRemoval=true \
     --parameters \
     ParameterKey=InstallOverrideListBucket,ParameterValue=$s3name  \
     ParameterKey=DelegatedAdministratorAccountId,ParameterValue=$accid \
