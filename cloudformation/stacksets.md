@@ -32,6 +32,11 @@ aws cloudformation create-stack-instances \
     --stack-set-name $stacksetname\
     --deployment-targets OrganizationalUnitIds=$rootid --regions us-east-1 eu-west-2 \ 
     --region=$region
-
-
+```
+### Delete stacks
+```
+aws cloudformation delete-stack-instances \
+    --stack-set-name $stacksetname\
+    --deployment-targets OrganizationalUnitIds=$rootid --regions us-east-1 eu-west-2 \
+    --region=$region --no-retain-stacks
 ```
