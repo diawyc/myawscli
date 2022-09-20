@@ -21,4 +21,5 @@ echo $orgid
 ## Get OU Ids
 ```
 orgunits=($(aws organizations list-organizational-units-for-parent --parent-id $(aws organizations list-roots --query "Roots[].Id" --output text)  --query "OrganizationalUnits[*].Id" --output text))
+echo ${#orgunits[*]}
 ```
