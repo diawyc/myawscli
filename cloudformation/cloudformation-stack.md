@@ -1,4 +1,4 @@
-# Cloudformation
+# Create Cloudformation Stack
 ## create stack with parameter in all regions from a local template
 ```
 stackname=myfirststack
@@ -32,7 +32,13 @@ aws cloudformation create-stack --stack-name $stackname --template-url $url \
 --capabilities CAPABILITY_IAM \
 --region=$region
 ```
-## delete 
+# Get Outputs from a stack
+
+```
+outputs=($(aws cloudformation describe-stacks --stack-name $stackname --region=$region \
+--query 'Stacks[*].Outputs[*].OutputValue' --output text))
+```
+# Delete a stack
 ```
 aws cloudformation delete-stack --stack-name $stackname
 ```
