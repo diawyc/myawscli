@@ -1,4 +1,5 @@
 ## Create a stacksets in Organization Service Managed
+https://docs.aws.amazon.com/cli/latest/reference/cloudformation/create-stack-set.html
 ### Set Parameter
 ```
 region=us-east-1
