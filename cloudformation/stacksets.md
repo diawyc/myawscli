@@ -20,3 +20,10 @@ aws cloudformation create-stack-set \
     --capabilities CAPABILITY_IAM \
     --region=$region
 ```
+```
+aws cloudformation create-stack-instances \
+    --stack-set-name $stacksetname\
+    --deployment-targets OrganizationalUnitIds='["ou-rcuk-1x5j1lwo", "ou-rcuk-slr5lh0a"]' \
+    --regions '["eu-west-1"]'
+
+```
