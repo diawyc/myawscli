@@ -1,5 +1,10 @@
 # I love aws cli
 
+## regions
+```
+regions=($(aws ec2 describe-regions --query 'Regions[*].RegionName' --output text --region=us-east-1))
+echo ${#regions[*]}
+```
 ### 不换页
 ```
 --no-cli-pager
