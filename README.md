@@ -15,5 +15,6 @@ aws  sns --region $region subscribe --topic-arn $arn --protocol email --notifica
 ```
 ## get Organizations ID
 ```
-aws organizations describe-organization  --query 'Organization.Id' --output text --region=$region))
+orgid=$(aws organizations describe-organization  --query 'Organization.Id' --output text --region=$region)
+echo $orgid
 ```
