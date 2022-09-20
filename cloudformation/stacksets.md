@@ -28,6 +28,7 @@ aws cloudformation create-stack-set \
 aws cloudformation create-stack-instances \
     --stack-set-name $stacksetname\
     --deployment-targets OrganizationalUnitIds=$orgunit \
-    --regions $regions
+    --regions $regions \
+    --region=$region
 
 ```
