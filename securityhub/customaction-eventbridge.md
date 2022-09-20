@@ -1,9 +1,5 @@
 # Securityhub
-From this blog, 
-https://aws.amazon.com/blogs/mt/automate-vulnerability-management-and-remediation-in-aws-using-amazon-inspector-and-aws-systems-manager-part-1/
-Step 1: Create Security Hub custom actions for resolving Amazon Inspector Findings
-I change the manual work part to create custom action buttons into below CLI command. 
-Easier to copy and paste
+
 ## create custom action
 -----------------------------------------------------------------------
 ## Set parameter参数设置
