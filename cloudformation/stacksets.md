@@ -27,10 +27,11 @@ aws cloudformation create-stack-set \
     --capabilities CAPABILITY_IAM \
     --region=$region
 ```
+to all accounts with one region
 ```
 aws cloudformation create-stack-instances \
     --stack-set-name $stacksetname\
-    --deployment-targets OrganizationalUnitIds=$rootid --regions us-east-1 eu-west-2 \ 
+    --deployment-targets OrganizationalUnitIds=$rootid --regions $region \            
     --region=$region
 ```
 ### Delete stacks
