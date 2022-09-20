@@ -1,4 +1,4 @@
-## Create a stacksets in Organization
+## Create a stacksets in Organization Service Managed
 ### Set Parameter
 ```
 region=us-east-1
@@ -17,6 +17,8 @@ regions=
 aws cloudformation create-stack-set \
     --stack-set-name $stacksetname\
     --template-body file://$stacksettemplate \
+    --permission-model SERVICE_MANAGED \
+    --auto-deployment Enabled=true,RetainStacksOnAccountRemoval=true
     --parameters \
     ParameterKey=InstallOverrideListBucket,ParameterValue=$s3name  \
     ParameterKey=DelegatedAdministratorAccountId,ParameterValue=$accid \
