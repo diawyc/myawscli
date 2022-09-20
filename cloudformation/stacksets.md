@@ -10,7 +10,7 @@ runbookname=
 ```
 ### from a local file
 ```
-orgunit=
+orgunits=
 regions=
 ```
 ```
@@ -27,7 +27,7 @@ aws cloudformation create-stack-set \
 ```
 aws cloudformation create-stack-instances \
     --stack-set-name $stacksetname\
-    --deployment-targets OrganizationalUnitIds=$orgunit \
+    --deployment-targets OrganizationalUnitIds=$orgunits \
     --regions $regions \
     --region=$region
 
