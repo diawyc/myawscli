@@ -31,8 +31,8 @@ to all accounts with one region
 ```
 aws cloudformation create-stack-instances \
     --stack-set-name $stacksetname\
-    --deployment-targets OrganizationalUnitIds=$rootid --regions $region \            
-    --region=$region
+    --deployment-targets OrganizationalUnitIds=$(aws organizations list-roots --query "Roots[].Id" --output text)  \
+    --regions $region  --region=$region
 ```
 ### Delete stacks
 ```
