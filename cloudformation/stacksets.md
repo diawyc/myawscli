@@ -24,7 +24,7 @@ aws cloudformation create-stack-set \
     ParameterKey=InstallOverrideListBucket,ParameterValue=$s3name  \
     ParameterKey=DelegatedAdministratorAccountId,ParameterValue=$accid \
     ParameterKey=AutomationRunPatchBaselineRunbook,ParameterValue=$runbookname \
-    --capabilities CAPABILITY_NAME_IAM \
+    --capabilities CAPABILITY_NAMED_IAM \
     --region=$region
 ```
 to all accounts with one region
