@@ -1,10 +1,9 @@
-
 ## Set parameter参数设置
 region为securityhub指定的聚合aggregated region
+
 ```
 region='eu-west-2'
 insight='BackupAlert'
-
 ```
 
 ## CLI command 
