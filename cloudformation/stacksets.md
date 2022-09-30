@@ -34,6 +34,10 @@ aws cloudformation create-stack-instances \
     --deployment-targets OrganizationalUnitIds=$(aws organizations list-roots --query "Roots[].Id" --output text)  \
     --regions $region  --region=$region
 ```
+# 去掉一个account运行stacksets
+```
+aws cloudformation create-stack-instances --stack-set-name $stacksetname --deployment-targets Accounts=$admin,OrganizationalUnitIds=$root,AccountFilterType=DIFFERENCE --regions $regions --region=$region
+```
 ### Delete stacks
 ```
 aws cloudformation delete-stack-instances \
