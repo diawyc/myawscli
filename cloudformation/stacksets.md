@@ -8,6 +8,8 @@ stacksetname=SSMAutomationrole
 stacksettemplate=automationExecutionRole.yaml
 s3name=
 runbookname=
+root=$(aws organizations list-roots --query "Roots[].Id" --output text) 
+admin=$(aws securityhub list-organization-admin-accounts --region=$region --output text --query 'AdminAccounts[*].AccountId')
 ```
 ### from a local file
 ```
