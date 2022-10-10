@@ -2,9 +2,9 @@
 ```
 region=me-central-1
 adminid=$(aws guardduty list-organization-admin-accounts --region=$region)
-admemail=
+admemail=$(aws organizations describe-account --account-id $adminid --region=$region --query 'Account.Email' --output text)
 ```
-## 
+
 指定管理员账户Set a delegated admin account for Guardduty:
 
 ```
