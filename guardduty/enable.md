@@ -1,11 +1,22 @@
-参数设置Set Parameter:
+## 参数设置Set Parameter:
 ```
 region=me-central-1
 adminid=$(aws guardduty list-organization-admin-accounts --region=$region)
 ```
-## Guardduty
+## 
 指定管理员账户Set a delegated admin account for Guardduty:
+
 ```
-aws guardduty create-detector --data-sources   S3Logs={Enable=true} --enable --finding-publishing-frequency FIFTEEN_MINUTES --region=$region
-AWS  guardduty enable-organization-admin-account --admin-account-id=$adminid --region=$region 
+aws guardduty enable-organization-admin-account --admin-account-id=$adminid --region=$region 
+```
+
+```
+orgids=($(aws organizations list-accounts  --query 'Accounts[*].Id' --output text --region=$region))
+accountids=( ${orgids[*]/$adminid} )
+len=${#accountids[*]}
+for ((i=1; i<=len; i++));do
+echo $accountids[i]
+aws guardduty update-organization-configuration --detector-id $(aws guardduty list-detectors --output text --query 'DetectorIds' --region=$region)   --auto-enable --data-sources S3Logs={AutoEnable=true} --region=$region
+aws guardduty update-detector --detector-id $(aws guardduty list-detectors --output text --query 'DetectorIds' --region=$region) --data-sources   S3Logs={Enable=true} --enable --finding-publishing-frequency FIFTEEN_MINUTES --region=$region
+done
 ```
