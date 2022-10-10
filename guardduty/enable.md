@@ -14,6 +14,9 @@ aws guardduty enable-organization-admin-account --admin-account-id=$adminid --re
 orgids=($(aws organizations list-accounts  --query 'Accounts[*].Id' --output text --region=$region))
 accountids=( ${orgids[*]/$adminid} )
 len=${#accountids[*]}
+echo $len
+```
+```
 for ((i=1; i<=len; i++));do
 echo $accountids[i]
 aws guardduty create-members --detector-id $(aws guardduty list-detectors --output text --query 'DetectorIds' --region=$region)  --account-details AccountId=$accountids[i]  --region=$region
