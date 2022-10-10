@@ -1,7 +1,7 @@
 ## 参数设置Set Parameter:
 ```
 region=me-central-1
-adminid=$(aws guardduty list-organization-admin-accounts --region=$region --query 'AdminAccounts.AdminAccountId' --output text)
+adminid=$(aws guardduty list-organization-admin-accounts --region=$region --query 'AdminAccounts[*].AdminAccountId' --output text)
 admemail=$(aws organizations describe-account --account-id $adminid --region=$region --query 'Account.Email' --output text)
 ```
 
