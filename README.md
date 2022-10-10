@@ -31,3 +31,7 @@ echo ${#orgunits[*]}
 ```
 rootid=$(aws organizations list-roots --query "Roots[].Id" --output text)
 ```
+## Get all admin account id and email
+```
+aws organizations list-delegated-administrators --region=$region 
+```
