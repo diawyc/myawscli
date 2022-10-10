@@ -14,9 +14,9 @@ aws guardduty enable-organization-admin-account --admin-account-id=$adminid --re
 ```
 
 ```
-orgids=($(aws organizations list-accounts  --query 'Accounts[*].Id' --output text --region=$region))
+orgids=($(aws organizations list-accounts  --query 'Accounts[*].Id' --output text ))
 accountids=( ${orgids[*]/$adminid} )
-orgemails=($(aws organizations list-accounts  --query 'Accounts[*].Email' --output text --region=$region))
+orgemails=($(aws organizations list-accounts  --query 'Accounts[*].Email' --output text ))
 accountemails=(${orgemails[*]/$admemail})
 len=${#accountids[*]}
 echo $len
