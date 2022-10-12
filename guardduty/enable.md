@@ -1,3 +1,4 @@
+# Enable with Orgs
 ## 参数设置Set Parameter:
 ```
 region=me-central-1
@@ -7,12 +8,12 @@ admemail=$(aws organizations describe-account --account-id $adminid --region=$re
 echo $admemail
 ```
 
-指定管理员账户Set a delegated admin account for Guardduty:
+## 指定管理员账户Set a delegated admin account for Guardduty:
 
 ```
 aws guardduty enable-organization-admin-account --admin-account-id=$adminid --region=$region 
 ```
-
+## Enable for all memeber accounts
 ```
 orgids=($(aws organizations list-accounts  --query 'Accounts[*].Id' --output text ))
 accountids=( ${orgids[*]/$adminid} )
@@ -21,6 +22,7 @@ accountemails=(${orgemails[*]/$admemail})
 len=${#accountids[*]}
 echo $len
 ```
+## 缺少k8s malware的配置，需要补充
 ```
 for ((i=1; i<=len; i++));do
 echo $accountids[i] $accountemails[i]
