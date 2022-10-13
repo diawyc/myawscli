@@ -26,7 +26,7 @@ aws guardduty create-sample-findings \
     --detector-id  $(aws guardduty list-detectors --output text --query 'DetectorIds'  --region=$region)  \
     --finding-types \
         "Backdoor:EC2/C&CActivity.B"\
-        "Impact:EC2/MaliciousDomainRequest.Reputation" \  
         "Impact:EC2/MaliciousDomainRequest.Reputation" \
+        "Trojan:EC2/DNSDataExfiltration" \
   --region=$region
 ```
