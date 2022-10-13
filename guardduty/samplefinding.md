@@ -20,7 +20,8 @@ aws guardduty create-sample-findings \
 	InitialAccess:IAMUser/AnomalousBehavior \
   --region=$region
   ```
-    ```
+加上双引号更准确
+```
 aws guardduty create-sample-findings \
     --detector-id  $(aws guardduty list-detectors --output text --query 'DetectorIds'  --region=$region)  \
     --finding-types \
@@ -28,4 +29,4 @@ aws guardduty create-sample-findings \
         "Impact:EC2/MaliciousDomainRequest.Reputation" \  
         "Impact:EC2/MaliciousDomainRequest.Reputation" \
   --region=$region
-    ```
+```
