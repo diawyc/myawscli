@@ -20,6 +20,11 @@ insightarn=$(aws securityhub create-insight \
 ## Get all custom insights ARN
 ### Set parameter参数设置
 ```
+region='eu-west-2'
+
+```
+### command
+```
 customarn=$(aws securityhub get-insights  --query 'Insights[*].InsightArn' --output text --region=$region)
 ```
 ```
