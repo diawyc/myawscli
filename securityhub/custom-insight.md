@@ -21,7 +21,10 @@ insightarn=$(aws securityhub create-insight \
 ### Set parameter参数设置
 ```
 region='eu-west-2'
-
+insight='testtest'
+aws securityhub create-insight \
+--filters file://test.json --name $insight \
+--region=$region 
 ```
 ### command
 ```
