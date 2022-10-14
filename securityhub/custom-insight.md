@@ -25,6 +25,15 @@ region='eu-west-2'
 ```
 ### command
 ```
+aws securityhub create-insight \
+--filters \
+ '{"RecordState": [{ "Comparison": "EQUALS", "Value": "ACTIVE"}],\
+ "WorkflowStatus": [{"Comparison": "EQUALS", "Value": "NEW"}], "ProductName": [{"Comparison": "EQUALS", "Value": "Inspector"}],"CreatedAt": [ { "DateRange": { "Value": 30,"Unit": "DAYS"}}]}' \
+ --group-by-attribute "ResourceId" \
+--name $insight \
+--region=$region
+```
+```
 aws securityhub get-insights  --region=$region --no-cli-pager
 ```
 ```
