@@ -25,7 +25,7 @@ region='eu-west-2'
 ```
 ### command
 ```
-aws securityhub get-insights  --region=$region
+aws securityhub get-insights  --region=$region --no-cli-pager
 ```
 ```
 customarn=$(aws securityhub get-insights  --query 'Insights[*].InsightArn' --output text --region=$region)
