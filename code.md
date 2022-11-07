@@ -15,5 +15,5 @@ aws codecommit list-repositories --region=us-east-1 --query 'repositories[*]' --
 查看一个repo
 ```
 aws codecommit get-repository \
-    --repository-name $reponame
-    ```
+    --repository-name $reponame --region=us-east-1
+```
