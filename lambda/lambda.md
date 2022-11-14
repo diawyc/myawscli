@@ -12,3 +12,4 @@ echo $region
 aws lambda list-functions  --region=$region --no-cli-pager
 done
 ```
+## create lambda见securityhub里边有
