@@ -17,6 +17,14 @@ insightarn=$(aws securityhub create-insight \
 --name $insight \
 --query 'InsightArn' --output text --region=$region)
 ```
+```
+aws securityhub create-insight \
+--filters \
+ '{"RecordState": [{ "Comparison": "EQUALS", "Value": "ACTIVE"}], "WorkflowStatus": [{"Comparison": "EQUALS", "Value": "NEW"}], "ProductName": [{"Comparison": "EQUALS", "Value": "Default"}]}' \
+ --group-by-attribute "Type" \
+--name $insight \
+--query 'InsightArn' --output text --region=$region
+```
 ## Get all custom insights ARN
 ### Set parameter参数设置
 ```
