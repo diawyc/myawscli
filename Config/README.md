@@ -1,6 +1,7 @@
 # [Config](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/put-conformance-pack.html)
 
 ## parameter
+名称是区分大小写的
 ```
 packname=cliEc2app
 templatename='TestConformancePack.yaml'
