@@ -12,8 +12,8 @@ echo ${#regions[*]}
 ## create conformance pack
 ```
 aws configservice put-conformance-pack \
---conformance-pack-name $packname
---template-body file://$templatename
+--conformance-pack-name $packname \
+--template-body file://$templatename \
 --delivery-s3-bucket AmazonS3bucketname \
 --region=$region
 ```
