@@ -1,4 +1,4 @@
-# ![Config] (https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/put-conformance-pack.html)
+# [Config] (https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/put-conformance-pack.html)
 
 ## parameter
 ```
