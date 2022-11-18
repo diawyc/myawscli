@@ -14,7 +14,6 @@ echo ${#regions[*]}
 aws configservice put-conformance-pack \
 --conformance-pack-name $packname \
 --template-body file://$templatename \
---delivery-s3-bucket AmazonS3bucketname \
 --region=$region
 ```
 ## 查询所有或一个pack
