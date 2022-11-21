@@ -20,7 +20,7 @@ packarn=$(aws configservice put-conformance-pack \
 ## delete a conformance pack
 ## 查询所有或一个pack
 ```
-aws configservice describe-conformance-packs --conformance-pack-name=$packname --region=$region
+aws configservice delete-conformance-pack --conformance-pack-name=$packname --region=$region
 ```
 ## 查看所有region的所有一致性包
 ```
