@@ -10,13 +10,14 @@ regions=($(aws ec2 describe-regions --query 'Regions[*].RegionName' --output tex
 echo ${#regions[*]}
 ```
 
-## create conformance pack
+## create a conformance pack
 ```
-arn=$(aws configservice put-conformance-pack \
+packarn=$(aws configservice put-conformance-pack \
 --conformance-pack-name $packname \
 --template-body file://$templatename \
 --region=$region --query 'ConformancePackArn' --output text)
 ```
+## delete a conformance pack
 ## 查询所有或一个pack
 ```
 aws configservice describe-conformance-packs --conformance-pack-name=$packname --region=$region
