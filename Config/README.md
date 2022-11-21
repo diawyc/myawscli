@@ -25,7 +25,7 @@ aws configservice describe-conformance-packs --conformance-pack-name=$packname -
 ```
 for region in $regions; do
 echo $region
-aws configservice describe-conformance-packs --region=$region
+aws configservice describe-conformance-packs --region=$region --no-cli-pager
 done
 
 ```
