@@ -13,6 +13,11 @@ done
 ```
 --no-cli-pager
 ```
+### query
+```
+--query 'level1[0].level2[*].level3' --output text
+```
+
 ## sns
 ```
 region=eu-west-2
