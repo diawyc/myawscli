@@ -21,4 +21,11 @@ arn=$(aws configservice put-conformance-pack \
 ```
 aws configservice describe-conformance-packs --conformance-pack-name=$packname --region=$region
 ```
+## 查看所有region的所有一致性包
+```
+for region in $regions; do
+echo $region
+aws configservice describe-conformance-packs --region=$region
+done
 
+```
