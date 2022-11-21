@@ -18,9 +18,9 @@ packarn=$(aws configservice put-conformance-pack \
 --region=$region --query 'ConformancePackArn' --output text)
 ```
 ## delete a conformance pack
-## 查询所有或一个pack
+## 查询所有pack 将name放进一个数组
 ```
-packname=($(aws configservice describe-conformance-packs --region=$region --query 'ConformancePackDetails[*].ConformancePackName' --output text))
+packnames=($(aws configservice describe-conformance-packs --region=$region --query 'ConformancePackDetails[*].ConformancePackName' --output text))
 ```
 ## 查看所有region的所有一致性包
 ```
