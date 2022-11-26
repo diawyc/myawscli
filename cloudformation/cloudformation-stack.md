@@ -3,7 +3,7 @@
 for region in $regions; do
 aws cloudformation list-stacks --no-cli-pager \
 --output text \
---query 'StackSummaries[*].StackName[?StackName!=`PVRE`]' \
+--query 'StackSummaries[?StackName!=`PVRE`].StackName' \
 --region=$region
 echo $region
 done
