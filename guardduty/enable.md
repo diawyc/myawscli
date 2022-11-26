@@ -32,3 +32,20 @@ aws guardduty update-organization-configuration --detector-id $(aws guardduty li
 done
 ```
 必须要一个一个开S3，好奇怪的命令。
+
+# 导出到S3
+## 参数设置
+```
+did=$()
+s3arn=''
+kms=''
+region=us-east-1
+```
+## CLI
+
+```
+aws guardduty create-publishing-destination \
+    --detector-id $did \
+    --destination-type S3 \
+    --destination-properties DestinationArn=$s3arn,KmsKeyArn=$kms --region=$region
+```
