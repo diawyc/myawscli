@@ -2,7 +2,7 @@
 ```
 for region in $regions; do
 aws cloudformation list-stacks --no-cli-pager \
---outputx text \
+--output text \
 --query 'StackSummaries[0].StackName' \
 --region=$region
 echo $region
