@@ -1,4 +1,4 @@
-# list stacks in each region
+# list stacks in each region for filter
 ```
 for region in $regions; do
 aws cloudformation list-stacks --no-cli-pager \
