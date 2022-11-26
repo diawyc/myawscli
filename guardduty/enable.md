@@ -36,16 +36,15 @@ done
 # 导出到S3
 ## 参数设置
 ```
-did=$()
-s3arn=''
-kms=''
+s3arn='arn:aws:s3:::aes-siem-295158943844-log'
+kms='arn:aws:kms:eu-west-2:295158943844:key/d61c289f-c35e-4b73-a809-6d42378599e2'
 region=us-east-1
 ```
 ## CLI
 
 ```
 aws guardduty create-publishing-destination \
-    --detector-id $did \
+    --detector-id $(aws guardduty list-detectors --output text --query 'DetectorIds' --region=$region)   \
     --destination-type S3 \
     --destination-properties DestinationArn=$s3arn,KmsKeyArn=$kms --region=$region
 ```
