@@ -1,3 +1,14 @@
+# list stacks in each region
+```
+for region in $regions; do
+aws cloudformation list-stacks\
+--region=$region
+echo $region
+done
+
+```
+
+
 # Create Cloudformation Stack
 ## create stack with parameter in all regions from a local template
 ```
