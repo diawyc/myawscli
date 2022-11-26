@@ -1,7 +1,9 @@
 # list stacks in each region
 ```
 for region in $regions; do
-aws cloudformation list-stacks --no-cli-pager\
+aws cloudformation list-stacks --no-cli-pager \
+--outputx text \
+--query 
 --region=$region
 echo $region
 done
