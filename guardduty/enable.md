@@ -33,14 +33,14 @@ done
 ```
 必须要一个一个开S3，好奇怪的命令。
 
-# 导出到S3
+# [导出到S3]（https://docs.aws.amazon.com/cli/latest/reference/guardduty/create-publishing-destination.html）
 ## 参数设置
 ```
 s3arn='arn:aws:s3:::aes-siem-295158943844-log'
 kms='arn:aws:kms:eu-west-2:295158943844:key/d61c289f-c35e-4b73-a809-6d42378599e2'
 region=us-east-1
 ```
-## CLI
+## CLI command
 
 ```
 aws guardduty create-publishing-destination \
