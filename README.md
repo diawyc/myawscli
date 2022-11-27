@@ -5,10 +5,12 @@
 regions=($(aws ec2 describe-regions --query 'Regions[*].RegionName' --output text --region=us-east-1))
 echo ${#regions[*]}
 ```
+```
 for region in $regions; do
 echo $region
 
 done
+```
 ### 不换页
 ```
 --no-cli-pager
