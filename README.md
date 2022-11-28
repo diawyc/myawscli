@@ -46,3 +46,5 @@ rootid=$(aws organizations list-roots --query "Roots[].Id" --output text)
 ```
 aws organizations list-delegated-administrators --region=$region 
 ```
+
+aws cloudtrail create-trail --name my-trail --s3-bucket-name my-bucket --is-multi-region-trail --tags-list [key=Group,value=Marketing]
