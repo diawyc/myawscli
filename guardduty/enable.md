@@ -33,7 +33,7 @@ done
 ```
 必须要一个一个开S3，好奇怪的命令。
 
-# [导出到S3](https://docs.aws.amazon.com/cli/latest/reference/guardduty/create-publishing-destination.html）
+# [导出到S3](https://docs.aws.amazon.com/cli/latest/reference/guardduty/create-publishing-destination.html)
 ## 参数设置
 ```
 s3arn='arn:aws:s3:::aes-siem-295158943844-log'
