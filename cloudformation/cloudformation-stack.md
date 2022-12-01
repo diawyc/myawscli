@@ -12,6 +12,21 @@ done
 
 
 # Create Cloudformation Stack
+## create stack with parameter from a local template
+```
+stackname=exportsechub2s31
+region=eu-west-2
+template=Arch1-template.yaml
+```
+```
+
+aws cloudformation create-stack --stack-name $stackname --template-body file://$template \
+--capabilities CAPABILITY_IAM \
+--region=$region
+
+
+```
+
 ## create stack with parameter in all regions from a local template
 ```
 stackname=myfirststack
