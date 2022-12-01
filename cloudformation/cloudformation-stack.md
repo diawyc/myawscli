@@ -21,7 +21,7 @@ template=Arch1-template.yaml
 ```
 
 aws cloudformation create-stack --stack-name $stackname --template-body file://$template \
---capabilities CAPABILITY_IAM \
+--capabilities CAPABILITY_NAMED_IAM \
 --region=$region
 
 
