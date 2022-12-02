@@ -45,8 +45,17 @@ kms='arn:aws:kms:eu-west-2:295158943844:key/d61c289f-c35e-4b73-a809-6d42378599e2
 for region in $regions; do
 echo $region
 aws guardduty create-publishing-destination \
-    --detector-id $(aws guardduty list-detectors --output text --query 'DetectorIds' --region=$region)   \
+    --detector-id $(aws guardduty list-detectors --output text --query 'DetectorIds' --region=$region) \
     --destination-type S3 \
     --destination-properties DestinationArn=$s3arn,KmsKeyArn=$kms --region=$region
+done
+```
+
+```
+for region in $regions; do
+echo $region
+aws guardduty delete-publishing-destination \
+--detector-id $(aws guardduty list-detectors --output text --query 'DetectorIds' --region=$region)  \
+--destination-id <value>
 done
 ```
