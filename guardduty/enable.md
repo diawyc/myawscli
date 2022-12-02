@@ -62,6 +62,6 @@ aws guardduty delete-publishing-destination \
 --detector-id $(aws guardduty list-detectors --output text --query 'DetectorIds' --region=$region)  \
 --destination-id $(aws guardduty list-publishing-destinations \
 --detector-id $(aws guardduty list-detectors --output text --query 'DetectorIds' --region=$region) \
---region=$region  --output text --query 'Destinations[0].DestinationId' )
+--region=$region  --output text --query 'Destinations[0].DestinationId' ) --region=$region
 done
 ```
