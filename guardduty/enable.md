@@ -50,12 +50,18 @@ aws guardduty create-publishing-destination \
     --destination-properties DestinationArn=$s3arn,KmsKeyArn=$kms --region=$region
 done
 ```
-
+```
+desid=$(aws guardduty list-publishing-destinations \
+--detector-id $(aws guardduty list-detectors --output text --query 'DetectorIds' --region=$region) \
+--region=$region  --output text --query 'Destinations[0].DestinationId' )
+```
 ```
 for region in $regions; do
 echo $region
 aws guardduty delete-publishing-destination \
 --detector-id $(aws guardduty list-detectors --output text --query 'DetectorIds' --region=$region)  \
---destination-id <value>
+--destination-id $(aws guardduty list-publishing-destinations \
+--detector-id $(aws guardduty list-detectors --output text --query 'DetectorIds' --region=$region) \
+--region=$region  --output text --query 'Destinations[0].DestinationId' )
 done
 ```
