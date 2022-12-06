@@ -29,3 +29,17 @@ https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-acls.html
 ```
 aws ec2 describe-network-acls --output text --query 'NetworkAcls[0].[Entries]' --region=$region
 ```
+## create 一台带httpt web的EC2
+
+```
+aws ec2 describe-network-acls --output text --query 'NetworkAcls[0].[Entries]' --region=$region
+```
+user data
+```
+#!/bin/bash
+sudo yum install -y httpd
+echo "Hello AWS，" | sudo tee /var/www/html/index.html
+sudo systemctl start httpd
+sudo systemctl enable httpd
+
+```

@@ -1,4 +1,4 @@
-
+## create a pattern rule
 ```
 aws events put-rule \
 --name $rulename \

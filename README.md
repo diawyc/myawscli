@@ -5,10 +5,21 @@
 regions=($(aws ec2 describe-regions --query 'Regions[*].RegionName' --output text --region=us-east-1))
 echo ${#regions[*]}
 ```
+```
+for region in $regions; do
+echo $region
+
+done
+```
 ### 不换页
 ```
 --no-cli-pager
 ```
+### query
+```
+--query 'level1[0].level2[*].level3' --output text
+```
+
 ## sns
 ```
 region=eu-west-2
@@ -33,5 +44,12 @@ rootid=$(aws organizations list-roots --query "Roots[].Id" --output text)
 ```
 ## Get all admin account id and email
 ```
-aws organizations list-delegated-administrators --region=$region 
+aws organizations list-delegated-administrators
 ```
+```
+aws organizations list-delegated-services-for-account --account-id $adminid
+```
+```
+aws organizations deregister-delegated-administrator --account-id 964608727322 --service-principal $ServicePrincipal
+```
+aws cloudtrail create-trail --name my-trail --s3-bucket-name my-bucket --is-multi-region-trail --tags-list [key=Group,value=Marketing]

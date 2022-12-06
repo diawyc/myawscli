@@ -32,3 +32,36 @@ aws guardduty update-organization-configuration --detector-id $(aws guardduty li
 done
 ```
 必须要一个一个开S3，好奇怪的命令。
+
+# [导出到S3](https://docs.aws.amazon.com/cli/latest/reference/guardduty/create-publishing-destination.html)
+## 参数设置
+```
+s3arn='arn:aws:s3:::aes-siem-295158943844-log'
+kms='arn:aws:kms:eu-west-2:295158943844:key/d61c289f-c35e-4b73-a809-6d42378599e2'
+```
+## CLI command
+
+```
+for region in $regions; do
+echo $region
+aws guardduty create-publishing-destination \
+    --detector-id $(aws guardduty list-detectors --output text --query 'DetectorIds' --region=$region) \
+    --destination-type S3 \
+    --destination-properties DestinationArn=$s3arn,KmsKeyArn=$kms --region=$region
+done
+```
+```
+desid=$(aws guardduty list-publishing-destinations \
+--detector-id $(aws guardduty list-detectors --output text --query 'DetectorIds' --region=$region) \
+--region=$region  --output text --query 'Destinations[0].DestinationId' )
+```
+```
+for region in $regions; do
+echo $region
+aws guardduty delete-publishing-destination \
+--detector-id $(aws guardduty list-detectors --output text --query 'DetectorIds' --region=$region)  \
+--destination-id $(aws guardduty list-publishing-destinations \
+--detector-id $(aws guardduty list-detectors --output text --query 'DetectorIds' --region=$region) \
+--region=$region  --output text --query 'Destinations[0].DestinationId' ) --region=$region
+done
+```

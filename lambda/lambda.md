@@ -12,4 +12,23 @@ echo $region
 aws lambda list-functions  --region=$region --no-cli-pager
 done
 ```
-## create lambda见securityhub里边有
+## create lambda function
+```
+lambdaarn=$(aws lambda create-function \
+    --function-name $function \
+    --runtime python3.9 \
+    --zip-file fileb://index.zip \
+    --handler index.lambda_handler \
+    --role $rolearn --region=$region --no-cli-pager --query 'FunctionArn' --output text)
+echo $lambdaarn
+```
+## add to a eventbridge rule to trigger
+```
+aws lambda add-permission \
+--function-name $function \
+--statement-id eb-rule \
+--action 'lambda:InvokeFunction' \
+--principal events.amazonaws.com \
+--source-arn $rulearn --region=$region
+aws events put-targets --rule $rulename  --targets "Id"="1","Arn"=$lambdaarn --region=$region
+```

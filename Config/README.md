@@ -1,18 +1,37 @@
-# Config
+# [Config](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/index.html#cli-aws-configservice)
 
-## regions
+## parameter
+名称是区分大小写的
 ```
+packname=cliEc2app
+templatename='TestConformancePack.yaml'
+region=us-east-1
 regions=($(aws ec2 describe-regions --query 'Regions[*].RegionName' --output text --region=us-east-1))
 echo ${#regions[*]}
 ```
 
-## create conformance pack
+## create a conformance pack
 ```
-region=eu-west-2
-arn='arn:aws:sns:eu-west-2:883600840440:SecurityHubAnnouncements'
+packarn=$(aws configservice put-conformance-pack \
+--conformance-pack-name $packname \
+--template-body file://$templatename \
+--region=$region --query 'ConformancePackArn' --output text)
+```
+## delete a conformance pack
+```
+aws configservice delete-conformance-pack \
+--conformance-pack-name $packname --region=$region 
 ```
 
+## 查询所有pack 将name放进一个数组
 ```
-aws  sns --region $region subscribe --topic-arn $arn --protocol email --notification-endpoint 36256586@qq.com
+packnames=($(aws configservice describe-conformance-packs --region=$region --query 'ConformancePackDetails[*].ConformancePackName' --output text))
 ```
+## 查看所有region的所有一致性包
+```
+for region in $regions; do
+echo $region
+aws configservice describe-conformance-packs --region=$region --no-cli-pager
+done
 
+```

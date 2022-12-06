@@ -1,4 +1,32 @@
+# list stacks in each region for filter
+```
+for region in $regions; do
+aws cloudformation list-stacks --no-cli-pager \
+--output text \
+--query 'StackSummaries[?StackName!=`PVRE`].StackName' \
+--region=$region
+echo $region
+done
+
+```
+
+
 # Create Cloudformation Stack
+## create stack with parameter from a local template
+```
+stackname=exportsechub2s31
+region=eu-west-2
+template=Arch1-template.yaml
+```
+```
+
+aws cloudformation create-stack --stack-name $stackname --template-body file://$template \
+--capabilities CAPABILITY_NAMED_IAM \
+--region=$region
+
+
+```
+
 ## create stack with parameter in all regions from a local template
 ```
 stackname=myfirststack
