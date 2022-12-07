@@ -31,7 +31,7 @@ aws organizations list-delegated-administrators --region=$region
 
 ## [list all delegated admin ](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-delegated-administrators.html)
 ```
-aws organizations list-delegated-administrators --region=$region 
+adminlist=($(aws organizations list-delegated-administrators --no-cli-pager --query 'DelegatedAdministrators[].Id' --output text))
 ```
 ```
 
