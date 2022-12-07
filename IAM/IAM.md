@@ -24,5 +24,5 @@ aws iam put-role-policy --role-name=$rolename --policy-name $rolepolicy --policy
 
 ```
 
-aws iam attach-role-policy --role-name=$rolename --policy-arn arn:aws:iam::aws:policy/$policname
+aws iam attach-role-policy --role-name=$rolename --policy-arn arn:aws:iam::aws:policy/$policyname
 ```
