@@ -42,9 +42,16 @@ echo $services
 
 ## [de-register delegated admin account for each service](https://docs.aws.amazon.com/cli/latest/reference/organizations/deregister-delegated-administrator.html)
 
+```
+len=${#services[*]}
+echo $len
 
 ```
+
+```
+for ((i=1; i<=len; i++));do
 aws organizations deregister-delegated-administrator \
---account-id $adminlist[1] \
---service-principal $services[1]
+--account-id $adminlist[i] \
+--service-principal $services[i]
+done
 ```
