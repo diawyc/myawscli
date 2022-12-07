@@ -9,15 +9,7 @@ echo ${#regions[*]}
 ```
 --no-cli-pager
 ```
-## sns
-```
-region=eu-west-2
-arn='arn:aws:sns:eu-west-2:883600840440:SecurityHubAnnouncements'
-```
 
-```
-aws  sns --region $region subscribe --topic-arn $arn --protocol email --notification-endpoint 36256586@qq.com
-```
 ## get Organizations ID
 ```
 orgid=$(aws organizations describe-organization  --query 'Organization.Id' --output text --region=$region)
@@ -34,4 +26,25 @@ rootid=$(aws organizations list-roots --query "Roots[].Id" --output text)
 ## Get all admin account id and email
 ```
 aws organizations list-delegated-administrators --region=$region 
+```
+
+
+## [list all delegated admin ](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-delegated-administrators.html)
+```
+aws organizations list-delegated-administrators --region=$region 
+```
+```
+
+```
+
+## [de-register delegated admin account for each service](https://docs.aws.amazon.com/cli/latest/reference/organizations/deregister-delegated-administrator.html)
+```
+adminid=
+service=
+```
+
+```
+aws organizations deregister-delegated-administrator \
+--account-id $adminid \
+--service-principal $service
 ```
