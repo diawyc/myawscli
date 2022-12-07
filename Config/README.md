@@ -2,7 +2,7 @@
 ## 关闭config
 ### [delete delivery](https://docs.aws.amazon.com/cli/latest/reference/configservice/delete-delivery-channel.html)
 ```
-name=
+name=default
 ```
 ```
 aws configservice delete-delivery-channel --delivery-channel-name $name
