@@ -56,3 +56,4 @@ aws organizations deregister-delegated-administrator \
 echo $services[i]
 done
 ```
+可以把adminlist再加一个遍历
