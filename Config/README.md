@@ -1,11 +1,33 @@
 # [Config](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/index.html#cli-aws-configservice)
-## 关闭config
+## 开启config的三步
+### put-configuration-recorder
+put-delivery-channel
+start-configuration-recorder
+```
+role=arn:aws:iam::123456789012:role/config-role
+```
+
+```
+aws configservice put-configuration-recorder --configuration-recorder name=default,roleARN=$role \
+--recording-group \
+allSupported=true,includeGlobalResourceTypes=true \
+region=$region
+```
+```
+aws configservice put-delivery-channel --delivery-channel file://deliveryChannel.json
+```
+```
+aws configservice start-configuration-recorder --configuration-recorder-name configRecorderName
+```
+
+## 关闭config的三步
 ### [delete delivery](https://docs.aws.amazon.com/cli/latest/reference/configservice/delete-delivery-channel.html)
 ```
-name=default
-```
-```
-aws configservice delete-delivery-channel --delivery-channel-name $name
+aws configservice stop-configuration-recorder --configuration-recorder-name default
+aws configservice delete-delivery-channel --delivery-channel-name default
+aws configservice \
+delete-configuration-recorder \
+--configuration-recorder-name default
 ```
 
 
