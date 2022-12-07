@@ -11,6 +11,18 @@ echo $region
 
 done
 ```
+## 遍历
+```
+len=${#accountids[*]}
+echo $len
+```
+```
+for ((i=1; i<=len; i++));do
+
+
+
+done
+```
 ### 不换页
 ```
 --no-cli-pager
