@@ -45,13 +45,13 @@ echo $services
 ```
 len=${#services[*]}
 echo $len
-
+admin=$adminlist[1]
 ```
 
 ```
 for ((i=1; i<=len; i++));do
 aws organizations deregister-delegated-administrator \
---account-id $adminlist[i] \
+--account-id $admin \
 --service-principal $services[i]
 done
 ```
