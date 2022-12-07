@@ -53,5 +53,6 @@ for ((i=1; i<=len; i++));do
 aws organizations deregister-delegated-administrator \
 --account-id $admin \
 --service-principal $services[i]
+echo $services[i]
 done
 ```
