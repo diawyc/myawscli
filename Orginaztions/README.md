@@ -41,13 +41,10 @@ echo $services
 ```
 
 ## [de-register delegated admin account for each service](https://docs.aws.amazon.com/cli/latest/reference/organizations/deregister-delegated-administrator.html)
-```
-adminid=
-service=
-```
+
 
 ```
 aws organizations deregister-delegated-administrator \
---account-id $adminid \
---service-principal $service
+--account-id $adminlist[1] \
+--service-principal $services[1]
 ```
