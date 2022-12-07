@@ -1,7 +1,6 @@
 # [Config](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/index.html#cli-aws-configservice)
 ## 关闭config
-### [delete delivery](https://docs.aws.amazon.com/cli/latest/reference/configservice/delete-delivery-channel.html）
-
+### [delete delivery](https://docs.aws.amazon.com/cli/latest/reference/configservice/delete-delivery-channel.html))
 ```
 name=
 ```
