@@ -33,8 +33,9 @@ aws organizations list-delegated-administrators --region=$region
 ```
 adminlist=($(aws organizations list-delegated-administrators --no-cli-pager --query 'DelegatedAdministrators[].Id' --output text))
 ```
+## [list admin's service](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-delegated-services-for-account.html)
 ```
-
+ service=$(aws organizations list-delegated-services-for-account --account-id $adminlist[1])
 ```
 
 ## [de-register delegated admin account for each service](https://docs.aws.amazon.com/cli/latest/reference/organizations/deregister-delegated-administrator.html)
