@@ -57,3 +57,8 @@ echo $services[i]
 done
 ```
 可以把adminlist再加一个遍历
+## [remove account from org](https://docs.aws.amazon.com/cli/latest/reference/organizations/remove-account-from-organization.html)
+```
+aws organizations remove-account-from-organization --account-id $admin
+
+```
