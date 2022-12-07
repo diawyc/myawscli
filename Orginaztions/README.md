@@ -35,7 +35,7 @@ adminlist=($(aws organizations list-delegated-administrators --no-cli-pager --qu
 ```
 ## [list admin's service](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-delegated-services-for-account.html)
 ```
- service=$(aws organizations list-delegated-services-for-account --account-id $adminlist[1])
+ service=$(aws organizations list-delegated-services-for-account --account-id $adminlist[1] --query 'DelegatedServices[].ServicePrincipal' --output text))
 ```
 
 ## [de-register delegated admin account for each service](https://docs.aws.amazon.com/cli/latest/reference/organizations/deregister-delegated-administrator.html)
