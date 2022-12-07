@@ -29,27 +29,8 @@ arn='arn:aws:sns:eu-west-2:883600840440:SecurityHubAnnouncements'
 ```
 aws  sns --region $region subscribe --topic-arn $arn --protocol email --notification-endpoint 36256586@qq.com
 ```
-## get Organizations ID
-```
-orgid=$(aws organizations describe-organization  --query 'Organization.Id' --output text --region=$region)
-echo $orgid
-```
-## Get all OU Ids
-```
-orgunits=($(aws organizations list-organizational-units-for-parent --parent-id $(aws organizations list-roots --query "Roots[].Id" --output text)  --query "OrganizationalUnits[*].Id" --output text))
-echo ${#orgunits[*]}
-```
-```
-rootid=$(aws organizations list-roots --query "Roots[].Id" --output text)
-```
-## Get all admin account id and email
-```
-aws organizations list-delegated-administrators
-```
-```
-aws organizations list-delegated-services-for-account --account-id $adminid
-```
-```
-aws organizations deregister-delegated-administrator --account-id 964608727322 --service-principal $ServicePrincipal
+
+
 ```
 aws cloudtrail create-trail --name my-trail --s3-bucket-name my-bucket --is-multi-region-trail --tags-list [key=Group,value=Marketing]
+```
