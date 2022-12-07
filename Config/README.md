@@ -1,4 +1,9 @@
 # [Config](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/index.html#cli-aws-configservice)
+## 关闭config
+```
+
+```
+
 
 ## parameter
 名称是区分大小写的
