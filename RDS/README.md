@@ -9,10 +9,12 @@ echo ${#regions[*]}
 ```
 --no-cli-pager
 ```
-## sns
+## 查看所有region的DB
 ```
-region=eu-west-2
-arn='arn:aws:sns:eu-west-2:883600840440:SecurityHubAnnouncements'
+for region in $regions; do
+echo $region
+aws rds describe-db-instances --region=$region --no-cli-pager
+done
 ```
 
 ```
