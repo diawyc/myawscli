@@ -29,7 +29,17 @@ aws configservice \
 delete-configuration-recorder \
 --configuration-recorder-name default
 ```
+```
+for region in $regions; do
+echo $region
+aws configservice stop-configuration-recorder --configuration-recorder-name default
+aws configservice delete-delivery-channel --delivery-channel-name default
+aws configservice \
+delete-configuration-recorder \
+--configuration-recorder-name default
+done
 
+```
 
 ## parameter
 名称是区分大小写的
