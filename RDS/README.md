@@ -47,10 +47,11 @@ aws rds delete-db-instance \
 --region=$region --no-cli-pager
 done
 ```
-## 去掉删除保护
+## [去掉删除保护](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-instance.html)
 ```
 aws rds modify-db-instance \
 --db-instance-identifier $dbid  \
+--no-deletion-protection \
 --apply-immediately \
 --region=$region
 ```
