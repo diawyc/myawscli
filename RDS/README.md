@@ -24,7 +24,7 @@ aws rds describe-db-instances --region=$region --no-cli-pager  --query 'DBInstan
 ```
 aws rds describe-db-instances --region=$region --no-cli-pager  --query 'DBInstances[?DeletionProtection ==`false`].DBInstanceIdentifier' --output text
 ```
-## 查看所有region的DB
+## 查看所有region没有deletion protection的DB instance
 ```
 for region in $regions; do
 echo $region
@@ -38,9 +38,9 @@ dbid=wd1c6y0bblbqv19
 ```
 for region in $regions; do
 echo $region
-aws rds   delete-db-instance \
+aws rds delete-db-instance \
 --db-instance-identifier $dbid \
-SkipFinalSnapshot \
+--skip-final-snapshot \
 --region=$region --no-cli-pager
 done
 ```
