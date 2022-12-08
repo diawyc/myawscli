@@ -1,4 +1,4 @@
-# I love aws cli
+# RDS 非常贵，记得要删除
 
 ## regions
 ```
@@ -16,6 +16,19 @@ echo $region
 aws rds describe-db-instances --region=$region --no-cli-pager
 done
 ```
+## 删除RDS
+```
+dbid=wd1c6y0bblbqv19
+```
+```
+for region in $regions; do
+echo $region
+aws rds   delete-db-instance \
+--db-instance-identifier $dbid \
+--region=$region --no-cli-pager
+done
+```
+
 ## 复制出境
 ### 参数设置
 ```
