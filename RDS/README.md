@@ -16,9 +16,18 @@ echo $region
 aws rds describe-db-instances --region=$region --no-cli-pager
 done
 ```
-
+## 复制出境
+### 参数设置
 ```
-aws  sns --region $region subscribe --topic-arn $arn --protocol email --notification-endpoint 36256586@qq.com
+region=ap-northeast-1
+db=paris2tokyo
+source=arn:aws:rds:eu-west-3:980217471394:db:testforcrossregion
+```
+### command
+```
+aws rds create-db-instance-read-replica \
+    --db-instance-identifier $db \
+    --source-db-instance-identifier $source --region=$region
 ```
 ## get Organizations ID
 ```
