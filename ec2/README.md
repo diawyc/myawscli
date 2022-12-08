@@ -8,9 +8,10 @@ echo $ids
 len=${#ids[*]}
 echo $len
 ```
-## 停机
+## 停机所有regions的所有机器
 ```
 for region in $regions; do
+echo $region
 ids=($(aws ec2 describe-instances  --region=$region --query 'Reservations[].Instances[].InstanceId' --output text))
 echo $ids
 len=${#ids[*]}
