@@ -13,7 +13,7 @@ echo ${#regions[*]}
 ```
 for region in $regions; do
 echo $region
-aws rds describe-db-instances --region=$region --no-cli-pager
+aws rds describe-db-instances --region=$region --no-cli-pager  --query 'DBInstances[].DBInstanceIdentifier' --output text 
 done
 ```
 ## 删除RDS
@@ -25,6 +25,7 @@ for region in $regions; do
 echo $region
 aws rds   delete-db-instance \
 --db-instance-identifier $dbid \
+SkipFinalSnapshot \
 --region=$region --no-cli-pager
 done
 ```
