@@ -62,3 +62,12 @@ done
 aws organizations remove-account-from-organization --account-id $admin
 
 ```
+## invite an account
+```
+accid=
+```
+```
+aws organizations invite-account-to-organization \
+--target Id=$accid,Type=ACCOUNT
+
+```
