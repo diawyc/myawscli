@@ -36,13 +36,11 @@ done
 dbid=wd1c6y0bblbqv19
 ```
 ```
-for region in $regions; do
-echo $region
 aws rds delete-db-instance \
 --db-instance-identifier $dbid \
---skip-final-snapshot --delete-automated-backups\
+--skip-final-snapshot --delete-automated-backups \
 --region=$region --no-cli-pager
-done
+
 ```
 
 ## 复制出境
@@ -57,21 +55,4 @@ source=arn:aws:rds:eu-west-3:980217471394:db:testforcrossregion
 aws rds create-db-instance-read-replica \
     --db-instance-identifier $db \
     --source-db-instance-identifier $source --region=$region
-```
-## get Organizations ID
-```
-orgid=$(aws organizations describe-organization  --query 'Organization.Id' --output text --region=$region)
-echo $orgid
-```
-## Get all OU Ids
-```
-orgunits=($(aws organizations list-organizational-units-for-parent --parent-id $(aws organizations list-roots --query "Roots[].Id" --output text)  --query "OrganizationalUnits[*].Id" --output text))
-echo ${#orgunits[*]}
-```
-```
-rootid=$(aws organizations list-roots --query "Roots[].Id" --output text)
-```
-## Get all admin account id and email
-```
-aws organizations list-delegated-administrators --region=$region 
 ```
