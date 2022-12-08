@@ -16,6 +16,10 @@ echo $region
 aws rds describe-db-instances --region=$region --no-cli-pager  --query 'DBInstances[].DBInstanceIdentifier' --output text 
 done
 ```
+## 查看一个region的DB是否有删除保护
+```
+aws rds describe-db-instances --region=$region --no-cli-pager  --query 'DBInstances[].[DBInstanceIdentifier,DeletionProtection]' --output text
+```
 ## 删除RDS
 ```
 dbid=wd1c6y0bblbqv19
