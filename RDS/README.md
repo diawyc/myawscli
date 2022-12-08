@@ -47,6 +47,28 @@ aws rds delete-db-instance \
 --region=$region --no-cli-pager
 done
 ```
+## 删除all region的所有RDS
+for region in $regions; do
+echo $region
+dbids=($(aws rds describe-db-instances --region=$region --no-cli-pager  --query 'DBInstances[].DBInstanceIdentifier' --output text))
+len=${#dbids[*]}
+echo $len
+for ((i=1; i<=len; i++));do
+dbid=$dbids[i]
+aws rds modify-db-instance \
+--db-instance-identifier $dbid  \
+--no-deletion-protection \
+--apply-immediately \
+--region=$region
+
+aws rds delete-db-instance \
+--db-instance-identifier $dbid \
+--skip-final-snapshot --delete-automated-backups \
+--region=$region --no-cli-pager
+done
+done
+```
+
 ## [去掉删除保护](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-instance.html)
 ```
 aws rds modify-db-instance \
