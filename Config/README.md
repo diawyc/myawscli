@@ -1,4 +1,12 @@
 # [Config](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/index.html#cli-aws-configservice)
+## 查看config是否开启
+```
+for region in $regions; do
+echo $region
+aws configservice  describe-configuration-recorder-status --region=$region
+done
+```
+
 ## 开启config的三步
 ### put-configuration-recorder
 put-delivery-channel
@@ -11,13 +19,13 @@ role=arn:aws:iam::123456789012:role/config-role
 aws configservice put-configuration-recorder --configuration-recorder name=default,roleARN=$role \
 --recording-group \
 allSupported=true,includeGlobalResourceTypes=true \
-region=$region
+--region=$region
 ```
 ```
-aws configservice put-delivery-channel --delivery-channel file://deliveryChannel.json
+aws configservice put-delivery-channel --delivery-channel file://deliveryChannel.json --region=$region
 ```
 ```
-aws configservice start-configuration-recorder --configuration-recorder-name configRecorderName
+aws configservice start-configuration-recorder --configuration-recorder-name configRecorderName --region=$region
 ```
 
 ## 关闭config的三步
