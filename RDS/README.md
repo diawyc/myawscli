@@ -24,6 +24,13 @@ aws rds describe-db-instances --region=$region --no-cli-pager  --query 'DBInstan
 ```
 aws rds describe-db-instances --region=$region --no-cli-pager  --query 'DBInstances[?DeletionProtection ==`false`].DBInstanceIdentifier' --output text
 ```
+## 查看所有region的DB
+```
+for region in $regions; do
+echo $region
+aws rds describe-db-instances --region=$region --no-cli-pager  --query 'DBInstances[?DeletionProtection ==`false`].DBInstanceIdentifier' --output text
+done
+```
 ## 删除RDS
 ```
 dbid=wd1c6y0bblbqv19
