@@ -32,10 +32,10 @@ echo $region
 aws rds describe-db-instances --region=$region --no-cli-pager  --query 'DBInstances[?DeletionProtection ==`false`].DBInstanceIdentifier' --output text
 done
 ```
-## 删除RDS
+## 删除一个region的所有RDS
 ```
-dbids=$(aws rds describe-db-instances --region=$region --no-cli-pager  --query 'DBInstances[].DBInstanceIdentifier' --output text)
-len=${#dbids[*]}
+dbids=($(aws rds describe-db-instances --region=$region --no-cli-pager  --query 'DBInstances[].DBInstanceIdentifier' --output text)
+len=${#dbids[*]})
 ```
 ```
 for ((i=1; i<=len; i++));do
