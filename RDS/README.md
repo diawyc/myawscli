@@ -35,7 +35,9 @@ done
 ## 删除一个region的所有RDS
 ```
 dbids=($(aws rds describe-db-instances --region=$region --no-cli-pager  --query 'DBInstances[].DBInstanceIdentifier' --output text)
-len=${#dbids[*]})
+
+len=${#dbids[*]}
+echo $len
 ```
 ```
 for ((i=1; i<=len; i++));do
