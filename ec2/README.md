@@ -1,13 +1,27 @@
 # EC2
 
 https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html
-## 列出所有intanceID
+## 列出region内所有intanceID
 ```
 ids=($(aws ec2 describe-instances  --region=$region --query 'Reservations[].Instances[].InstanceId' --output text))
 echo $ids
 len=${#ids[*]}
 echo $len
 ```
+## 停机
+```
+for region in $regions; do
+ids=($(aws ec2 describe-instances  --region=$region --query 'Reservations[].Instances[].InstanceId' --output text))
+echo $ids
+len=${#ids[*]}
+echo $len
+for ((i=1; i<=len; i++));do
+aws ec2   stop-instances --instance-ids $ids[i] --region=$region
+echo $ids[i]
+done
+done
+```
+
 ### 通过内网IP查询ec2的instanceid
 ```
 ip=172.31.21.178
