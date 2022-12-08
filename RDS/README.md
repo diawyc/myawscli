@@ -34,14 +34,17 @@ done
 ```
 ## 删除RDS
 ```
-dbid=$(aws rds describe-db-instances --region=$region --no-cli-pager  --query 'DBInstances[].DBInstanceIdentifier' --output text)
+dbids=$(aws rds describe-db-instances --region=$region --no-cli-pager  --query 'DBInstances[].DBInstanceIdentifier' --output text)
+len=${#dbids[*]}
 ```
 ```
+for ((i=1; i<=len; i++));do
+dbid=$dbids[i]
 aws rds delete-db-instance \
 --db-instance-identifier $dbid \
 --skip-final-snapshot --delete-automated-backups \
 --region=$region --no-cli-pager
-
+done
 ```
 ## 去掉删除保护
 ```
