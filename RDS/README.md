@@ -48,6 +48,7 @@ aws rds delete-db-instance \
 done
 ```
 ## 删除all region的所有RDS
+```
 for region in $regions; do
 echo $region
 dbids=($(aws rds describe-db-instances --region=$region --no-cli-pager  --query 'DBInstances[].DBInstanceIdentifier' --output text))
