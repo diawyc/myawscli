@@ -40,7 +40,7 @@ for region in $regions; do
 echo $region
 aws rds delete-db-instance \
 --db-instance-identifier $dbid \
---skip-final-snapshot \
+--skip-final-snapshot --delete-automated-backups\
 --region=$region --no-cli-pager
 done
 ```
