@@ -34,7 +34,7 @@ done
 ```
 ## 删除RDS
 ```
-dbid=wd1c6y0bblbqv19
+dbid=$(aws rds describe-db-instances --region=$region --no-cli-pager  --query 'DBInstances[].DBInstanceIdentifier' --output text)
 ```
 ```
 aws rds delete-db-instance \
