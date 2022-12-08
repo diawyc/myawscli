@@ -20,8 +20,9 @@ done
 ```
 aws rds describe-db-instances --region=$region --no-cli-pager  --query 'DBInstances[].[DBInstanceIdentifier,DeletionProtection]' --output text
 ```
+### 没有删除保护的找出来
 ```
-aws rds describe-db-instances --region=$region --no-cli-pager  --query 'DBInstances[?DeletionProtection ==`False`].DBInstanceIdentifier' --output text
+aws rds describe-db-instances --region=$region --no-cli-pager  --query 'DBInstances[?DeletionProtection ==`false`].DBInstanceIdentifier' --output text
 ```
 ## 删除RDS
 ```
