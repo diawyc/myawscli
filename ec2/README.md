@@ -4,6 +4,9 @@ https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html
 ## 列出所有intanceID
 ```
 ids=($(aws ec2 describe-instances  --region=us-east-1 --query 'Reservations[].Instances[].InstanceId' --output text))
+echo $ids
+len=${#ids[*]}
+echo $len
 ```
 ### 通过内网IP查询ec2的instanceid
 ```
