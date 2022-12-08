@@ -23,20 +23,20 @@ aws configservice start-configuration-recorder --configuration-recorder-name con
 ## 关闭config的三步
 ### [delete delivery](https://docs.aws.amazon.com/cli/latest/reference/configservice/delete-delivery-channel.html)
 ```
-aws configservice stop-configuration-recorder --configuration-recorder-name default
-aws configservice delete-delivery-channel --delivery-channel-name default
+aws configservice stop-configuration-recorder --configuration-recorder-name default region=$region
+aws configservice delete-delivery-channel --delivery-channel-name default region=$region
 aws configservice \
 delete-configuration-recorder \
---configuration-recorder-name default
+--configuration-recorder-name default region=$region
 ```
 ```
 for region in $regions; do
 echo $region
-aws configservice stop-configuration-recorder --configuration-recorder-name default
-aws configservice delete-delivery-channel --delivery-channel-name default
+aws configservice stop-configuration-recorder --configuration-recorder-name default region=$region
+aws configservice delete-delivery-channel --delivery-channel-name default region=$region
 aws configservice \
 delete-configuration-recorder \
---configuration-recorder-name default
+--configuration-recorder-name default region=$region
 done
 
 ```
