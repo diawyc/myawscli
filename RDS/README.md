@@ -60,7 +60,7 @@ aws rds modify-db-instance \
 --db-instance-identifier $dbid  \
 --no-deletion-protection \
 --apply-immediately \
---region=$region
+--region=$region --no-cli-pager
 
 aws rds delete-db-instance \
 --db-instance-identifier $dbid \
