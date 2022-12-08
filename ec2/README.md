@@ -10,6 +10,10 @@ echo $len
 ```
 ## 停机所有regions的所有机器
 ```
+regions=($(aws ec2 describe-regions --query 'Regions[*].RegionName' --output text --region=us-east-1))
+echo ${#regions[*]}
+```
+```
 for region in $regions; do
 echo $region
 ids=($(aws ec2 describe-instances  --region=$region --query 'Reservations[].Instances[].InstanceId' --output text))
