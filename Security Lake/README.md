@@ -39,7 +39,7 @@ aws securitylake create-datalake --regions $regions[1] $regions[2] \
 ```
 aws securitylake create-aws-log-source \
  --input-order REGION \
- --enable-single-dimension '[$regions[1],$regions[2]]'
+ --enable-single-dimension $regions[1] $regions[2]
 ```
 
 
