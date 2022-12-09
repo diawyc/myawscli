@@ -21,6 +21,7 @@ region=us-east-1
 rolename=AmazonSecurityLakeMetaStoreManager
 trustfile=trustpolicy.json
 rolepolicyfile=skpolicy.json
+rolepolicy=SecurityLakeMetaStoreManagerpolicy
 ```
 ## [get role arn ](https://docs.aws.amazon.com/security-lake/latest/userguide/manage-regions.html#iam-role-partitions)
 ```
