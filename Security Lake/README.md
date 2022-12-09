@@ -16,7 +16,10 @@ region=us-east-1
 
 ## [开启服务 ](https://docs.aws.amazon.com/ja_jp/cli/latest/reference/securitylake/create-datalake.html)
 
-## 
+## delegated admin
+```
+aws securitylake  create-datalake-delegated-admin --region=$region
+```
 
 ### create iam role
 ```
@@ -50,6 +53,7 @@ aws securitylake create-aws-log-source \
 ```
 aws securitylake  delete-datalake --region=$region
 ```
+
 ## 删除管理员
 ```
 adminid=295158943844 
