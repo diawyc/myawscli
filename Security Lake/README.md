@@ -42,5 +42,7 @@ aws securitylake create-aws-log-source \
  --enable-single-dimension $regions[1] $regions[2] \
  --region=$region
 ```
-
-
+## Disable in all regions
+```
+aws securitylake  delete-datalake --region=$region
+```
