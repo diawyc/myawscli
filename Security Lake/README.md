@@ -10,26 +10,13 @@ echo ${#regions[*]}
 --no-cli-pager
 ```
 
-## get Organizations ID
+## [在多region开启](https://docs.aws.amazon.com/ja_jp/cli/latest/reference/securitylake/create-datalake.html)
 ```
-orgid=$(aws organizations describe-organization  --query 'Organization.Id' --output text --region=$region)
-echo $orgid
-```
-## Get all OU Ids
-```
-orgunits=($(aws organizations list-organizational-units-for-parent --parent-id $(aws organizations list-roots --query "Roots[].Id" --output text)  --query "OrganizationalUnits[*].Id" --output text))
-echo ${#orgunits[*]}
-```
-```
-rootid=$(aws organizations list-roots --query "Roots[].Id" --output text)
-```
-## Get all admin account id and email
-```
-aws organizations list-delegated-administrators --region=$region 
+aws securitylake create-datalake --regions $regions[1] $regions[2]
 ```
 
 
-## [list all delegated admin ](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-delegated-administrators.html)
+## 
 ```
 adminlist=($(aws organizations list-delegated-administrators --no-cli-pager --query 'DelegatedAdministrators[].Id' --output text))
 echo $adminlist
