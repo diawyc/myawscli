@@ -32,7 +32,7 @@ aws iam put-role-policy --role-name=$rolename --policy-name $rolepolicy --policy
 ### create datalake
 ```
 aws securitylake create-datalake --regions $regions[1] $regions[2] \
---meta-store-manager-role-arn $rolearn\
+--meta-store-manager-role-arn $rolearn \
 --region=$region
 ```
 
