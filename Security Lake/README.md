@@ -16,6 +16,8 @@ region=us-east-1
 
 ## [开启服务 ](https://docs.aws.amazon.com/ja_jp/cli/latest/reference/securitylake/create-datalake.html)
 
+## 
+
 ### create iam role
 ```
 rolename=AmazonSecurityLakeMetaStoreManager
@@ -42,7 +44,17 @@ aws securitylake create-aws-log-source \
  --enable-single-dimension $regions[1] $regions[2] \
  --region=$region
 ```
+# 关闭服务
+
 ## Disable in all regions
 ```
 aws securitylake  delete-datalake --region=$region
+```
+## 删除管理员
+```
+adminid=295158943844 
+```
+
+```
+aws securitylake  delete-datalake-delegated-admin --account $adminid --region=$region
 ```
