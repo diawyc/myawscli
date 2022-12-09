@@ -22,7 +22,7 @@ rolename=AmazonSecurityLakeMetaStoreManager
 trustfile=trustpolicy.json
 rolepolicyfile=skpolicy.json
 ```
-## get role arn
+## [get role arn ](https://docs.aws.amazon.com/security-lake/latest/userguide/manage-regions.html#iam-role-partitions)
 ```
 rolearn=$(aws iam create-role --role-name $rolename --assume-role-policy-document file://$trustfile --query 'Role.Arn' --output text)
 echo $rolearn
@@ -36,45 +36,5 @@ aws securitylake create-datalake --regions $regions[1] $regions[2] \
 ```
 
 
-## 
-```
-adminlist=($(aws organizations list-delegated-administrators --no-cli-pager --query 'DelegatedAdministrators[].Id' --output text))
-echo $adminlist
-```
-## [list admin's service](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-delegated-services-for-account.html)
-```
-services=($(aws organizations list-delegated-services-for-account --account-id $adminlist[1] --query 'DelegatedServices[].ServicePrincipal' --output text))
-echo $services
-```
 
-## [de-register delegated admin account for each service](https://docs.aws.amazon.com/cli/latest/reference/organizations/deregister-delegated-administrator.html)
 
-```
-len=${#services[*]}
-echo $len
-admin=$adminlist[1]
-```
-
-```
-for ((i=1; i<=len; i++));do
-aws organizations deregister-delegated-administrator \
---account-id $admin \
---service-principal $services[i]
-echo $services[i]
-done
-```
-可以把adminlist再加一个遍历
-## [remove account from org](https://docs.aws.amazon.com/cli/latest/reference/organizations/remove-account-from-organization.html)
-```
-aws organizations remove-account-from-organization --account-id $admin
-
-```
-## invite an account
-```
-accid=
-```
-```
-aws organizations invite-account-to-organization \
---target Id=$accid,Type=ACCOUNT
-
-```
