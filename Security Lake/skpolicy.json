@@ -1,0 +1,83 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowWriteLambdaInsights",
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": [
+        "arn:aws:logs:*:*:log-group:/aws/lambda-insights:*"
+      ]
+    },
+    {
+      "Sid": "AllowCreateCloudWatchLogGroup",
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup"
+      ],
+      "Resource": [
+        "*"
+      ]
+    },
+    {
+      "Sid": "AllowCreateAwsCloudWatchLogGroup",
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup"
+      ],
+      "Resource": [
+        "arn:aws:logs:*:*:*"
+      ]
+    },
+    {
+      "Sid": "AllowWriteLambdaApplicationLogs",
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": [
+        "arn:aws:logs:*:*:log-group:/aws/lambda/*"
+      ]
+    },
+    {
+      "Sid": "AllowGlueManage",
+      "Effect": "Allow",
+      "Action": [
+                "glue:CreatePartition",
+                "glue:CreatePartitionIndex",
+                "glue:GetPartition",
+                "glue:GetPartitionIndexes",
+                "glue:GetPartitions",
+                "glue:UpdateTable",
+                "glue:GetTable",
+                "glue:GetDatabase",
+                "glue:CreateDatabase",
+                "glue:CreateTable",
+                "glue:GetTables",
+                "glue:BatchCreatePartition"
+      ],
+      "Resource": [
+        "arn:aws:glue:*:*:table/amazon_security_lake_glue_db*/*",
+        "arn:aws:glue:*:*:database/amazon_security_lake_glue_db*",
+        "arn:aws:glue:*:*:catalog",
+        "arn:aws:glue:*:*:database/default"
+      ]
+    },
+     {
+           "Sid": "AllowToReadFromSqs",
+           "Effect": "Allow",
+           "Action": [
+               "sqs:ReceiveMessage",
+               "sqs:DeleteMessage",
+               "sqs:GetQueueAttributes"
+           ],
+           "Resource": [
+               "arn:aws:sqs:*:295158943844:*"
+           ]
+       }
+  ]
+}
