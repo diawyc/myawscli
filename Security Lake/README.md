@@ -44,12 +44,7 @@ trustfile=trustpolicy.json
 rolepolicyfile=regionpolicy.json
 rolepolicy=SecurityLakeregionpolicy
 ```
-## [get role arn](https://docs.aws.amazon.com/security-lake/latest/userguide/manage-regions.html#iam-role-partitions)
-```
-rolearn=$(aws iam create-role --role-name $rolename --assume-role-policy-document file://$trustfile --query 'Role.Arn' --output text)
-echo $rolearn
-aws iam put-role-policy --role-name=$rolename --policy-name $rolepolicy --policy-document file://$rolepolicyfile
-```
+再跑一次上边的cli
 
 ## create datalake
 ```
