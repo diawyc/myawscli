@@ -21,7 +21,7 @@ region=us-east-1
 aws securitylake  create-datalake-delegated-admin --region=$region
 ```
 
-### create iam role
+### create iam role for glue and lambda
 ```
 rolename=AmazonSecurityLakeMetaStoreManager
 trustfile=trustpolicy.json
@@ -36,6 +36,20 @@ aws iam put-role-policy --role-name=$rolename --policy-name $rolepolicy --policy
 ```
 
 arn:aws:iam::accountid:role/AmazonSecurityLakeMetaStoreManager
+
+### create iam role for roll up region
+```
+rolename=SecurityLakeRegion
+trustfile=trustpolicy.json
+rolepolicyfile=regionpolicy.json
+rolepolicy=SecurityLakeregionpolicy
+```
+## [get role arn](https://docs.aws.amazon.com/security-lake/latest/userguide/manage-regions.html#iam-role-partitions)
+```
+rolearn=$(aws iam create-role --role-name $rolename --assume-role-policy-document file://$trustfile --query 'Role.Arn' --output text)
+echo $rolearn
+aws iam put-role-policy --role-name=$rolename --policy-name $rolepolicy --policy-document file://$rolepolicyfile
+```
 
 ## create datalake
 ```
