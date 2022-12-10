@@ -34,6 +34,9 @@ rolearn=$(aws iam create-role --role-name $rolename --assume-role-policy-documen
 echo $rolearn
 aws iam put-role-policy --role-name=$rolename --policy-name $rolepolicy --policy-document file://$rolepolicyfile
 ```
+
+arn:aws:iam::accountid:role/AmazonSecurityLakeMetaStoreManager
+
 ## create datalake
 ```
 aws securitylake create-datalake --regions $regions[1] $regions[2] \
