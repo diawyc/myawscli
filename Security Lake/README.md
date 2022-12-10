@@ -44,7 +44,12 @@ trustfile=trustpolicy.json
 rolepolicyfile=regionpolicy.json
 rolepolicy=SecurityLakeregionpolicy
 ```
-再跑一次上边的cli
+```
+regionrolearn=$(aws iam create-role --role-name $rolename --assume-role-policy-document file://$trustfile --query 'Role.Arn' --output text)
+echo $regionrolearn
+aws iam put-role-policy --role-name=$rolename --policy-name $rolepolicy --policy-document file://$rolepolicyfile
+```
+
 
 ## create datalake
 ```
@@ -59,6 +64,14 @@ aws securitylake create-aws-log-source \
  --enable-single-dimension $regions[1] $regions[2] \
  --region=$region
 ```
+## [set rollup region](https://docs.aws.amazon.com/ja_jp/cli/latest/reference/securitylake/create-aws-log-source.html)
+```
+aws securitylake create-aws-log-source \
+ --input-order REGION \
+ --enable-single-dimension $regions[1] $regions[2] \
+ --region=$region
+```
+
 # 关闭服务
 
 ## Disable in all regions
