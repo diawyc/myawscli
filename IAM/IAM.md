@@ -10,7 +10,7 @@ trustfile=ct-trustpolicy.json
 rolepolicyfile=
 policyname=AdministratorAccess
 ```
-## get role arn
+##  create role and get arn
 ```
 rolearn=$(aws iam create-role --role-name $rolename --assume-role-policy-document file://$trustfile --query 'Role.Arn' --output text)
 ```
@@ -25,4 +25,8 @@ aws iam put-role-policy --role-name=$rolename --policy-name $rolepolicy --policy
 ```
 
 aws iam attach-role-policy --role-name=$rolename --policy-arn arn:aws:iam::aws:policy/$policyname
+```
+## get role arn
+```
+ aws iam get-role --role-name $rolename --query 'Role.Arn' --output text
 ```
