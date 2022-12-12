@@ -64,7 +64,7 @@ aws securitylake create-datalake --regions $regions[1] $regions[2] \
 ```
 aws securitylake create-datalake --regions $regions[1] $regions[2] \
 --meta-store-manager-role-arn $rolearn --region=$region \
---configurations '{"us-east-1":{"replicationDestinationRegions":["eu-west-1"],"replicationRoleArn":"arn:aws:iam::230032173446:role/SecurityLakeRegion"},"eu-west-1":{"replicationDestinationRegions":[]}'
+--configurations '{"us-east-1":{"replicationDestinationRegions":["eu-west-1"],"replicationRoleArn":"arn:aws:iam::230032173446:role/SecurityLakeRegion"},"eu-west-1":{"replicationDestinationRegions":[]}}'
 ```
 
     
