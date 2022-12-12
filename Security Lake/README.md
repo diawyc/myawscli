@@ -35,8 +35,6 @@ echo $rolearn
 aws iam put-role-policy --role-name=$rolename --policy-name $rolepolicy --policy-document file://$rolepolicyfile
 ```
 
-arn:aws:iam::accountid:role/AmazonSecurityLakeMetaStoreManager
-
 ### create iam role for roll up region
 ```
 rolename=SecurityLakeRegion
@@ -49,6 +47,11 @@ regionrolearn=$(aws iam create-role --role-name $rolename --assume-role-policy-d
 echo $regionrolearn
 aws iam put-role-policy --role-name=$rolename --policy-name $rolepolicy --policy-document file://$rolepolicyfile
 ```
+### get role arn from role name
+```
+rolearn=$(aws iam get-role --role-name $rolename --query 'Role.Arn' --output text)
+```
+arn:aws:iam::accountid:role/AmazonSecurityLakeMetaStoreManager
 
 
 ## create datalake
