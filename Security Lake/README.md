@@ -69,14 +69,6 @@ aws securitylake create-datalake \
 --configurations '{"us-east-1":{"replicationDestinationRegions":["eu-west-1"],"replicationRoleArn": "arn:aws:iam::230032173446:role/SecurityLakeRegion"}}'
 ```
 
-```
-aws securitylake create-datalake \
---regions $regions[1] $region[2] \
---region=$region \
---meta-store-manager-role-arn $rolearn \
---configurations \
-'{"us-east-1":{"replicationDestinationRegions": ["eu-west-1"],"replicationRoleArn": "arn:aws:iam::230032173446:role/SecurityLakeRegion"}}'
-```
     
 ## [2个regions开启所有](https://docs.aws.amazon.com/ja_jp/cli/latest/reference/securitylake/create-aws-log-source.html)
 ```
