@@ -54,7 +54,7 @@ rolearn=$(aws iam get-role --role-name $rolename --query 'Role.Arn' --output tex
 arn:aws:iam::accountid:role/AmazonSecurityLakeMetaStoreManager
 
 
-## create datalake
+## [create datalake](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securitylake/create-datalake.html)
 ```
 aws securitylake create-datalake --regions $regions[1] $regions[2] \
 --meta-store-manager-role-arn $rolearn \
