@@ -16,9 +16,12 @@ region=us-east-1
 
 ## [开启服务 ](https://docs.aws.amazon.com/ja_jp/cli/latest/reference/securitylake/create-datalake.html)
 
-## delegated admin
+## [delegated admin] (https://docs.aws.amazon.com/ja_jp/cli/latest/reference/securitylake/create-datalake-delegated-admin.html)
 ```
-aws securitylake  create-datalake-delegated-admin --region=$region
+admin=295158943844
+```
+```
+aws securitylake  create-datalake-delegated-admin --account $admin --region=$region
 ```
 
 ### create iam role for glue and lambda
