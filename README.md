@@ -31,7 +31,14 @@ done
 ```
 --query 'level1[0].level2[*].level3' --output text
 ```
+### 查看当前账户，账号
+```
+aws sts get-caller-identity
+```
 
+```
+aws sts get-caller-identity --query 'Account' --output text
+```
 ## sns
 ```
 region=eu-west-2
