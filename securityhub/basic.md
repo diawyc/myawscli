@@ -12,7 +12,7 @@ adminid=$(aws securityhub list-organization-admin-accounts --region=$region --ou
 ```
 for region in $regions; do
 echo $region
-aws securityhub get-enabled-standards --query 'StandardsSubscriptions[*].StandardsSubscriptionArn' --output text --region=$region
+aws securityhub get-enabled-standards --query 'StandardsSubscriptions[*].StandardsSubscriptionArn' --output table --region=$region
 done
 ```
 ## [关闭standard](https://docs.aws.amazon.com/cli/latest/reference/securityhub/batch-disable-standards.html)
