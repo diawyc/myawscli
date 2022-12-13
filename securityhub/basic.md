@@ -15,13 +15,14 @@ echo $region
 aws securityhub get-enabled-standards --query 'StandardsSubscriptions[*].StandardsSubscriptionArn' --output table --region=$region
 done
 ```
-## [关闭standard](https://docs.aws.amazon.com/cli/latest/reference/securityhub/batch-disable-standards.html)
+## [关闭standard in all regions](https://docs.aws.amazon.com/cli/latest/reference/securityhub/batch-disable-standards.html)
 ```
 
 echo $len
 ```
 standard arn look like :"arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1"
 ```
+for region in $regions; do
 sarns=($(aws securityhub get-enabled-standards  --region=$region --query 'StandardsSubscriptions[*].StandardsSubscriptionArn' --output text)) 
 len=${#sarns[*]}
 for ((i=1; i<=len; i++));do
@@ -29,6 +30,7 @@ for ((i=1; i<=len; i++));do
 aws securityhub batch-disable-standards \
     --standards-subscription-arns $sarns[i] \
     --region=$region
+done
 done
 ```
 
