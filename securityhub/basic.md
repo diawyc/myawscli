@@ -8,9 +8,18 @@ echo ${#regions[*]}
 adminid=$(aws securityhub list-organization-admin-accounts --region=$region --output text --query 'AdminAccounts[*].AccountId') 
 
 ```
+## 查看所有region的standards情况
+```
+for region in $regions; do
+echo $region
+aws securityhub get-enabled-standards --query 'StandardsSubscriptions[*].StandardsSubscriptionArn' --output text --region=$region
+done
+```
 ## [关闭standard](https://docs.aws.amazon.com/cli/latest/reference/securityhub/batch-disable-standards.html)
 ```
-sarn=($(aws securityhub get-enabled-standards  --region=$region --query 'StandardsSubscriptions[*].StandardsSubscriptionArn' --output text)) 
+sarns=($(aws securityhub get-enabled-standards  --region=$region --query 'StandardsSubscriptions[*].StandardsSubscriptionArn' --output text)) 
+len=${#sarns[*]}
+echo $len
 ```
 standard arn look like :"arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1"
 ```
@@ -18,9 +27,4 @@ aws securityhub batch-disable-standards \
     --standards-subscription-arns $arn \
     --region=$region
 ```
-```
-for region in $regions; do
-echo $region
-aws securityhub get-enabled-standards --query 'StandardsSubscriptions[*].StandardsSubscriptionArn' --output text --region=$region
-done
-```
+
