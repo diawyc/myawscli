@@ -15,6 +15,14 @@ echo $region
 aws securityhub get-enabled-standards --query 'StandardsSubscriptions[*].StandardsSubscriptionArn' --output table --region=$region
 done
 ```
+## 打开SecurityHub
+```
+for region in $regions; do
+echo $region
+AWS securityhub enable-organization-admin-account --admin-account-id=$adminid --region=$region 
+echo $(aws securityhub list-organization-admin-accounts --region=$region --query 'AdminAccounts')
+done
+```
 ## [关闭standard in all regions](https://docs.aws.amazon.com/cli/latest/reference/securityhub/batch-disable-standards.html)
 ```
 
