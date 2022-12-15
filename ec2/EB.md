@@ -30,7 +30,21 @@ done
 ```
 for region in $regions; do
 echo $region
-aws elb describe-load-balancers --region=$region  
+aws elb describe-load-balancers --region=$region  --query 'LoadBalancerDescriptions[].LoadBalancerName' --output table
 done
 ```
 --query 'Applications[].ApplicationName' --output table
+```
+for region in $regions; do
+echo $region
+lbnames=($(aws elb describe-load-balancers --region=$region  --query 'LoadBalancerDescriptions[].LoadBalancerName' --output text))
+len=${#lbnames[*]}
+echo $len
+for ((i=1; i<=len; i++));do
+echo $lbnames[i]
+aws elb delete-load-balancer --load-balancer-name $lbnames[i]--region=$region 
+done
+done
+```
+
+ 
