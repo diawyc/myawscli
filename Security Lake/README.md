@@ -110,7 +110,9 @@ len=${#bucketnames[*]}
 
 ```
 for ((i=1; i<=len; i++));do
-echo $bucketnames[i]
+bucketname=$bucketnames[i]
+echo $bucketname
+aws s3api delete-objects  --bucket $bucketname --delete "$(aws s3api list-object-versions --bucket $bucketname --output=json --query='{Objects: Versions[].{Key:Key,VersionId:VersionId}}')"
 aws s3 rb s3://$bucketnames[i] --force 
 done
 ```
