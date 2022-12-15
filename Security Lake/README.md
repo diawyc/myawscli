@@ -104,7 +104,7 @@ aws securitylake  delete-datalake-delegated-admin --account $adminid --region=$r
 ## 删除遗留的S3
 ```
 aws s3api list-buckets --query 'Buckets[?Name<`aws-security-data-lake-u`].Name' --output table
-bucketnames=($(aws s3api list-buckets --query 'Buckets[?Name<`b`].Name' --output text))
+bucketnames=($(aws s3api list-buckets --query 'Buckets[?Name<`aws-security-data-lake-u`].Name' --output text))
 len=${#bucketnames[*]}
 ```
 
