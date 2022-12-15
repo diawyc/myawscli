@@ -1,3 +1,4 @@
+# Elastic Beanstalk
 ```
 regions=($(aws ec2 describe-regions --query 'Regions[*].RegionName' --output text --region=us-east-1))
 echo ${#regions[*]}
@@ -24,3 +25,12 @@ aws elasticbeanstalk delete-application --application-name $appnames[i] --region
 done
 done
 ```
+# Load Balancer
+## list all elb in all regions
+```
+for region in $regions; do
+echo $region
+aws elb describe-load-balancers --region=$region  
+done
+```
+--query 'Applications[].ApplicationName' --output table
