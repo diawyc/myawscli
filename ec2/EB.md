@@ -8,7 +8,6 @@ echo ${#regions[*]}
 for region in $regions; do
 echo $region
 aws elasticbeanstalk describe-applications --region=$region  --query 'Applications[].ApplicationName' --output table
-echo $ids
 done
 ```
 ##删除所有applications
@@ -21,7 +20,7 @@ len=${#appnames[*]}
 echo $len
 for ((i=1; i<=len; i++));do
 echo $appnames[i]
-aws elasticbeanstalk delete-application --application-name $appnames[i] --region=$region
+aws elasticbeanstalk delete-application --application-name $appnames[i] --region=$region --terminate-env-by-force 
 done
 done
 ```
