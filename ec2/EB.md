@@ -4,7 +4,7 @@ aws elasticbeanstalk delete-application --application-name my-app
 ```
 for region in $regions; do
 echo $region
-aws elasticbeanstalk describe-applications --region=$region 'Applications[].ApplicationName' --output table
+aws elasticbeanstalk describe-applications --region=$region  --query 'Applications[].ApplicationName' --output table
 echo $ids
 done
 ```
