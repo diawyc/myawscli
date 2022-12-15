@@ -1,4 +1,7 @@
-
+```
+regions=($(aws ec2 describe-regions --query 'Regions[*].RegionName' --output text --region=us-east-1))
+echo ${#regions[*]}
+```
 
 ## list all active application in all regions
 ```
@@ -18,7 +21,7 @@ len=${#appnames[*]}
 echo $len
 for ((i=1; i<=len; i++));do
 echo $appnames[i]
-aws elasticbeanstalk delete-application --application-name $appnames[i]
+aws elasticbeanstalk delete-application --application-name $appnames[i] --region=$region
 done
 done
 ```
