@@ -116,4 +116,25 @@ done
 ```
 
 ## 删除遗留的SQS
+## 查看所有的securitylake开头的SQS
 
+```
+regions=($(aws ec2 describe-regions --query 'Regions[*].RegionName' --output text --region=us-east-1))
+```
+目前开放的6个regions
+```
+regions=(eu-west-1 ap-northeast-1 ap-southeast-2 eu-central-1 us-east-2 us-west-2)
+for region in $regions; do
+echo $region
+aws sqs list-queues --queue-name-prefix SecurityLake  --region=$region --query 'QueueUrls' --output table
+done
+```
+```
+for region in $regions; do
+echo $region
+for ((i=1; i<=len; i++));do
+$urls[i]
+aws sqs delete-queue --queue-url $urls[i] --region=$region
+done
+done
+```
