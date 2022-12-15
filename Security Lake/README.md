@@ -114,3 +114,6 @@ echo $bucketnames[i]
 aws s3 rb s3://$bucketnames[i] --force 
 done
 ```
+
+## 删除遗留的SQS
+
