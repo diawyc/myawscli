@@ -11,8 +11,7 @@ echo $len
 ```
 for region in $regions; do
 echo $region
-ids=($(aws ec2 describe-instances  --region=$region --query 'Reservations[].Instances[].InstanceId' --output text))
-echo $ids
+aws ec2 describe-instances  --region=$region --query 'Reservations[].Instances[].InstanceId' --output table         
 done
 ```
 ## 停机所有regions的所有机器
