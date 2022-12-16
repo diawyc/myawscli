@@ -33,18 +33,29 @@ echo $region
 aws elb describe-load-balancers --region=$region  --query 'LoadBalancerDescriptions[].LoadBalancerName' --output table
 done
 ```
---query 'Applications[].ApplicationName' --output table
+
 ```
 for region in $regions; do
 echo $region
-lbnames=($(aws elb describe-load-balancers --region=$region  --query 'LoadBalancerDescriptions[].LoadBalancerName' --output text))
-len=${#lbnames[*]}
+names=($(aws elb describe-load-balancers --region=$region  --query 'LoadBalancerDescriptions[].LoadBalancerName' --output text))
+len=${#names[*]}
 echo $len
 for ((i=1; i<=len; i++));do
-echo $lbnames[i]
-aws elb delete-load-balancer --load-balancer-name $lbnames[i]--region=$region 
+echo $names[i]
+aws elb delete-load-balancer --load-balancer-name $lbnames[i] --force-delete --region=$region 
 done
 done
 ```
 
- 
+# Auto Scaling
+## list auto scaling in all regions
+```
+for region in $regions; do
+echo $region
+ aws autoscaling describe-auto-scaling-groups --region=$region  --query 'AutoScalingGroups[].AutoScalingGroupName' --output table
+done
+```
+
+aws autoscaling delete-auto-scaling-group \
+    --auto-scaling-group-name my-asg
+
