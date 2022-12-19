@@ -1,4 +1,4 @@
-# I love aws cli
+# [I love aws cli](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/index.html#cli-aws)
 
 ## regions
 ```
