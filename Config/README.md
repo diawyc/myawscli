@@ -66,7 +66,12 @@ packarn=$(aws configservice put-conformance-pack \
 --template-body file://$templatename \
 --region=$region --query 'ConformancePackArn' --output text)
 ```
+
+```
+--conformance-pack-input-parameters=ParameterName=SecurityGroupMaskLambdaArn,ParameterValue="arn:aws:lambda:{region}:{MasterAccountID}:function:ConformancePackSecurityGroup"
+```
 ## delete a conformance pack
+
 ```
 aws configservice delete-conformance-pack \
 --conformance-pack-name $packname --region=$region 
