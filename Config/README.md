@@ -74,18 +74,25 @@ packarn=$(aws configservice put-conformance-pack \
 
 ```
 aws configservice delete-conformance-pack \
---conformance-pack-name $packname --region=$region 
+--conformance-pack-name $name --region=$region 
 ```
 
 ## 查询所有pack 将name放进一个数组
 ```
-packnames=($(aws configservice describe-conformance-packs --region=$region --query 'ConformancePackDetails[*].ConformancePackName' --output text))
+aws configservice describe-conformance-packs --region=$region --query 'ConformancePackDetails[*].ConformancePackName' --output table
+names=($(aws configservice describe-conformance-packs --region=$region --query 'ConformancePackDetails[*].ConformancePackName' --output text))
+len=${#names[*]}
+echo $len
 ```
 ## 查看所有region的所有一致性包
 ```
 for region in $regions; do
 echo $region
-aws configservice describe-conformance-packs --region=$region --no-cli-pager
+names=($(aws configservice describe-conformance-packs --region=$region --query 'ConformancePackDetails[*].ConformancePackName' --output text))
+for ((i=1; i<=len; i++));do
+aws configservice delete-conformance-pack \
+--conformance-pack-name $names[i] --region=$region 
+done
 done
 
 ```
