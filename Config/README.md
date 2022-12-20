@@ -7,7 +7,8 @@ echo ${#regions[*]}
 ```
 for region in $regions; do
 echo $region
-aws configservice  describe-configuration-recorder-status --region=$region
+aws configservice  describe-configuration-recorder-status --region=$region \
+--query 'ConfigurationRecordersStatus[?recording==`true`].lastStatus' 
 done
 ```
 
