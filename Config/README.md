@@ -61,14 +61,15 @@ echo ${#regions[*]}
 
 ## create a conformance pack
 ```
+packname='BlackorWhite'
+templatename='TestConformancePack.yaml'
+```
+```
 packarn=$(aws configservice put-conformance-pack \
 --conformance-pack-name $packname \
 --template-body file://$templatename \
+--conformance-pack-input-parameters=ParameterName=WhiteAppNames,ParameterValue="python3" ParameterName=BlackAppNames,ParameterValue="openssl" \
 --region=$region --query 'ConformancePackArn' --output text)
-```
-
-```
---conformance-pack-input-parameters=ParameterName=SecurityGroupMaskLambdaArn,ParameterValue="arn:aws:lambda:{region}:{MasterAccountID}:function:ConformancePackSecurityGroup"
 ```
 ## [delete a conformance pack]([url](https://awscli.amazonaws.com/v2/documentation/api/2.1.29/reference/configservice/delete-conformance-pack.html))
 
