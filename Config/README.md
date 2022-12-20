@@ -88,6 +88,7 @@ echo $len
 ```
 for region in $regions; do
 echo $region
+aws configservice describe-conformance-packs --region=$region --query 'ConformancePackDetails[*].ConformancePackName' --output table
 names=($(aws configservice describe-conformance-packs --region=$region --query 'ConformancePackDetails[*].ConformancePackName' --output text))
 for ((i=1; i<=len; i++));do
 aws configservice delete-conformance-pack \
