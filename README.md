@@ -30,6 +30,7 @@ done
 ### query
 ```
 --query 'level1[0].level2[*].level3' --output text
+--query 'StackSummaries[?StackName!=`PVRE`].StackName' 
 ```
 ### 查看当前账户，账号
 ```
@@ -37,7 +38,7 @@ aws sts get-caller-identity
 ```
 
 ```
-aws sts get-caller-identity --query 'Account' --output text
+aws sts get-caller-identity --query 'Account' --output table
 ```
 ## sns
 ```
