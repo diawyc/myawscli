@@ -72,6 +72,7 @@ packarn=$(aws configservice put-conformance-pack \
 --template-body file://$templatename \
 --conformance-pack-input-parameters ParameterName=WhiteAppNames,ParameterValue=$white ParameterName=BlackAppNames,ParameterValue=$black \
 --region=$region --query 'ConformancePackArn' --output text)
+echo $packarn
 ```
 ## [delete a conformance pack]([url](https://awscli.amazonaws.com/v2/documentation/api/2.1.29/reference/configservice/delete-conformance-pack.html))
 
