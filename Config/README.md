@@ -1,6 +1,10 @@
 # [Config](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/index.html#cli-aws-configservice)
 ## 查看config是否开启
 ```
+regions=($(aws ec2 describe-regions --query 'Regions[*].RegionName' --output text --region=us-east-1))
+echo ${#regions[*]}
+```
+```
 for region in $regions; do
 echo $region
 aws configservice  describe-configuration-recorder-status --region=$region
