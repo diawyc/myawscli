@@ -70,7 +70,7 @@ packarn=$(aws configservice put-conformance-pack \
 ```
 --conformance-pack-input-parameters=ParameterName=SecurityGroupMaskLambdaArn,ParameterValue="arn:aws:lambda:{region}:{MasterAccountID}:function:ConformancePackSecurityGroup"
 ```
-## delete a conformance pack
+## [delete a conformance pack]([url](https://awscli.amazonaws.com/v2/documentation/api/2.1.29/reference/configservice/delete-conformance-pack.html))
 
 ```
 aws configservice delete-conformance-pack \
