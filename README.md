@@ -13,7 +13,7 @@ done
 ```
 ## 遍历
 ```
-len=${#accountids[*]}
+len=${#names[*]}
 echo $len
 ```
 ```
