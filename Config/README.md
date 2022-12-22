@@ -106,3 +106,10 @@ done
 done
 
 ```
+[create a config rule](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/put-config-rule.html)
+
+```
+http://s3.amazonaws.com/aws-configservice-us-east-1/cloudformation-templates-for-managed-rules/S3_BUCKET_VERSIONING_ENABLED.template
+
+```
+
