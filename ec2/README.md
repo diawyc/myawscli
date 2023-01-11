@@ -14,6 +14,13 @@ echo $region
 aws ec2 describe-instances  --region=$region --query 'Reservations[].Instances[].InstanceId' --output table         
 done
 ```
+#取到一台机器的IAM role arn
+```
+iid=i-0cc97b29f9c0448ed 
+```
+```
+iparn=$(aws ec2 describe-instances --instance-ids=$iid  --region=$region --output=text  --query='Reservations[].Instances[].IamInstanceProfile[].Arn')
+```
 ## 停机所有regions的所有机器
 ```
 regions=($(aws ec2 describe-regions --query 'Regions[*].RegionName' --output text --region=us-east-1))
