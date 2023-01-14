@@ -13,5 +13,7 @@ aws backup list-recovery-points-by-backup-vault --backup-vault-name $name --regi
 ```
 
 ```
-aws backup list-backup-vaults --backup-vault-name $name --region=$region
+names=$(aws backup list-backup-vaults --region=$region --query 'BackupVaultList[].BackupVaultName[]' --output text)
+len=${#names[*]}
+echo $len
 ```
