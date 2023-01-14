@@ -36,7 +36,8 @@ rps=($(aws backup list-recovery-points-by-backup-vault --backup-vault-name $name
 len=${#rps[*]}
 echo $len
 for ((i=1; i<=len; i++));do
-aws backup delete-recovery-point --backup-vault-name $name --recovery-point-arn $rp=$rps[i] --region=$region
+rp=$rps[i]
+aws backup delete-recovery-point --backup-vault-name $name --recovery-point-arn $rp --region=$region
 done
 done
 ```
