@@ -21,21 +21,22 @@ rps=($(aws backup list-recovery-points-by-backup-vault --backup-vault-name $name
 len=${#rps[*]}
 echo $len
 ```
-## 删除所有recovery point
+## 删除一个vault里所有recovery point
 ```
 for ((i=1; i<=len; i++));do
 aws backup delete-recovery-point --backup-vault-name $name --recovery-point-arn $rp --region=$region
 done
 ```
-
+## 删除所有regions中Default中所有recovery point
 ```
+name=Default
 for region in $regions; do
 echo $region
 rps=($(aws backup list-recovery-points-by-backup-vault --backup-vault-name $name --region=$region --query 'RecoveryPoints[].RecoveryPointArn[]' --output text))
 len=${#rps[*]}
 echo $len
 for ((i=1; i<=len; i++));do
-aws backup delete-recovery-point --backup-vault-name $name --recovery-point-arn $rp --region=$region
+aws backup delete-recovery-point --backup-vault-name $name --recovery-point-arn $rp=$rps[i] --region=$region
 done
 done
 ```
