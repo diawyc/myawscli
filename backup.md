@@ -6,8 +6,8 @@ echo ${#regions[*]}
 name=default
 ```
 ```
-aws backup  describe-backup-vault --backup-vault-name default --region=$region
+aws backup describe-backup-vault --backup-vault-name $name --region=$region
 ```
 ```
-aws backup  list-recovery-points-by-backup-vault --backup-vault-name $name --region--region=$region
+aws backup list-recovery-points-by-backup-vault --backup-vault-name $name --region--region=$region
 ```
