@@ -11,3 +11,8 @@ aws backup describe-backup-vault --backup-vault-name $name --region=$region
 ```
 aws backup list-recovery-points-by-backup-vault --backup-vault-name $name --region=$region
 ```
+
+```
+```
+aws backup list-backup-vaults --backup-vault-name $name --region=$region
+```
