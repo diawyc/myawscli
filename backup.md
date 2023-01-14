@@ -38,6 +38,7 @@ echo $len
 for ((i=1; i<=len; i++));do
 rp=$rps[i]
 aws backup delete-recovery-point --backup-vault-name $name --recovery-point-arn $rp --region=$region
+echo $i
 done
 done
 ```
