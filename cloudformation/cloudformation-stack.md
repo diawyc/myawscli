@@ -74,6 +74,8 @@ aws cloudformation create-stack --stack-name $stackname --template-url $url \
 --capabilities CAPABILITY_IAM \
 --region=$region
 ```
+https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStack.html
+
 # Get Outputs from a stack
 
 ```
