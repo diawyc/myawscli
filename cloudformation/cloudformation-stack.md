@@ -37,7 +37,7 @@ aws cloudformation create-stack --stack-name $stackname --template-body file://$
 --parameters  \
 ParameterKey=$p1,ParameterValue=$v1  \
 ParameterKey=$p2,ParameterValue=$v2  \
---capabilities CAPABILITY_IAM \
+--capabilities CAPABILITY_AUTO_EXPAND \
 --region=$region
 
 ```
