@@ -29,7 +29,7 @@ aws cloudformation create-stack --stack-name $stackname --template-body file://$
 p1=RDSUserName
 v1=jessica
 p2=RDSDBName
-r2=rdsbjsm
+v2=rdsbjsm
 ```
 
 ```
