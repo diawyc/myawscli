@@ -23,10 +23,24 @@ template=Arch1-template.yaml
 aws cloudformation create-stack --stack-name $stackname --template-body file://$template \
 --capabilities CAPABILITY_NAMED_IAM \
 --region=$region
-
-
+```
+## creat with parameter
+```
+p1=RDSUserName
+v1=jessica
+p2=RDSDBName
+r2=rdsbjsm
 ```
 
+```
+aws cloudformation create-stack --stack-name $stackname --template-body file://$template \
+--parameters  \
+ParameterKey=$p1,ParameterValue=$v1  \
+ParameterKey=$p2,ParameterValue=$v2  \
+--capabilities CAPABILITY_IAM \
+--region=$region
+
+```
 ## create stack with parameter in all regions from a local template
 ```
 stackname=myfirststack
@@ -34,7 +48,7 @@ regions=($(aws ec2 describe-regions --query 'Regions[*].RegionName' --output tex
 ```
 ```
 for region in $regions; do
-aws cloudformation create-stack --stack-name $stackname --template-body file://Arch1-template.yaml \
+aws cloudformation create-stack --stack-name $stackname --template-body file://$template \
 --parameters  \
 ParameterKey=level0,ParameterValue=public  \
 ParameterKey=level1,ParameterValue=internal  \
