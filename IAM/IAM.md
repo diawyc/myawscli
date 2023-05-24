@@ -30,3 +30,13 @@ aws iam attach-role-policy --role-name=$rolename --policy-arn arn:aws:iam::aws:p
 ```
  aws iam get-role --role-name $rolename --query 'Role.Arn' --output text
 ```
+## get policy
+### parameter
+```
+groupname=
+policyname
+```
+
+```
+aws iam get-group-policy --group-name $groupname --policy-name $policyname
+```
