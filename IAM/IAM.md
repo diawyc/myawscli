@@ -1,3 +1,18 @@
+## pass role
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [{
+        "Effect": "Allow",
+        "Action": [
+            "iam:GetRole",
+            "iam:PassRole"
+        ],
+        "Resource": "arn:aws-cn:iam::043378916688:role/*"
+    }]
+}
+```
+
 ## create user
 ```
 arn=$(aws iam create-user --user-name=$username --query 'User.Arn' --output text)
