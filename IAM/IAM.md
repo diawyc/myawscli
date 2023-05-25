@@ -5,9 +5,9 @@ arn=$(aws iam create-user --user-name=$username --query 'User.Arn' --output text
 ## create a role 
 ### parameter
 ```
-rolename=AWSControlTowerExecution
-trustfile=ct-trustpolicy.json
-rolepolicyfile=
+rolename=ManhitachilLimitedAdmin
+trustfile=trustpolicy.json
+rolepolicyfile=ManAdmin.json
 policyname=AdministratorAccess
 ```
 ##  create role and get arn
