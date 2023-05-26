@@ -1,5 +1,5 @@
 ## user to assume role
-
+https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sts/assume-role.html
 ```
 rolearn='arn:aws-cn:iam::337075903349:role/adminrole'
 sessionname=test
