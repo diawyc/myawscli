@@ -1,15 +1,17 @@
-## pass role
+## trust policy to allow user to assume role
 ```
 {
     "Version": "2012-10-17",
-    "Statement": [{
-        "Effect": "Allow",
-        "Action": [
-            "iam:GetRole",
-            "iam:PassRole"
-        ],
-        "Resource": "arn:aws-cn:iam::043378916688:role/*"
-    }]
+    "Statement": [
+        {
+            "Sid": "",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws-cn:iam::131551608255:root"
+            },
+            "Action": "sts:AssumeRole"
+        }
+    ]
 }
 ```
 
