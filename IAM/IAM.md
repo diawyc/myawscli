@@ -1,18 +1,11 @@
-## trust policy to allow user to assume role
+## user to assume role
+
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "",
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": "arn:aws-cn:iam::131551608255:root"
-            },
-            "Action": "sts:AssumeRole"
-        }
-    ]
-}
+rolearn='arn:aws-cn:iam::337075903349:role/adminrole'
+sessionname=test
+```
+```
+aws sts assume-role --role-arn $rolearn --role-session-name $sessionname
 ```
 
 ## create user
