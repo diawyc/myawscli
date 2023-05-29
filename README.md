@@ -1,5 +1,24 @@
 # [I love aws cli](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/index.html#cli-aws)
 
+## 选profile
+
+```
+aws configure list-profiles
+export AWS_PROFILE=cnrole
+aws ec2 describe-regions
+```
+
+## regions
+```
+regions=($(aws ec2 describe-regions --query 'Regions[*].RegionName' --output text --region=us-east-1))
+echo ${#regions[*]}
+```
+```
+for region in $regions; do
+echo $region
+
+done
+```
 ## service quota
 ```
 code=L-0DA4ABF3
@@ -41,24 +60,6 @@ aws service-quotas get-service-quota \
 
 ```
 
-## 选profile
-
-```
-aws configure list-profiles
-export AWS_PROFILE=cnsec
-```
-
-## regions
-```
-regions=($(aws ec2 describe-regions --query 'Regions[*].RegionName' --output text --region=us-east-1))
-echo ${#regions[*]}
-```
-```
-for region in $regions; do
-echo $region
-
-done
-```
 ## 遍历
 ```
 len=${#names[*]}
