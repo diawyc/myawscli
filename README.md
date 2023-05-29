@@ -30,7 +30,10 @@ aws service-quotas get-service-quota \
 aws service-quotas list-aws-default-service-quotas \
     --service-code $servicename --query  'Quotas[?QuotaName==`$name`].QuotaCode' --output text --region=$region 
 ```
-
+```
+aws service-quotas list-aws-default-service-quotas \
+    --service-code $servicename --query  'Quotas[?QuotaName==$name].QuotaCode' --output text --region=$region 
+```
 ```
 aws service-quotas list-aws-default-service-quotas \
     --service-code $servicename --query  'Quotas[?QuotaName==`Managed policies per role`].QuotaCode' --output text --region=$region 
