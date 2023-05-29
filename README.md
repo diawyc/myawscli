@@ -18,12 +18,7 @@ aws service-quotas get-aws-default-service-quota \
  aws service-quotas list-aws-default-service-quotas \
     --service-code $servicename --query  'Quotas[*].[QuotaName,QuotaCode,Value]' --output table --region=$region 
 ```
-### 查看现在的quota
-```
-aws service-quotas get-service-quota \
-    --service-code $servicename\
-    --quota-code $code --region=$region 
-```
+
 ### 根据名字获得code
 这个变量代不进去
 ```
@@ -35,9 +30,16 @@ aws service-quotas list-aws-default-service-quotas \
     --service-code $servicename --query  'Quotas[?QuotaName==$name].QuotaCode' --output text --region=$region 
 ```
 ```
-aws service-quotas list-aws-default-service-quotas \
-    --service-code $servicename --query  'Quotas[?QuotaName==`Managed policies per role`].QuotaCode' --output text --region=$region 
+code=$（aws service-quotas list-aws-default-service-quotas \
+    --service-code $servicename --query  'Quotas[?QuotaName==`Managed policies per role`].QuotaCode' --output text --region=$region）
 ```
+### 查看现在的quota
+```
+aws service-quotas get-service-quota \
+    --service-code $servicename\
+    --quota-code $code --region=$region 
+```
+
 ## 选profile
 
 ```
