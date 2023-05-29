@@ -2,7 +2,7 @@
 
 ## service quota
 ```
-code=L-0263D0A3
+code=L-0DA4ABF3
 region=us-east-1
 servicename=iam
 ```
@@ -17,8 +17,13 @@ aws service-quotas get-aws-default-service-quota \
  aws service-quotas list-aws-default-service-quotas \
     --service-code $servicename --query  'Quotas[*].[QuotaName,QuotaCode,Value]' --output table --region=$region 
 ```
+### 查看现在的quota
+```
+aws service-quotas get-service-quota \
+    --service-code ec2 \
+    --quota-code $code --region=$region 
+```
 
-L-0DA4ABF3
 
 ## 选profile
 
