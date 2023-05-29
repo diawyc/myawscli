@@ -20,7 +20,7 @@ aws service-quotas get-aws-default-service-quota \
 ### 查看现在的quota
 ```
 aws service-quotas get-service-quota \
-    --service-code ec2 \
+    --service-code $servicename\
     --quota-code $code --region=$region 
 ```
 
