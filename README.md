@@ -12,11 +12,10 @@ aws service-quotas get-aws-default-service-quota \
     --quota-code $code  --region=$region
 
 ```
-### 查看一个service的所有quota
+### 查看一个service的所有quota code和数量
 ```
  aws service-quotas list-aws-default-service-quotas \
-    --service-code $servicename --query  'Quotas[*].[QuotaName,QuotaCode，Value]' --output table --region=$region
-
+    --service-code $servicename --query  'Quotas[*].[QuotaName,QuotaCode,Value]' --output table --region=$region 
 ```
 
 L-0DA4ABF3
