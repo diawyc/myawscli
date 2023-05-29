@@ -15,7 +15,7 @@ aws service-quotas get-aws-default-service-quota \
 
 ```
 aws service-quotas list-aws-default-service-quotas \
-    --service-code $servicename --query
+    --service-code $servicename --query  'Quota[*].[QuotaName,Value]' --output text
 ```
 
 L-0DA4ABF3
