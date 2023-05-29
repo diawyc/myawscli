@@ -4,6 +4,7 @@
 ```
 code=L-0263D0A3
 region=us-east-1
+servicename=iam
 ```
 ```
 aws service-quotas get-aws-default-service-quota \
@@ -11,6 +12,13 @@ aws service-quotas get-aws-default-service-quota \
     --quota-code $code  --region=$region
 
 ```
+
+```
+aws service-quotas list-aws-default-service-quotas \
+    --service-code $servicename --query
+```
+
+L-0DA4ABF3
 
 ## 选profile
 
