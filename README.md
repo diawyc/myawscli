@@ -5,6 +5,7 @@
 code=L-0DA4ABF3
 region=us-east-1
 servicename=iam
+name='Managed policies per role'
 ```
 ```
 aws service-quotas get-aws-default-service-quota \
@@ -23,8 +24,11 @@ aws service-quotas get-service-quota \
     --service-code $servicename\
     --quota-code $code --region=$region 
 ```
-
-
+### 根据名字获得code
+```
+aws service-quotas list-aws-default-service-quotas \
+    --service-code $servicename --query  'Quotas[?QuotaName==`$name`].QuotaCode' --output text --region=$region 
+```
 ## 选profile
 
 ```
