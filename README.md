@@ -37,7 +37,7 @@ code=$(aws service-quotas list-aws-default-service-quotas --service-code $servic
 ```
 aws service-quotas get-service-quota \
     --service-code $servicename\
-    --quota-code $code --region=$region 
+    --quota-code $code --region=$region --query  'Quota[*].[QuotaName,Value]' --output table
 ```
 
 ## 选profile
