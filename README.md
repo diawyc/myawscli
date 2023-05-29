@@ -1,5 +1,17 @@
 # [I love aws cli](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/index.html#cli-aws)
 
+## service quota
+```
+code=L-0263D0A3
+region=us-east-1
+```
+```
+aws service-quotas get-aws-default-service-quota \
+    --service-code ec2 \
+    --quota-code $code  --region=$region
+
+```
+
 ## 选profile
 
 ```
