@@ -8,6 +8,26 @@ export AWS_PROFILE=cnrole
 aws ec2 describe-regions
 ```
 
+## use role instead of user
+可以直接改文件或者使用
+
+
+```
+role='arn:aws-cn:iam::accountid:role/rolename'
+profile=
+sessionname=
+region=
+```
+
+```
+aws configure set role_arn $role
+aws configure set source_profile $profile
+aws configure set role_session_name $sessionname
+aws configure set region $region
+aws configure set output json
+
+```
+
 ## regions
 ```
 regions=($(aws ec2 describe-regions --query 'Regions[*].RegionName' --output text --region=us-east-1))
