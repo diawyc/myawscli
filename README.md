@@ -34,8 +34,7 @@ aws service-quotas list-aws-default-service-quotas \
 ```
 aws service-quotas list-aws-default-service-quotas \
     --service-code $servicename --query  'Quotas[?QuotaName==`Managed policies per role`].QuotaCode' --output text --region=$region 
-    
-    ```
+```
 ## 选profile
 
 ```
