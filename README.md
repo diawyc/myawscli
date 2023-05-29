@@ -15,7 +15,7 @@ aws service-quotas get-aws-default-service-quota \
 
 ```
 aws service-quotas list-aws-default-service-quotas \
-    --service-code $servicename --query  'Quotas[*].[QuotaName,Value]' --output table
+    --service-code $servicename --query  'Quotas[*].[QuotaName,Value]' --output table --region=$reigon
 ```
 
 L-0DA4ABF3
