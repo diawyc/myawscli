@@ -59,14 +59,9 @@ aws service-quotas get-aws-default-service-quota \
 ```
 
 ### 根据名字获得code
-这个变量代不进去
+
 ```
-aws service-quotas list-aws-default-service-quotas \
-    --service-code $servicename --query  'Quotas[?QuotaName==`$name`].QuotaCode' --output text --region=$region 
-```
-```
-aws service-quotas list-aws-default-service-quotas \
-    --service-code $servicename --query  'Quotas[?QuotaName==$name].QuotaCode' --output text --region=$region 
+eval "aws service-quotas list-aws-default-service-quotas --service-code $servicename --query  'Quotas[?QuotaName==\`$name\`].QuotaCode' --output text --region=$region"
 ```
 ```
 code=$(aws service-quotas list-aws-default-service-quotas --service-code $servicename --query 'Quotas[?QuotaName==`Managed policies per role`].QuotaCode' --output text --region=$region)
