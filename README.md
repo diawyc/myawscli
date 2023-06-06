@@ -48,7 +48,7 @@ name='Managed policies per role'
 ```
 ```
 aws service-quotas get-aws-default-service-quota \
-    --service-code ec2 \
+    --service-code $servicename \
     --quota-code $code  --region=$region
 
 ```
