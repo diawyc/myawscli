@@ -42,8 +42,8 @@ done
 ## service quota
 ```
 code=L-0DA4ABF3
-region=us-east-1
-servicename=iam
+region=cn-north-1
+servicename=lambda
 name='Managed policies per role'
 ```
 ```
