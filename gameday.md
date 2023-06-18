@@ -22,3 +22,13 @@ vpcid=(aws ec2 describe-vpcs --query 'Vpcs[?IsDefault!=`true`].VpcId' --output t
 ```
 ## run CFN to create network components
 
+```
+stackname=gamedaynetwork
+template=gameday-network.yml
+```
+```
+
+aws cloudformation create-stack --stack-name $stackname --template-body file://$template \
+--capabilities CAPABILITY_NAMED_IAM 
+```
+
