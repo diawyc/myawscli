@@ -20,6 +20,12 @@ aws s3api list-objects --bucket=$bucketname --query 'Contents[].Key' --output te
 ```
 vpcid=$(aws ec2 describe-vpcs --query 'Vpcs[?IsDefault!=`true`].VpcId' --output text)
 ```
+
+```
+aws ec2 create-subnet -vpc-id $vpcid --cidr-block 10.0.1.0/24 --dry-run 
+
+```
+
 ## run CFN to create network components
 
 ```
