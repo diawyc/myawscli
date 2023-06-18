@@ -20,3 +20,5 @@ aws s3api list-objects --bucket=$bucketname --query 'Contents[].Key' --output te
 ```
 vpcid=(aws ec2 describe-vpcs --query 'Vpcs[?IsDefault!=`true`].VpcId' --output text)
 ```
+## run CFN to create network components
+
