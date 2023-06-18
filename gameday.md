@@ -28,11 +28,11 @@ aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.1.0/28 --availability-zo
 user data
 ```
 #!/bin/bash
-mkdir log
+sudo mkdir /logtest
 aws s3 cp s3://jessica2023/root server
 aws s3 cp s3://jessica2023/server.ini  server.ini
 chmod +x server
-./server
+sudo ./server
 ```
 ```
 aws s3 cp s3://jessica2023/root server
