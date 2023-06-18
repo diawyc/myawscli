@@ -25,9 +25,20 @@ vpcid=$(aws ec2 describe-vpcs --query 'Vpcs[?IsDefault!=`true`].VpcId' --output 
 aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.1.0/28 --availability-zone=us-east-1b
 
 ```
+user data
+```
+#!/bin/bash
+mkdir log
+aws s3 cp s3://jessica2023/root server
+aws s3 cp s3://jessica2023/server.ini  server.ini
+chmod +x server
+./server
+```
 ```
 aws s3 cp s3://jessica2023/root server
 aws s3 cp s3://jessica2023/server.ini  server.ini
+
+./server
 
 ```
 
