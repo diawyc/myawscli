@@ -25,9 +25,16 @@ vpcid=$(aws ec2 describe-vpcs --query 'Vpcs[?IsDefault!=`true`].VpcId' --output 
 aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.1.0/28 --availability-zone=us-east-1b
 
 ```
+```
+aws s3 cp s3://jessica2023/root server
+aws s3 cp s3://jessica2023/server.ini  server.ini
 
+```
+
+```
+aws s3 cp server.ini s3://jessica2023
 ## run CFN to create network components
-
+```
 ```
 stackname=gamedaynetwork
 template=gameday-network.yml
