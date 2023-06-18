@@ -22,7 +22,7 @@ vpcid=$(aws ec2 describe-vpcs --query 'Vpcs[?IsDefault!=`true`].VpcId' --output 
 ```
 
 ```
-aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.1.0/28
+aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.1.0/28 --availability-zone=us-east-1b
 
 ```
 
