@@ -4,9 +4,10 @@ https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-vp
 ```
 vpcid=$(aws ec2 create-default-vpc --query 'Vpc.Vpcid' --output text)  
 ```
-## create a VPC
+## [create a VPC]([url](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-vpc.html))
+tag打不上，有问题，sample少了个S
 ```
 vpcid=$(aws ec2 create-vpc \
     --cidr-block 10.0.0.0/16 \
-    --tag-specification ResourceType=vpc,Tags=[{Key=Name,Value=awsthreetierworkshop}] --query 'Vpc.Vpcid' --output text --dry-run)  
+    --tag-specifications ResourceType=vpc,Tags=[{Key=Name,Value=awsthreetierworkshop}] --query 'Vpc.Vpcid' --output text --dry-run)  
     ```
