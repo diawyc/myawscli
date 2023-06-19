@@ -47,12 +47,13 @@ aws iam list-attached-role-policies --role-name=$rolename
 ### VPC and Subnets
 ```
 vpcid=$(aws ec2 create-vpc --cidr-block 10.0.0.0/16 --query 'Vpc.Vpcid' --output text)
-aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.1.0/28 --availability-zone=cn-northwest-1a
-aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.2.0/28 --availability-zone=cn-northwest-1a
-aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.3.0/28 --availability-zone=cn-northwest-1a
-aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.4.0/28 --availability-zone=cn-northwest-1b
-aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.5.0/28 --availability-zone=cn-northwest-1b
-aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.6.0/28 --availability-zone=cn-northwest-1b
+aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.1.0/28 --availability-zone=cn-northwest-1a --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Public-Web-1}]' 
+aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.2.0/28 --availability-zone=cn-northwest-1a --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Private-App-1}]' 
+aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.3.0/28 --availability-zone=cn-northwest-1a --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Private-DB-1}]' 
+aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.4.0/28 --availability-zone=cn-northwest-1b --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Public-Web-2}]' 
+aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.5.0/28 --availability-zone=cn-northwest-1b --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Private-App-2}]' 
+aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.6.0/28 --availability-zone=cn-northwest-1b --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Private-DB-2}]' 
+, Private-App-Subnet-AZ-1, Private-DB-Subnet-AZ-1
 
 ```
 
