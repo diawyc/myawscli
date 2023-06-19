@@ -46,7 +46,10 @@ aws iam list-attached-role-policies --role-name=$rolename
 ## Part 1: Networking and Security
 ### VPC and Subnets
 ```
-vpcid=$(aws ec2 create-vpc --cidr-block 10.0.0.0/16 --query 'Vpc.Vpcid' --output text)
+vpcid=$(aws ec2 create-vpc \
+    --cidr-block 10.0.0.0/16 \
+    --tag-specifications 'ResourceType=vpc,Tags=[{Key=Name,Value=awsthreetierworkshop}]'\
+    --query 'Vpc.VpcId' --output text)
 aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.1.0/28 --availability-zone=cn-northwest-1a --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Public-Web-1}]' 
 aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.2.0/28 --availability-zone=cn-northwest-1a --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Private-App-1}]' 
 aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.3.0/28 --availability-zone=cn-northwest-1a --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Private-DB-1}]' 
