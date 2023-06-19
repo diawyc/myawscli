@@ -81,4 +81,4 @@ sudo chmod 777 server
 sudo ./server
 ```
 成功后出现下图
-![webpage](/应用成功运行.png)
+![webpage](GameDay/应用成功运行.png)
