@@ -35,7 +35,7 @@ sudo amazon-linux-extras install postgresql14
 ```
 ```
 psql \
-   --host=jessica.cluster-cdswaxxyyxn0.us-east-1.rds.amazonaws.com\
+   --host=dbname.cluster-cdswaxxyyxn0.us-east-1.rds.amazonaws.com\
    --port=5432 \
    --username=postgres \
    --password \
@@ -81,3 +81,4 @@ sudo chmod 777 server
 sudo ./server
 ```
 成功后出现下图
+[webpage](/应用成功运行.png)
