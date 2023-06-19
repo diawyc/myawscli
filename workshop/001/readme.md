@@ -9,7 +9,7 @@ In this architecture, a public-facing Application Load Balancer forwards client 
 
 See [AWS Three Tier Web Architecture](https://catalog.us-east-1.prod.workshops.aws/workshops/85cd2bb2-7f79-4e96-bdee-8078e469752a/en-US)
 
-
+# CLI
 ## Part 0
 ### S3 Bucket Creation
 ```
@@ -43,5 +43,9 @@ policyname=AmazonS3ReadOnlyAccess
 aws iam attach-role-policy --role-name=$rolename --policy-arn arn:aws-cn:iam::aws:policy/$policyname
 aws iam list-attached-role-policies --role-name=$rolename
 ```
+## Part 1: Networking and Security
+### VPC and Subnets
+```
 
+```
 
