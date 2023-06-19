@@ -47,7 +47,12 @@ aws iam list-attached-role-policies --role-name=$rolename
 ### VPC and Subnets
 ```
 vpcid=$(aws ec2 create-vpc --cidr-block 10.0.0.0/16 --query 'Vpc.Vpcid' --output text)
-aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.1.0/28 --availability-zone=us-east-1b
+aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.1.0/28 --availability-zone=cn-northwest-1a
+aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.2.0/28 --availability-zone=cn-northwest-1a
+aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.3.0/28 --availability-zone=cn-northwest-1a
+aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.4.0/28 --availability-zone=cn-northwest-1b
+aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.5.0/28 --availability-zone=cn-northwest-1b
+aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.6.0/28 --availability-zone=cn-northwest-1b
 
 ```
 
