@@ -95,3 +95,7 @@ subnet=
 aws ec2 associate-route-table --route-table-id $rtb --subnet-id $subnet
 
 ```
+找到之前的两个NAT
+```
+aws ec2 describe-nat-gateways --query 'NatGateways[].[NatGatewayId,VpcId,SubnetId]' --output table
+```
