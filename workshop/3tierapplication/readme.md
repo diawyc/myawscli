@@ -76,9 +76,10 @@ aws ec2 describe-subnets --query 'Subnets[?VpcId==`vpc-06b52efb9f0dd54f7`].[Tags
 ```
 ```
 subnet=
+eip=$(aws ec2 allocate-address --query 'AllocationId' --output text )
 ```
 ```
 aws ec2 create-nat-gateway \
     --subnet-id $subnet \
-    --allocation-id eipalloc-09ad461b0dEXAMPLE
+    --allocation-id $eip
 ```
