@@ -101,23 +101,23 @@ aws ec2 associate-route-table --route-table-id $rtb --subnet-id $subnet
 aws ec2 describe-nat-gateways --query 'NatGateways[].[NatGatewayId,VpcId,SubnetId]' --output table
 ```
 ```
-nat-az-1=nat-0a63d17f564fb0f81
-nat-za-2=nat-05e70be262eea345e
-private-subnet1=subnet-043129110913f5e19
-private-subnet2=subnet-075a7070eff627dda
+nat1=nat-0a63d17f564fb0f81
+nat2=nat-05e70be262eea345e
+privat1=subnet-043129110913f5e19
+privat2=subnet-075a7070eff627dda
 ```
 ```
 rtb1=$( aws ec2 create-route-table --vpc-id $vpcid --query 'RouteTable.RouteTableId' --output text)
 echo $rtb1
-aws ec2 create-route --route-table-id $rtb --destination-cidr-block 0.0.0.0/0 --gateway-id $nat-az-1
-aws ec2 associate-route-table --route-table-id $rtb --subnet-id $private-subnet1
+aws ec2 create-route --route-table-id $rtb --destination-cidr-block 0.0.0.0/0 --gateway-id $nat1
+aws ec2 associate-route-table --route-table-id $rtb --subnet-id $private1
 
 ```
 
 ```
 rtb1=$( aws ec2 create-route-table --vpc-id $vpcid --query 'RouteTable.RouteTableId' --output text)
 echo $rtb1
-aws ec2 create-route --route-table-id $rtb --destination-cidr-block 0.0.0.0/0 --gateway-id $nat-az-1
-aws ec2 associate-route-table --route-table-id $rtb --subnet-id $private-subnet1
+aws ec2 create-route --route-table-id $rtb --destination-cidr-block 0.0.0.0/0 --gateway-id $nat2
+aws ec2 associate-route-table --route-table-id $rtb --subnet-id $private2
 
 ```
