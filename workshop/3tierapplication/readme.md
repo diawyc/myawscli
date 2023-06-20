@@ -44,7 +44,7 @@ aws iam attach-role-policy --role-name=$rolename --policy-arn arn:aws-cn:iam::aw
 aws iam list-attached-role-policies --role-name=$rolename
 ```
 ## Part 1: Networking and Security
-### VPC and Subnets
+### 1.VPC and Subnets
 ```
 vpcid=$(aws ec2 create-vpc \
     --cidr-block 10.0.0.0/16 \
@@ -57,7 +57,7 @@ aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.4.0/28 --availability-zo
 aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.5.0/28 --availability-zone=cn-northwest-1b --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Private-App-2}]' --no-cli-pager
 aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.6.0/28 --availability-zone=cn-northwest-1b --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Private-DB-2}]' --no-cli-pager
 ```
-### Internet Connectivity
+### 2.Internet Connectivity
 ```
 igwid=$(aws ec2 create-internet-gateway \
     --tag-specifications 'ResourceType=internet-gateway,Tags=[{Key=Name,Value=3tier-workshop-igw}]'\
@@ -85,7 +85,7 @@ nat=$(aws ec2 create-nat-gateway \
     --allocation-id $eip --query 'NatGateway.NatGatewayId' --output text)
 echo $nat
 ```
-###  Routing Configuration
+###  3.Routing Configuration
 ```
 rtb=$( aws ec2 create-route-table --vpc-id $vpcid --query 'RouteTable.RouteTableId' --output text)
 echo $rtb
@@ -121,3 +121,4 @@ aws ec2 create-route --route-table-id $rtb2 --destination-cidr-block 0.0.0.0/0 -
 aws ec2 associate-route-table --route-table-id $rtb2 --subnet-id $private2
 
 ```
+### 4.Security Groups
