@@ -59,7 +59,8 @@ aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.6.0/28 --availability-zo
 ```
 ### Internet Connectivity
 ```
-igwid=$(
+igwid=$(aws ec2 create-internet-gateway \
+    --tag-specifications 'ResourceType=internet-gateway,Tags=[{Key=Name,Value=3tier-workshop-igw}'--query 'InternetGateway.InternetGatewayId' --output text]
     )
 echo $igwid
 ```
