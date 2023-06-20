@@ -67,7 +67,7 @@ echo $igwid
 ```
 aws ec2 attach-internet-gateway \
     --internet-gateway-id $igwid\
-    --vpc-id $vpcid
+    --vpc-id $vpcid 
 ```
 #### NAT Gateway
 列出之前创建的6个subnetsID,找到两个public的
@@ -80,9 +80,10 @@ echo $eip
 subnet=
 ```
 ```
-aws ec2 create-nat-gateway \
+nat=$(aws ec2 create-nat-gateway \
     --subnet-id $subnet \
-    --allocation-id $eip
+    --allocation-id $eip --query 'NatGateway.NatGatewayId' --output text)
+echo $nat
 ```
 ###  Routing Configuration
 ```
