@@ -103,8 +103,8 @@ aws ec2 describe-nat-gateways --query 'NatGateways[].[NatGatewayId,VpcId,SubnetI
 ```
 nat1=nat-0a63d17f564fb0f81
 nat2=nat-05e70be262eea345e
-privat1=subnet-043129110913f5e19
-privat2=subnet-075a7070eff627dda
+private1=subnet-043129110913f5e19
+private2=subnet-075a7070eff627dda
 ```
 ```
 rtb1=$( aws ec2 create-route-table --vpc-id $vpcid --query 'RouteTable.RouteTableId' --output text)
