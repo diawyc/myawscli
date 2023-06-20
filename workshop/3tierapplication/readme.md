@@ -91,6 +91,7 @@ echo $rtb
 aws ec2 create-route --route-table-id $rtb --destination-cidr-block 0.0.0.0/0 --gateway-id $igwid
 ```
 ```
-aws ec2 associate-route-table --route-table-id $rtb --subnet-id $subnet
 subnet=
+aws ec2 associate-route-table --route-table-id $rtb --subnet-id $subnet
+
 ```
