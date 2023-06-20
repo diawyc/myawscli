@@ -115,8 +115,8 @@ aws ec2 associate-route-table --route-table-id $rtb --subnet-id $private1
 ```
 
 ```
-rtb1=$( aws ec2 create-route-table --vpc-id $vpcid --query 'RouteTable.RouteTableId' --output text)
-echo $rtb1
+rtb2=$( aws ec2 create-route-table --vpc-id $vpcid --query 'RouteTable.RouteTableId' --output text)
+echo $rtb2
 aws ec2 create-route --route-table-id $rtb --destination-cidr-block 0.0.0.0/0 --gateway-id $nat2
 aws ec2 associate-route-table --route-table-id $rtb --subnet-id $private2
 
