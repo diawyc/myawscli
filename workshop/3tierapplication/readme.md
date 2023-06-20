@@ -70,13 +70,14 @@ aws ec2 attach-internet-gateway \
     --vpc-id $vpcid
 ```
 ### NAT Gateway
-列出之前创建的6个subnetsID
+列出之前创建的6个subnetsID,找到两个public的
 ```
 aws ec2 describe-subnets --query 'Subnets[?VpcId==`vpc-06b52efb9f0dd54f7`].[Tags[0].Value,SubnetId]' --output table 
 ```
 ```
-subnet=
 eip=$(aws ec2 allocate-address --query 'AllocationId' --output text )
+echo $eip
+subnet=
 ```
 ```
 aws ec2 create-nat-gateway \
