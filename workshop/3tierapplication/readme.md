@@ -88,6 +88,7 @@ aws ec2 create-nat-gateway \
 ```
 rtb=$(aws ec2 create-route-table --vpc-id $vpcid)
 echo $rtb
+aws ec2 create-route --route-table-id $rtb --destination-cidr-block 0.0.0.0/0 --gateway-id $igwid
 ```
 ```
 aws ec2 associate-route-table --route-table-id $rtb --subnet-id $subnet
