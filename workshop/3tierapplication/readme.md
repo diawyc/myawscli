@@ -69,6 +69,16 @@ aws ec2 attach-internet-gateway \
     --internet-gateway-id $igwid\
     --vpc-id $vpcid
 ```
-### NAT
+### NAT Gateway
+列出之前创建的6个subnetsID
 ```
+aws ec2 describe-subnets --query 'Subnets[?VpcId==`vpc-06b52efb9f0dd54f7`].[Tags[0].Value,SubnetId]' --output table 
+```
+```
+subnet=
+```
+```
+aws ec2 create-nat-gateway \
+    --subnet-id $subnet \
+    --allocation-id eipalloc-09ad461b0dEXAMPLE
 ```
