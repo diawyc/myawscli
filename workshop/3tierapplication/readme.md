@@ -69,7 +69,7 @@ aws ec2 attach-internet-gateway \
     --internet-gateway-id $igwid\
     --vpc-id $vpcid
 ```
-### NAT Gateway
+#### NAT Gateway
 列出之前创建的6个subnetsID,找到两个public的
 ```
 aws ec2 describe-subnets --query 'Subnets[?VpcId==`vpc-06b52efb9f0dd54f7`].[Tags[0].Value,SubnetId]' --output table 
@@ -83,4 +83,8 @@ subnet=
 aws ec2 create-nat-gateway \
     --subnet-id $subnet \
     --allocation-id $eip
+```
+###  Routing Configuration
+```
+aws ec2 create-route-table --vpc-id $vpcid
 ```
