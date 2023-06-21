@@ -35,7 +35,7 @@ aws rds create-db-cluster \
     --master-username admin \
     --master-user-password secret99 \
     --db-subnet-group-name $name \
-    --vpc-security-group-ids $sg
+    --vpc-security-group-ids $sg --query 'DBCluster.Endpoint' --output text
 ```
 
 [back to readme](readme.md)
