@@ -48,4 +48,6 @@ echo $dbendpoint
 aws rds create-db-instance --db-instance-identifier $dbname \
      --db-cluster-identifier $dbname --engine aurora-mysql --db-instance-class db.r5.large
 ```
+
+[reference](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.CreateInstance.html)
 [back to readme](readme.md)
