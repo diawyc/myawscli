@@ -21,7 +21,8 @@ aws ec2 run-instances \
     --instance-type $type \
     --subnet-id $subnet \
     --security-group-ids $sg \
-    --iam-instance-profile $role
+    --iam-instance-profile $role \
+--tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=Applayer}]' 
 
 
 
