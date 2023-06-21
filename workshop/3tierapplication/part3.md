@@ -20,6 +20,7 @@ aws ec2 run-instances \
     --instance-type $type \
     --subnet-id $subnet \
     --security-group-ids $sg \
+    --iam-instance-profile $role
 
 
 
