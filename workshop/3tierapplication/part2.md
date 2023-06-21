@@ -10,16 +10,31 @@ des='subnetgroup for database mysql '
 
 ```
 ```
-subnetgroup=$(aws rds create-db-subnet-group \
+aws rds create-db-subnet-group \
     --db-subnet-group-name $name \
     --db-subnet-group-description $des \
-    --subnet-ids '["subnet-056292e902d22a7e1","subnet-036b90652a69b55ec"]' --query 'DBSubnetGroup.Subnets[].SubnetIdentifier' --output text)
+    --subnet-ids '["subnet-056292e902d22a7e1","subnet-036b90652a69b55ec"]' 
 
 ```
 
 ## Database Deployment
 
+```
+dbname='threetierDB'
+type=aurora-mysql
+```
+
+```
+aws rds create-db-cluster \
+    --db-cluster-identifier $dbname \
+    --engine $type \
+    --engine-version 5.7 \
+    --master-username admin \
+    --master-user-password secret99 \
+    --db-subnet-group-name $name \
+    --vpc-security-group-ids sg-0b9130572daf3dc16
 
 
+```
 
 [back to readme](readme.md)
