@@ -13,7 +13,7 @@ ami=ami-06520f8b43f60048c
 subnet=subnet-043129110913f5e19
 sg=sg-0ba686ac638d76062
 type=t2.micro
-role='workshopec2role'
+roleid=$(aws iam list-roles --query 'Roles[?RoleName==`workshopec2role`].RoleId' --output text)
 ```
 ```
 aws ec2 run-instances \
@@ -21,7 +21,7 @@ aws ec2 run-instances \
     --instance-type $type \
     --subnet-id $subnet \
     --security-group-ids $sg \
-    --iam-instance-profile $role \
+    --iam-instance-profile $roleid \
 --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=Applayer}]' 
 
 
