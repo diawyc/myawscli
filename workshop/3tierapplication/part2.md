@@ -18,7 +18,9 @@ aws rds create-db-subnet-group \
 ```
 
 ## Database Deployment
-
+```
+aws ec2 describe-security-groups --query 'SecurityGroups[?VpcId==`vpc-06b52efb9f0dd54f7`].[GroupName,GroupId]' --output table
+```
 ```
 dbname='threetierDB'
 type=aurora-mysql
