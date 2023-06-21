@@ -14,7 +14,7 @@ sub2='subnet-036b90652a69b55ec'
 aws rds create-db-subnet-group \
     --db-subnet-group-name $name \
     --db-subnet-group-description $des \
-    --subnet-ids $sub1,$sub2]'
+    --subnet-ids $sub1,$sub2
 
 ```
 
