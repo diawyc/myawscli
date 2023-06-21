@@ -34,6 +34,7 @@ id="i-0dcd53c37b94bebd2"
 aws ssm start-session \
     --target $id
 ```
+exit断开session
 ## Configure Database
 ## Configure App Instance
 ## Test App Tier
