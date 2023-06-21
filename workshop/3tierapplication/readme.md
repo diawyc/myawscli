@@ -10,39 +10,7 @@ In this architecture, a public-facing Application Load Balancer forwards client 
 See [AWS Three Tier Web Architecture](https://catalog.us-east-1.prod.workshops.aws/workshops/85cd2bb2-7f79-4e96-bdee-8078e469752a/en-US)
 
 # CLI
-## Part 0
-### S3 Bucket Creation
-```
-bucketregion=cn-northwest-1
-bucketname=workshopcode2023
-filename=
-```
-```
-aws s3api create-bucket \
-    --bucket $bucketname \
-    --region $bucketregion \
-    --create-bucket-configuration LocationConstraint=$bucketregion
-```
-
-### IAM EC2 Instance Role Creation
-```
-rolename=workshopec2role
-trustfile=trustpolicy-service.json
-
-```
-
-```
-rolearn=$(aws iam create-role --role-name $rolename --assume-role-policy-document file://$trustfile --query 'Role.Arn' --output text)
-echo $rolearn
-
-```
-```
-policyname=AmazonSSMManagedInstanceCore
-aws iam attach-role-policy --role-name=$rolename --policy-arn arn:aws-cn:iam::aws:policy/$policyname
-policyname=AmazonS3ReadOnlyAccess
-aws iam attach-role-policy --role-name=$rolename --policy-arn arn:aws-cn:iam::aws:policy/$policyname
-aws iam list-attached-role-policies --role-name=$rolename
-```
+Part 0
 ## Part 1: Networking and Security
 ### 1.VPC and Subnets
 ```
