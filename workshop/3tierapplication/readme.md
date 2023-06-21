@@ -131,7 +131,7 @@ des='external load banlancer security group'
 ```
 groupid=$(aws ec2 create-security-group --group-name $sgname --description $des --vpc-id $vpcid --tag-specifications 'ResourceType=security-group,Tags=[{Key=Name,Value=2.internet-lb}]' --query 'GroupId' --output text)
 echo $groupid
-sourcesg=$groupid
+
 ```
 ```
 aws ec2 authorize-security-group-ingress \
@@ -142,8 +142,10 @@ aws ec2 authorize-security-group-ingress \
 ```
 #### step 3
 ```
+sourcesg=$groupid
 sgname='WebTierSg'
 des='sg for the web tier'
+
 ```
 ```
 groupid=$(aws ec2 create-security-group --group-name $sgname --description $des --vpc-id $vpcid --tag-specifications 'ResourceType=security-group,Tags=[{Key=Name,Value=3.webtier}]' --query 'GroupId' --output text)
