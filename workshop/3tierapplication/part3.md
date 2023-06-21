@@ -29,6 +29,9 @@ echo $id
 ```
 ## Connect to Instance
 ```
+aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId,Tags[?Key==`Name`].Value]' --output table
+```
+```
 id="i-0dcd53c37b94bebd2"
 
 aws ssm start-session \
