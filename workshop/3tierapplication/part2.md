@@ -22,6 +22,7 @@ aws rds create-db-subnet-group \
 ```
 dbname='threetierDB'
 type=aurora-mysql
+sg=sg-0d10449341610d9bf
 ```
 
 ```
@@ -32,9 +33,7 @@ aws rds create-db-cluster \
     --master-username admin \
     --master-user-password secret99 \
     --db-subnet-group-name $name \
-    --vpc-security-group-ids sg-0b9130572daf3dc16
-
-
+    --vpc-security-group-ids $sg
 ```
 
 [back to readme](readme.md)
