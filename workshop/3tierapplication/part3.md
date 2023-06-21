@@ -16,18 +16,24 @@ type=t2.micro
 role=workshopec2role
 ```
 ```
-aws ec2 run-instances \
+id=$(aws ec2 run-instances \
     --image-id $ami\
     --instance-type $type \
     --subnet-id $subnet \
     --security-group-ids $sg \
     --iam-instance-profile Name=$role \
---tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=Applayer}]' 
+--tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=Applayer}]' --query 'Instances[].InstanceId' --output text)
 
-
+echo $id
 
 ```
 ## Connect to Instance
+```
+id="i-0dcd53c37b94bebd2"
+
+aws ssm start-session \
+    --target $id
+```
 ## Configure Database
 ## Configure App Instance
 ## Test App Tier
