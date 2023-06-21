@@ -194,6 +194,11 @@ sgname='Private-instance'
 des='sg for the private app tier instance'
 ```
 ```
+groupid=$(aws ec2 create-security-group --group-name $sgname --description $des --vpc-id $vpcid --tag-specifications 'ResourceType=security-group,Tags=[{Key=Name,Value=Private-instance}]' --query 'GroupId' --output text)
+echo $groupid
+```
+
+```
 aws ec2 authorize-security-group-ingress \
     --group-id $groupid \
     --protocol tcp \
@@ -203,5 +208,25 @@ aws ec2 authorize-security-group-ingress \
     --group-id $groupid \
     --protocol tcp \
     --port 4000 \
+    --source-group $sourcesg
+```
+#### step 6
+
+```
+sourcesg=$groupid
+echo $sourcesg
+sgname='DB-private'
+des='sg for the private database'
+```
+```
+groupid=$(aws ec2 create-security-group --group-name $sgname --description $des --vpc-id $vpcid --tag-specifications 'ResourceType=security-group,Tags=[{Key=Name,Value=DB-private}]' --query 'GroupId' --output text)
+echo $groupid
+```
+```
+
+aws ec2 authorize-security-group-ingress \
+    --group-id $groupid \
+    --protocol tcp \
+    --port 3306 \
     --source-group $sourcesg
 ```
