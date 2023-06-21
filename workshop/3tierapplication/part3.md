@@ -4,6 +4,7 @@
 ```
 aws ec2 describe-subnets --query 'Subnets[?VpcId==`vpc-06b52efb9f0dd54f7`].[Tags[0].Value,SubnetId]' --output table
 aws ec2 describe-security-groups --query 'SecurityGroups[?VpcId==`vpc-06b52efb9f0dd54f7`].[GroupName,GroupId]' --output table
+aws iam list-roles --query 'Roles[*].RoleName' --output table
 
 ```
 
