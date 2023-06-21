@@ -28,14 +28,14 @@ sg=sg-0d10449341610d9bf
 ```
 
 ```
-aws rds create-db-cluster \
+dbendpoint=$(aws rds create-db-cluster \
     --db-cluster-identifier $dbname \
     --engine $type \
     --engine-version 5.7 \
     --master-username admin \
     --master-user-password secret99 \
     --db-subnet-group-name $name \
-    --vpc-security-group-ids $sg --query 'DBCluster.Endpoint' --output text
+    --vpc-security-group-ids $sg --query 'DBCluster.Endpoint' --output text)
 ```
 
 [back to readme](readme.md)
