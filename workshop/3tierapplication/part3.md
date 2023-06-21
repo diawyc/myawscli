@@ -44,6 +44,9 @@ https://catalog.us-east-1.prod.workshops.aws/workshops/85cd2bb2-7f79-4e96-bdee-8
 aws rds describe-db-cluster-endpoints
 
 ```
+```
+mysql -h threetierdb.cluster-c2fs4j8mvbrb.rds.cn-northwest-1.amazonaws.com.cn -u admin -p
+```
 [see there](https://github.com/jessicawyc/myawscli/blob/main/workshop/3tierapplication/part2.md#database-deployment)
 ## Configure App Instance
 ## Test App Tier
