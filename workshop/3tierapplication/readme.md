@@ -123,7 +123,7 @@ aws ec2 associate-route-table --route-table-id $rtb2 --subnet-id $private2
 ```
 ### 4.Security Groups
 [cli](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-security-group.html)https://docs.aws.amazon.com/cli/latest/reference/ec2/create-security-group.html)
-step1-2
+#### step1-2
 ```
 sgname='internet-lb'
 des='external load banlancer security group'
@@ -140,7 +140,7 @@ aws ec2 authorize-security-group-ingress \
     --port 80 \
     --cidr 0.0.0.0/0
 ```
-step 3
+#### step 3
 ```
 sgname='WebTierSg'
 des='sg for the web tier'
@@ -156,6 +156,24 @@ aws ec2 authorize-security-group-ingress \
     --protocol tcp \
     --port 80 \
     --cidr 0.0.0.0/0
+aws ec2 authorize-security-group-ingress \
+    --group-id $groupid \
+    --protocol tcp \
+    --port 80 \
+    --source-group $sourcesg
+```
+#### step 4
+```
+sourcesg=$groupid
+sgname='Internal-LB'
+des='sg for the internal load balancer'
+```
+```
+groupid=$(aws ec2 create-security-group --group-name $sgname --description $des --vpc-id $vpcid --tag-specifications 'ResourceType=security-group,Tags=[{Key=Name,Value=webtier}]' --query 'GroupId' --output text)
+echo $groupid
+
+```
+```
 aws ec2 authorize-security-group-ingress \
     --group-id $groupid \
     --protocol tcp \
