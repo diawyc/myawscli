@@ -178,5 +178,30 @@ aws ec2 authorize-security-group-ingress \
     --group-id $groupid \
     --protocol tcp \
     --port 80 \
+    --cidr 0.0.0.0/0
+aws ec2 authorize-security-group-ingress \
+    --group-id $groupid \
+    --protocol tcp \
+    --port 80 \
+    --source-group $sourcesg
+```
+#### step 5
+
+```
+sourcesg=$groupid
+echo $sourcesg
+sgname='Private-instance'
+des='sg for the private app tier instance'
+```
+```
+aws ec2 authorize-security-group-ingress \
+    --group-id $groupid \
+    --protocol tcp \
+    --port 80 \
+    --cidr 0.0.0.0/0
+aws ec2 authorize-security-group-ingress \
+    --group-id $groupid \
+    --protocol tcp \
+    --port 4000 \
     --source-group $sourcesg
 ```
