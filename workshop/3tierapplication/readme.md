@@ -128,4 +128,5 @@ des='external load banlancer security group'
 ```
 ```
 groupid=$(aws ec2 create-security-group --group-name $sgname --description $des --vpc-id $vpcid --tag-specifications 'ResourceType=security-group,Tags=[{Key=Name,Value=$sgname}]' --query 'GroupId' --output text)
+echo $groupid
 ```
