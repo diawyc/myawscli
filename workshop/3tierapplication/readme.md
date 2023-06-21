@@ -124,4 +124,8 @@ aws ec2 associate-route-table --route-table-id $rtb2 --subnet-id $private2
 ### 4.Security Groups[cli]([url](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-security-group.html)https://docs.aws.amazon.com/cli/latest/reference/ec2/create-security-group.html)
 ```
 sgname='internet-lb'
+des='external load banlancer security group'
+```
+```
+aws ec2 create-security-group --group-name $sgname --description $des --vpc-id $vpcid --tag-specifications 'ResourceType=security-group,Tags=[{Key=Name,Value=$sgname}]' 
 ```
