@@ -147,6 +147,7 @@ des='sg for the web tier'
 ```
 groupid=$(aws ec2 create-security-group --group-name $sgname --description $des --vpc-id $vpcid --tag-specifications 'ResourceType=security-group,Tags=[{Key=Name,Value=webtier}]' --query 'GroupId' --output text)
 echo $groupid
+tartgetsg=$groupid
 ```
 ```
 aws ec2 authorize-security-group-ingress \
@@ -158,5 +159,5 @@ aws ec2 authorize-security-group-ingress \
     --group-id $groupid \
     --protocol tcp \
     --port 80 \
-    --cidr 0.0.0.0/0
+    --cidr $tartgetsg
 ```
