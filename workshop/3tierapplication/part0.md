@@ -31,4 +31,9 @@ policyname=AmazonS3ReadOnlyAccess
 aws iam attach-role-policy --role-name=$rolename --policy-arn arn:aws-cn:iam::aws:policy/$policyname
 aws iam list-attached-role-policies --role-name=$rolename
 ```
+```
+aws iam create-instance-profile --instance-profile-name $rolename
+aws iam add-role-to-instance-profile --role-name $rolename --instance-profile-name $rolename
+```
+
 [back to table of content](readme.md)
