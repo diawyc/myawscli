@@ -39,6 +39,8 @@ dbendpoint=$(aws rds create-db-cluster \
 --no-publicly-accessible \
     --vpc-security-group-ids $sg \
 --query 'DBCluster.Endpoint' --output text)
+
+echo $dbendpoint
 ```
 
 [back to readme](readme.md)
