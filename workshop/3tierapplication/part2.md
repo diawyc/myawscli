@@ -10,10 +10,10 @@ des='subnetgroup for database mysql '
 
 ```
 ```
-aws rds create-db-subnet-group \
+subnetgroup=$(aws rds create-db-subnet-group \
     --db-subnet-group-name $name \
     --db-subnet-group-description $des \
-    --subnet-ids '["subnet-056292e902d22a7e1","subnet-036b90652a69b55ec"]'
+    --subnet-ids '["subnet-056292e902d22a7e1","subnet-036b90652a69b55ec"]' --query 'DBSubnetGroup.Subnets[].SubnetIdentifier' --output text)
 
 ```
 
