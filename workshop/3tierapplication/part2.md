@@ -45,7 +45,7 @@ dbendpoint=$(aws rds create-db-cluster \
 echo $dbendpoint
 ```
 ```
-aws rds create-db-instance --db-instance-identifier $dbname
-     --db-cluster-identifier $dbname --engine aurora-mysql --db-instance-class db.r4.large --db-parameter-group aurora_pg --port 3306
+aws rds create-db-instance --db-instance-identifier $dbname \
+     --db-cluster-identifier $dbname --engine aurora-mysql --db-instance-class db.r5.large
 ```
 [back to readme](readme.md)
