@@ -204,7 +204,7 @@ echo $groupid
 aws ec2 authorize-security-group-ingress \
     --group-id $groupid \
     --protocol tcp \
-    --port 80 \
+    --port 4000 \
     --cidr 0.0.0.0/0
 aws ec2 authorize-security-group-ingress \
     --group-id $groupid \
