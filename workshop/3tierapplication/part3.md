@@ -40,7 +40,11 @@ aws ssm start-session \
 exit断开session
 ## Configure Database
 https://catalog.us-east-1.prod.workshops.aws/workshops/85cd2bb2-7f79-4e96-bdee-8078e469752a/en-US/part3/configuredatabase
+```
+aws rds describe-db-cluster-endpoints
 
+```
+[see there](https://github.com/jessicawyc/myawscli/blob/main/workshop/3tierapplication/part2.md#database-deployment)
 ## Configure App Instance
 ## Test App Tier
 
