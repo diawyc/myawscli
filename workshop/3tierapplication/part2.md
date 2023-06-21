@@ -25,6 +25,7 @@ aws ec2 describe-security-groups --query 'SecurityGroups[?VpcId==`vpc-06b52efb9f
 dbname='threetierDB'
 type=aurora-mysql
 sg=sg-0d10449341610d9bf
+name='threetierdb'
 ```
 
 ```
