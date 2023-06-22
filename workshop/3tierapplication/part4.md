@@ -37,6 +37,20 @@ aws elbv2 create-target-group \
 ```
     
 ## Internal Load Balancer
+
+```
+name='app-tier-internal-lb'
+
+```
+
+```
+aws elbv2 create-load-balancer \
+    --name $name \
+    --scheme internal \
+    --subnets $sub1 $sub2
+
+```
+
 ## Launch Template
 ## Auto Scaling
 [back to content](readme.md)
