@@ -22,7 +22,7 @@ ImageId='ami-09bbd796941eecbe7'
 ## Target Group
 
 ```
-name='workshoptg'
+name='AppTierTargetGroup'
 ```
 
 ```
@@ -31,7 +31,8 @@ aws elbv2 create-target-group \
     --protocol HTTP \
     --port 4000 \
     --target-type instance \
-    --vpc-id $vpcid
+    --vpc-id $vpcid --health-check-path /health
+
 ```
     
 ## Internal Load Balancer
