@@ -52,14 +52,20 @@ sg=sg-02e3fe7d6ef8c38ae
 ```
 
 ```
-aws elbv2 create-load-balancer \
+lbarn=$(aws elbv2 create-load-balancer \
     --name $name \
     --scheme internal \
     --subnets $sub1 $sub2 \
-    --security-groups sg-07e8ffd50fEXAMPLE
-
+    --security-groups $sg --query 'LoadBalancers[].LoadBalancerArn' --output text)
+echo $lbarn
 ```
 
+```
+aws elbv2 create-listener --load-balancer-arn $lbarn \
+--protocol HTTP --port 80  \
+--default-actions Type=forward,TargetGroupArn=$tgarn
+
+```
 ## Launch Template
 ## Auto Scaling
 [back to content](readme.md)
