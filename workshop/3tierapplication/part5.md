@@ -2,8 +2,9 @@
 
 ## Update Config File
 
-internal-app-tier-internal-lb-1808740524.cn-northwest-1.elb.amazonaws.com.cn
-
+```
+aws elbv2 describe-load-balancers --query 'LoadBalancers[*].DNSName' --output table
+```
 
 Web Instance Deployment
 Connect to Instance
