@@ -62,4 +62,11 @@ aws ssm start-session \
     --target $id
 ```
 
+
+```
+aws configure set region cn-northwest-1
+bucketname=workshopcode2023
+cd ~/
+aws s3 cp s3://BUCKET_NAME/web-tier/ web-tier --recursive
+```
 [back to content](readme.md)
