@@ -23,6 +23,7 @@ ImageId='ami-09bbd796941eecbe7'
 
 ```
 name='AppTierTargetGroup'
+vpcid=vpc-06b52efb9f0dd54f7
 ```
 
 ```
