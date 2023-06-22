@@ -53,6 +53,7 @@ mysql -h threetierdb.cluster-c2fs4j8mvbrb.rds.cn-northwest-1.amazonaws.com.cn -u
 
 ```
 aws s3 cp aws-three-tier-web-architecture-workshop s3://workshopcode2023/ --recursive
+aws s3 ls s3://workshopcode2023/
 ```
 ## Test App Tier
 
