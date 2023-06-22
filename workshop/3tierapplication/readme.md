@@ -18,7 +18,7 @@ See [AWS Three Tier Web Architecture](https://catalog.us-east-1.prod.workshops.a
 ```
 tgarn=arn:aws-cn:elasticloadbalancing:cn-northwest-1:337075903349:targetgroup/AppTierTargetGroup/600f78217667ede8
 vpcid=vpc-06b52efb9f0dd54f7
-lbarn=arn:aws-cn:elasticloadbalancing:cn-northwest-1:337075903349:loadbalancer/app/AppTierTargetGroup/187cb13dac3ba237
+lbarn=arn:aws-cn:elasticloadbalancing:cn-northwest-1:337075903349:loadbalancer/app/app-tier-internal-lb/b960d1bde66b4465
 ImageId='ami-09bbd796941eecbe7'
 ```
 ```
