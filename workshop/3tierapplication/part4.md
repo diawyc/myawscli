@@ -100,6 +100,6 @@ aws autoscaling create-auto-scaling-group \
     --health-check-grace-period 600 \
     --min-size 2 \
     --max-size 2 \
-    --vpc-zone-identifier "subnet-5ea0c127,subnet-6194ea3b"
+    --vpc-zone-identifier "subnet-075a7070eff627dda,subnet-043129110913f5e19"
 ```
 [back to content](readme.md)
