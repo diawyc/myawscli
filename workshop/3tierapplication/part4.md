@@ -68,7 +68,7 @@ aws elbv2 create-listener --load-balancer-arn $lbarn \
 ```
 ## Launch Template
 ```
-name=AppEc2LT
+name=AppTierLaunchTemplate
 ImageId=ami-09bbd796941eecbe7
 security group Private-instance :sg-0ba686ac638d76062
 ```
