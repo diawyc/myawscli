@@ -49,7 +49,7 @@ mysql -h threetierdb.cluster-c2fs4j8mvbrb.rds.cn-northwest-1.amazonaws.com.cn -u
 ```
 [see there](https://github.com/jessicawyc/myawscli/blob/main/workshop/3tierapplication/part2.md#database-deployment)
 ## Configure App Instance
-
+aws
 ```
 bucketname=workshopcode2023
 ```
@@ -58,7 +58,9 @@ bucketname=workshopcode2023
 aws s3 cp aws-three-tier-web-architecture-workshop s3://$bucketname/ --recursive
 aws s3 ls s3://$bucketname/
 ```
+session manager
 ```
+bucketname=workshopcode2023
 cd ~/
 aws s3 cp s3://$bucketname/app-tier/ app-tier --recursive
 ```
