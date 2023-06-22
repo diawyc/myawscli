@@ -2,8 +2,12 @@
 
 ## App Tier AMI
 ```
+aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId,Tags[?Key==`Name`].Value]' --output table
 name=AppTierImage
 des='App tier ec2 image with running app'
+
+```
+```
 ec2id=
 ```
 ```
