@@ -20,6 +20,20 @@ aws ec2 create-image \
 
 ImageId='ami-09bbd796941eecbe7'
 ## Target Group
+
+```
+name='workshoptg'
+```
+
+```
+aws elbv2 create-target-group \
+    --name $name \
+    --protocol HTTP \
+    --port 4000 \
+    --target-type instance \
+    --vpc-id $vpcid
+```
+    
 ## Internal Load Balancer
 ## Launch Template
 ## Auto Scaling
