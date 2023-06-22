@@ -8,7 +8,7 @@ des='App tier ec2 image with running app'
 
 ```
 ```
-ec2id=
+ec2id='i-0dcd53c37b94bebd2'
 ```
 ```
 
