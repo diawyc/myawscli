@@ -82,9 +82,7 @@ lt=$(aws ec2 create-launch-template \
     --query 'LaunchTemplate.LaunchTemplateId' --output text)
 echo $lt
 ```
-```
-aws ec2 describe-launch-templates --query 'LaunchTemplates.LaunchTemplateId' --output table)'
-```
+
 ## Auto Scaling
 
 
