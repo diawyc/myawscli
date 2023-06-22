@@ -51,4 +51,15 @@ echo $id
 
 ```
 
+## Connect to Instance
+```
+aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId,Tags[?Key==`Name`].Value]' --output table
+```
+```
+id="i-02350bdbc3f9a8185"
+
+aws ssm start-session \
+    --target $id
+```
+
 [back to content](readme.md)
