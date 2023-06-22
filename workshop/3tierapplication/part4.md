@@ -27,13 +27,13 @@ vpcid=vpc-06b52efb9f0dd54f7
 ```
 
 ```
-aws elbv2 create-target-group \
+tgarn=$(aws elbv2 create-target-group \
     --name $name \
     --protocol HTTP \
     --port 4000 \
     --target-type instance \
-    --vpc-id $vpcid --health-check-path /health
-
+    --vpc-id $vpcid --health-check-path /health --query 'TargetGroups[].TargetGroupArn' --output text)
+echo $tgarn
 ```
     
 ## Internal Load Balancer
