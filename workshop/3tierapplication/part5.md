@@ -44,7 +44,8 @@ id=$(aws ec2 run-instances \
     --subnet-id $subnet \
     --security-group-ids $sg \
     --iam-instance-profile Name=$role \
---tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=Weblayer}]' --query 'Instances[].InstanceId' --output text)
+    --associate-public-ip-address \
+    --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=Weblayer}]' --query 'Instances[].InstanceId' --output text)
 
 echo $id
 
