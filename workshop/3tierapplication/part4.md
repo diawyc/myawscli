@@ -83,4 +83,20 @@ aws ec2 create-launch-template \
 ```
 
 ## Auto Scaling
+
+
+```
+name='AppTierAsg'
+```
+```
+aws autoscaling create-auto-scaling-group \
+    --auto-scaling-group-name $name \
+    --launch-template LaunchTemplateId=$lt \
+    --target-group-arns $tgarn\
+    --health-check-type ELB \
+    --health-check-grace-period 600 \
+    --min-size 2 \
+    --max-size 2 \
+    --vpc-zone-identifier "subnet-5ea0c127,subnet-6194ea3b"
+```
 [back to content](readme.md)
