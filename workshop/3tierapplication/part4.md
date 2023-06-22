@@ -17,6 +17,8 @@ aws ec2 create-image \
     --name $name \
     --description $des
 ```
+
+ImageId='ami-09bbd796941eecbe7'
 ## Target Group
 ## Internal Load Balancer
 ## Launch Template
