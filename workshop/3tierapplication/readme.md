@@ -27,4 +27,6 @@ ImageId='ami-09bbd796941eecbe7'
 aws ec2 describe-subnets --query 'Subnets[?VpcId==`vpc-06b52efb9f0dd54f7`].[Tags[0].Value,SubnetId]' --output table
 aws ec2 describe-security-groups --query 'SecurityGroups[?VpcId==`vpc-06b52efb9f0dd54f7`].[GroupName,GroupId]' --output table
 aws ec2 describe-launch-templates --query 'LaunchTemplates[*].[LaunchTemplateName,LaunchTemplateId]' --output table
+aws elbv2 describe-load-balancers --query 'LoadBalancers[*].DNSName' --output table
+
 ```
