@@ -55,11 +55,12 @@ bucketname=workshopcode2023
 ```
 
 ```
-aws s3 cp aws-three-tier-web-architecture-workshop/application-code/app-tier s3://$bucketname/ --recursive
-aws s3 ls s3://$bucketname/
+aws s3 cp aws-three-tier-web-architecture-workshop/application-code/app-tier s3://$bucketname/app-tier --recursive
+aws s3 ls s3://$bucketname/app-tier/
 ```
 session manager
 ```
+aws configure set region cn-northwest-1
 bucketname=workshopcode2023
 cd ~/
 aws s3 cp s3://$bucketname/app-tier/ app-tier --recursive
