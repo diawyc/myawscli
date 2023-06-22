@@ -55,7 +55,7 @@ bucketname=workshopcode2023
 ```
 
 ```
-aws s3 cp aws-three-tier-web-architecture-workshop/app-tier s3://$bucketname/ --recursive
+aws s3 cp aws-three-tier-web-architecture-workshop/application-code/app-tier s3://$bucketname/ --recursive
 aws s3 ls s3://$bucketname/
 ```
 session manager
