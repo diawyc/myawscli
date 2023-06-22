@@ -67,5 +67,19 @@ aws elbv2 create-listener --load-balancer-arn $lbarn \
 
 ```
 ## Launch Template
+```
+name=AppEc2LT
+ImageId=ami-09bbd796941eecbe7
+security group Private-instance :sg-0ba686ac638d76062
+```
+
+```
+aws ec2 create-launch-template \
+    --launch-template-name $name \
+    --version-description WebVersion1 \
+    --launch-template-data '{"NetworkInterfaces":[{"DeviceIndex":0,"Groups":["sg-0ba686ac638d76062"]}],"ImageId":"ami-09bbd796941eecbe7","InstanceType":"t2.micro"}'
+
+```
+
 ## Auto Scaling
 [back to content](readme.md)
