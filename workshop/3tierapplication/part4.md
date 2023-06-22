@@ -75,7 +75,7 @@ instancerole name:workshopec2role
 ```
 
 ```
-lt=(aws ec2 create-launch-template \
+lt=$(aws ec2 create-launch-template \
     --launch-template-name $name \
     --version-description WebVersion1 \
     --launch-template-data '{"IamInstanceProfile": {"Name": "workshopec2role"},"NetworkInterfaces":[{"DeviceIndex":0,"Groups":["sg-0ba686ac638d76062"]}],"ImageId":"ami-09bbd796941eecbe7","InstanceType":"t2.micro"}' \
