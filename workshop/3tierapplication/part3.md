@@ -37,7 +37,7 @@ id="i-0dcd53c37b94bebd2"
 aws ssm start-session \
     --target $id
 ```
-exit断开session
+exit断开session,此处最好新开一个window
 ## Configure Database
 https://catalog.us-east-1.prod.workshops.aws/workshops/85cd2bb2-7f79-4e96-bdee-8078e469752a/en-US/part3/configuredatabase
 ```
@@ -49,6 +49,11 @@ mysql -h threetierdb.cluster-c2fs4j8mvbrb.rds.cn-northwest-1.amazonaws.com.cn -u
 ```
 [see there](https://github.com/jessicawyc/myawscli/blob/main/workshop/3tierapplication/part2.md#database-deployment)
 ## Configure App Instance
+
+
+```
+aws s3 cp aws-three-tier-web-architecture-workshop s3://workshopcode2023/ --recursive
+```
 ## Test App Tier
 
 
