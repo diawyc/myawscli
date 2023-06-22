@@ -53,7 +53,8 @@ sub2=subnet-075a7070eff627dda
 aws elbv2 create-load-balancer \
     --name $name \
     --scheme internal \
-    --subnets $sub1 $sub2
+    --subnets $sub1 $sub2 \
+    --security-groups sg-07e8ffd50fEXAMPLE
 
 ```
 
