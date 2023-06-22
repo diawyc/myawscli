@@ -18,6 +18,7 @@ See [AWS Three Tier Web Architecture](https://catalog.us-east-1.prod.workshops.a
 ```
 tgarn=arn:aws-cn:elasticloadbalancing:cn-northwest-1:337075903349:targetgroup/AppTierTargetGroup/600f78217667ede8
 vpcid=vpc-06b52efb9f0dd54f7
+lbarn=arn:aws-cn:elasticloadbalancing:cn-northwest-1:337075903349:loadbalancer/app/AppTierTargetGroup/187cb13dac3ba237
 ```
 ```
 aws ec2 describe-subnets --query 'Subnets[?VpcId==`vpc-06b52efb9f0dd54f7`].[Tags[0].Value,SubnetId]' --output table
