@@ -20,13 +20,25 @@ aws ec2 create-image \
     --description $des
 ```
 
-ImageId='ami-09bbd796941eecbe7'
-
-
-
+ "ImageId": "ami-0ad640263352b6473"
 
 
 ## Target Group
+
+```
+name='WebTierTargetGroup'
+vpcid=vpc-06b52efb9f0dd54f7
+```
+
+```
+tgarn=$(aws elbv2 create-target-group \
+    --name $name \
+    --protocol HTTP \
+    --port 80 \
+    --target-type instance \
+    --vpc-id $vpcid --health-check-path /health --query 'TargetGroups[].TargetGroupArn' --output text)
+echo $tgarn
+```
 ## Internet Facing Load Balancer 
 ## Launch Template
 ## Auto Scaling
