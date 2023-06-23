@@ -32,7 +32,7 @@ aws ec2 describe-security-groups --query 'SecurityGroups[?VpcId==`vpc-06b52efb9f
 
 ```
 ami=ami-06520f8b43f60048c
-subnet=subnet-01b6fb1492d8d49a3
+subnet=subnet-0f9190f6ac6207318
 sg=sg-084acd7997e0276f3
 type=t2.micro
 role=workshopec2role
