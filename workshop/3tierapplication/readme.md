@@ -16,6 +16,8 @@ See [AWS Three Tier Web Architecture](https://catalog.us-east-1.prod.workshops.a
 ## [Part 3](part3.md)
 ## [Part 4](part4.md)
 ## [Part 5](part5.md)
+
+AppTier Inforamtion
 ```
 tgarn=arn:aws-cn:elasticloadbalancing:cn-northwest-1:337075903349:targetgroup/AppTierTargetGroup/600f78217667ede8
 vpcid=vpc-06b52efb9f0dd54f7
@@ -29,4 +31,9 @@ aws ec2 describe-security-groups --query 'SecurityGroups[?VpcId==`vpc-06b52efb9f
 aws ec2 describe-launch-templates --query 'LaunchTemplates[*].[LaunchTemplateName,LaunchTemplateId]' --output table
 aws elbv2 describe-load-balancers --query 'LoadBalancers[*].DNSName' --output table
 
+```
+WebTier Inforamtion
+
+```
+tgarn='arn:aws-cn:elasticloadbalancing:cn-northwest-1:337075903349:targetgroup/WebTierTargetGroup/297340c7e341f9d4'
 ```
