@@ -64,6 +64,7 @@ aws ssm start-session \
 ```
 
 ## Configure Web Instance
+### 1.
 有可能curl的时候连不github了就自己下载放到S3上再下载到本机运行， sudo aws s3 cp s3://yourbucketname/install.sh install.sh --region=cn-northwest-1
 
 sudo chmod u+x install.sh
