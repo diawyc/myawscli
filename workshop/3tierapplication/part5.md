@@ -84,4 +84,7 @@ sudo aws s3 cp s3://$bucketname/nginx.conf nginx.conf --region=cn-northwest-1
 sudo service nginx restart
 sudo chmod -R 755 /home/ec2-user
 ```
+```
+aws ec2 describe-instances --query 'Reservations[*].Instances[?InstanceId==`i-02350bdbc3f9a8185`].PublicIpAddress' --output text
+```
 [back to content](readme.md)
