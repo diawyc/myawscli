@@ -100,4 +100,13 @@ aws autoscaling create-auto-scaling-group \
     --max-size 2 \
     --vpc-zone-identifier "subnet-075a7070eff627dda,subnet-043129110913f5e19"
 ```
+## PS
+会自动起两台App Server可以登录上去检查是否正常：
+```
+aws ssm start-session \
+    --target $id
+```
+```
+curl http://localhost:4000/transaction
+```
 [back to content](readme.md)
