@@ -79,4 +79,9 @@ bucketname=workshopcode2023
 sudo rm nginx.conf
 sudo aws s3 cp s3://$bucketname/nginx.conf nginx.conf --region=cn-northwest-1
 ```
+
+```
+sudo service nginx restart
+sudo chmod -R 755 /home/ec2-user
+```
 [back to content](readme.md)
