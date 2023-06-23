@@ -103,6 +103,9 @@ aws autoscaling create-auto-scaling-group \
 ## PS
 会自动起两台App Server可以登录上去检查是否正常：
 ```
+aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId,Tags[?Key==`Name`].Value]' --output text
+```
+```
 aws ssm start-session \
     --target $id
 ```
