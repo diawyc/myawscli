@@ -52,8 +52,9 @@ echo $id
 ```
 
 ## Connect to Instance
+ASG新启动的两台没有Name Tag所以无法呈现table
 ```
-这个不好使了aws ec2 describe-instances --query 'Reservations[*].Instances[?Tags].[InstanceId,Tags[?Key==`Name`].Value]' --output table
+aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId,Tags[?Key==`Name`].Value]' --output text
 ```
 ```
 id="i-02350bdbc3f9a8185"
