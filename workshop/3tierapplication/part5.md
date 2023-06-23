@@ -72,4 +72,8 @@ bucketname=workshopcode2023
 cd ~/
 aws s3 cp s3://$bucketname/web-tier/ web-tier --recursive
 ```
+
+```
+sudo aws s3 cp s3://$bucketname/nginx.conf
+```
 [back to content](readme.md)
