@@ -82,6 +82,20 @@ lt=$(aws ec2 create-launch-template \
 echo $lt
 ```
 ## Auto Scaling
+```
+name='WebTierAsg'
+```
+```
+aws autoscaling create-auto-scaling-group \
+    --auto-scaling-group-name $name \
+    --launch-template LaunchTemplateId=$lt \
+    --target-group-arns $tgarn\
+    --health-check-type ELB \
+    --health-check-grace-period 600 \
+    --min-size 2 \
+    --max-size 2 \
+    --vpc-zone-identifier "subnet-075a7070eff627dda,subnet-043129110913f5e19"
+```
 
 
 [Back to readme](readme.md)
