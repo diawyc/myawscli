@@ -57,25 +57,27 @@ ASG新启动的两台没有Name Tag所以无法呈现table
 aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId,Tags[?Key==`Name`].Value]' --output text
 ```
 ```
-id="i-02350bdbc3f9a8185"
+id=
 
 aws ssm start-session \
     --target $id
 ```
+
+## Configure Web Instance
 有可能curl的时候连不github了就自己下载放到S3上再下载到本机运行， sudo aws s3 cp s3://yourbucketname/install.sh install.sh --region=cn-northwest-1
 
 sudo chmod u+x install.sh
 sudo ./install.sh
-2.
+### 2.
 ```
 aws configure set region cn-northwest-1
 bucketname=workshopcode2023
 cd ~/
 aws s3 cp s3://$bucketname/web-tier/ web-tier --recursive --region=cn-northwest-1
 ```
-
+### 4.
 ```
-4.
+
 bucketname=workshopcode2023
 sudo rm nginx.conf
 sudo aws s3 cp s3://$bucketname/nginx.conf nginx.conf --region=cn-northwest-1
