@@ -77,6 +77,6 @@ aws s3 cp s3://$bucketname/web-tier/ web-tier --recursive
 aws configure set region cn-northwest-1
 bucketname=workshopcode2023
 sudo rm nginx.conf
-sudo aws s3 cp s3://$bucketname/nginx.conf
+sudo aws s3 cp s3://$bucketname/nginx.conf nginx.conf
 ```
 [back to content](readme.md)
