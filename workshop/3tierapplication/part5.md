@@ -70,13 +70,13 @@ sudo ./install.sh
 aws configure set region cn-northwest-1
 bucketname=workshopcode2023
 cd ~/
-aws s3 cp s3://$bucketname/web-tier/ web-tier --recursive
+aws s3 cp s3://$bucketname/web-tier/ web-tier --recursive --region=cn-northwest-1
 ```
 
 ```
-aws configure set region cn-northwest-1
+
 bucketname=workshopcode2023
 sudo rm nginx.conf
-sudo aws s3 cp s3://$bucketname/nginx.conf nginx.conf
+sudo aws s3 cp s3://$bucketname/nginx.conf nginx.conf --region=cn-northwest-1
 ```
 [back to content](readme.md)
