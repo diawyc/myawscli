@@ -66,6 +66,21 @@ aws elbv2 create-listener --load-balancer-arn $lbarn \
 
 ```
 ## Launch Template
+```
+name=WebTierLaunchTemplate
+ImageId=ami-0ad640263352b6473
+security group  :sg-084acd7997e0276f3
+instancerole name:workshopec2role
+```
+
+```
+lt=$(aws ec2 create-launch-template \
+    --launch-template-name $name \
+    --version-description WebVersion1 \
+    --launch-template-data '{"IamInstanceProfile": {"Name": "workshopec2role"},"NetworkInterfaces":[{"DeviceIndex":0,"Groups":["sg-084acd7997e0276f3"]}],"ImageId":"ami-0ad640263352b6473","InstanceType":"t2.micro"}' \
+    --query 'LaunchTemplate.LaunchTemplateId' --output text)
+echo $lt
+```
 ## Auto Scaling
 
 
