@@ -39,7 +39,7 @@ jobname='pptjob'
 ```
 ### translate job
 ```
-aws translate start-text-translation-job --job-name $jobname\
+aws translate start-text-translation-job --job-name $jobname \
 --input-data-config S3Uri=$input,ContentType=$type \
 --output-data-config S3Uri=$output \
 --data-access-role-arn $iamrole \
