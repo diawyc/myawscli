@@ -16,19 +16,10 @@ aws s3 cp $filename $input --recursive
 ```
 input='s3://jadoc/excel/'
 filename='Desktop/excel'
-```
-
-```
 jobname='exceljob'
 type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
 ```
-```
-output='s3://endoc/'
-iamrole='arn:aws:iam::295158943844:role/translateall-DataAccessRole-678VEQ8P4V6U'
-scode=ja
-tcode=en
 
-```
 ### ppt
 
 ```
@@ -38,6 +29,13 @@ type='application/vnd.openxmlformats-officedocument.presentationml.presentation'
 jobname='pptjob'
 ```
 ### translate job
+```
+output='s3://endoc/'
+iamrole='arn:aws:iam::295158943844:role/translateall-DataAccessRole-678VEQ8P4V6U'
+scode=ja
+tcode=en
+
+```
 ```
 aws translate start-text-translation-job --job-name $jobname \
 --input-data-config S3Uri=$input,ContentType=$type \
