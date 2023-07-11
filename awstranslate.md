@@ -23,6 +23,7 @@ aws s3 cp $filename  s3://$input/ --recursive
 ```
 output='s3://endoc/'
 type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+type='application/vnd.openxmlformats-officedocument.presentationml.presentation'
 iamrole='arn:aws:iam::295158943844:role/translateall-DataAccessRole-678VEQ8P4V6U'
 scode=ja
 tcode=en
