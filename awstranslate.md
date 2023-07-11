@@ -28,6 +28,14 @@ filename='Desktop/ppt'
 type='application/vnd.openxmlformats-officedocument.presentationml.presentation'
 jobname='pptjob'
 ```
+### word
+```
+input='s3://jadoc/word/'
+filename='Desktop/word'
+type='application/vnd.openxmlformats-officedocument.presentationml.presentation'
+jobname='wordjob'
+```
+
 ### translate job
 ```
 output='s3://endoc/'
