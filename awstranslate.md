@@ -32,7 +32,7 @@ jobname='pptjob'
 ```
 input='s3://jadoc/word/'
 filename='Desktop/word'
-type='application/vnd.openxmlformats-officedocument.presentationml.presentation'
+type='application/vnd.openxmlformats-officedocument.wordprocessingml.document'
 jobname='wordjob'
 ```
 
