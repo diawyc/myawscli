@@ -16,6 +16,9 @@ filename=''
 ```
 aws s3 cp $filename s3://$input/
 ```
+```
+aws s3 cp $filename  s3://$input/ --recursive
+```
 
 ```
 output='s3://endoc/'
