@@ -35,6 +35,13 @@ filename='Desktop/word'
 type='application/vnd.openxmlformats-officedocument.wordprocessingml.document'
 jobname='wordjob'
 ```
+### html
+```
+input='s3://jadoc/html/'
+filename='Desktop/html'
+type='text/html'
+jobname='htmljob'
+```
 
 ### translate job
 ```
