@@ -4,6 +4,7 @@
 ```
 aws translate list-text-translation-jobs
 ```
+文件夹名字是excel/ppt,上传里边所有的文件
 ```
 aws s3 cp $filename $input --recursive
 ```
@@ -16,8 +17,6 @@ aws s3 cp $filename $input --recursive
 input='s3://jadoc/excel/'
 filename='Desktop/excel'
 ```
-文件夹名字是excel,上传里边所有的文件
-
 
 ```
 jobname='exceljob'
