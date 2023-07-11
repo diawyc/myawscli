@@ -31,7 +31,7 @@ tcode=en
 ```
 
 ```
-start-text-translation-job \
+aws translate start-text-translation-job \
 --input-data-config S3Uri=$input,ContentType=$type \
 --output-data-config S3Uri=$output \
 --data-access-role-arn $iamrole \
