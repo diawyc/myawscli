@@ -4,6 +4,9 @@
 ```
 aws translate list-text-translation-jobs
 ```
+```
+aws s3 cp $filename $input --recursive
+```
 
 ## [Batch translation job](https://docs.aws.amazon.com/cli/latest/reference/translate/start-text-translation-job.html)
 
@@ -14,16 +17,14 @@ input='s3://jadoc/excel/'
 filename='Desktop/excel'
 ```
 文件夹名字是excel,上传里边所有的文件
-```
-aws s3 cp $filename $input --recursive
-```
+
 
 ```
-output='s3://endoc/'
 jobname='exceljob'
-```
-```
 type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+```
+```
+output='s3://endoc/'
 iamrole='arn:aws:iam::295158943844:role/translateall-DataAccessRole-678VEQ8P4V6U'
 scode=ja
 tcode=en
