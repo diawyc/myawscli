@@ -20,6 +20,7 @@ aws s3 cp $filename $input --recursive
 
 ```
 output='s3://endoc/'
+jobname='exceljob'
 ```
 ```
 type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
@@ -34,6 +35,7 @@ tcode=en
 input='s3://jadoc/ppt/'
 filename='Desktop/ppt'
 type='application/vnd.openxmlformats-officedocument.presentationml.presentation'
+jobname='pptjob'
 ```
 ```
 aws translate start-text-translation-job \
