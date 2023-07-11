@@ -7,8 +7,9 @@ aws translate list-text-translation-jobs
 
 ## [Batch translation job](https://docs.aws.amazon.com/cli/latest/reference/translate/start-text-translation-job.html)
 
-```
 
+### excel
+```
 input='s3://jadoc/excel/'
 filename='Desktop/excel'
 ```
@@ -19,14 +20,21 @@ aws s3 cp $filename $input --recursive
 
 ```
 output='s3://endoc/'
+```
+```
 type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-type='application/vnd.openxmlformats-officedocument.presentationml.presentation'
 iamrole='arn:aws:iam::295158943844:role/translateall-DataAccessRole-678VEQ8P4V6U'
 scode=ja
 tcode=en
 
 ```
+### ppt
 
+```
+input='s3://jadoc/ppt/'
+filename='Desktop/ppt'
+type='application/vnd.openxmlformats-officedocument.presentationml.presentation'
+```
 ```
 aws translate start-text-translation-job \
 --input-data-config S3Uri=$input,ContentType=$type \
