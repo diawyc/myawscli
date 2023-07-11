@@ -14,7 +14,7 @@ filename='Desktop/excel'
 ```
 文件夹名字是excel,上传里边所有的文件
 ```
-aws s3 cp $filename  s3://$input/ --recursive
+aws s3 cp $filename $input --recursive
 ```
 
 ```
