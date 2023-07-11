@@ -46,6 +46,7 @@ jobname='htmljob'
 ### translate job
 ```
 output='s3://endoc/'
+localfolder=en
 iamrole='arn:aws:iam::295158943844:role/translateall-DataAccessRole-678VEQ8P4V6U'
 scode=ja
 tcode=en
@@ -59,4 +60,10 @@ aws translate start-text-translation-job --job-name $jobname \
 --source-language-code $scode \
 --target-language-codes $tcode
 
+```
+### download files
+
+
+```
+aws s3 sync $output $localfolder
 ```
