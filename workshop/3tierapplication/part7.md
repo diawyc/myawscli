@@ -31,7 +31,14 @@ aws elbv2 create-listener --load-balancer-arn $lbarn \
 --certificates CertificateArn=$certarn
 ```
 
-[refer](https://docs.aws.amazon.com/cli/latest/reference/elbv2/create-listener.html#:~:text=%2D%2D-,certificates,-(list))
+[reference](https://docs.aws.amazon.com/cli/latest/reference/elbv2/create-listener.html#:~:text=%2D%2D-,certificates,-(list))
+
+#### update Security group
+
+
+```
+aws elbv2 describe-load-balancers --query 'LoadBalancers[*].[LoadBalancerName,SecurityGroups]' --output table
+```
 
 ## WAF
 
