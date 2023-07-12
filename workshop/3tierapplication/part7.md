@@ -21,10 +21,10 @@ certarn='arn:aws-cn:acm:cn-northwest-1:337075903349:certificate/5b371213-d424-4c
 aws elbv2 create-listener --load-balancer-arn $lbarn \
 --protocol HTTPS --port 443  \
 --default-actions Type=forward,TargetGroupArn=$tgarn \
---certificates CertificateArn=$certarn,IsDefault=true
+--certificates CertificateArn=$certarn
 ```
 
-
+[refer](https://docs.aws.amazon.com/cli/latest/reference/elbv2/create-listener.html#:~:text=%2D%2D-,certificates,-(list))
 
 ## WAF
 
