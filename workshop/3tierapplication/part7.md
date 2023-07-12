@@ -37,9 +37,9 @@ aws elbv2 create-listener --load-balancer-arn $lbarn \
 
 
 ```
-aws elbv2 describe-load-balancers --query 'LoadBalancers[*].[LoadBalancerName,SecurityGroups]' --output table
+aws elbv2 describe-load-balancers --query 'LoadBalancers[*].[LoadBalancerName,SecurityGroups[0]]' --output table
+sg=''
 ```
-
 ## WAF
 
 
