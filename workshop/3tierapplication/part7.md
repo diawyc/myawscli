@@ -4,7 +4,14 @@
 
 ### SSL/TLS certificate
 
-### https listener
+### create https listener
+```
+aws elbv2 create-listener --load-balancer-arn $lbarn \
+--protocol HTTPS --port 443  \
+--default-actions Type=forward,TargetGroupArn=$tgarn
+```
+
+
 
 ## WAF
 
