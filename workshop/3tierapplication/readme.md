@@ -17,7 +17,7 @@ See [AWS Three Tier Web Architecture](https://catalog.us-east-1.prod.workshops.a
 ## [Part 4](part4.md)
 ## [Part 5](part5.md)
 ## [Part 6](part6.md)
-
+## [Additional Security](part7.md)
 ## Check result
 ```
 aws elbv2 describe-load-balancers --query 'LoadBalancers[*].[LoadBalancerName,DNSName]' --output table
