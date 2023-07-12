@@ -18,9 +18,9 @@ aws acm list-certificates --query 'CertificateSummaryList[*].[DomainName,Certifi
 ```
 
 ```
-lbarn='arn:aws-cn:elasticloadbalancing:cn-northwest-1:337075903349:loadbalancer/app/web-tier-external-lb/5676738e64e4f677'
-tgarn='arn:aws-cn:elasticloadbalancing:cn-northwest-1:337075903349:targetgroup/WebTierTargetGroup/297340c7e341f9d4'
-certarn='arn:aws-cn:acm:cn-northwest-1:337075903349:certificate/5b371213-d424-4cd3-867a-500497d82586'
+lbarn='arn:aws-cn:elasticloadbalancing:cn-northwest-1:'
+tgarn='arn:aws-cn:elasticloadbalancing:cn-northwest-1:'
+certarn='arn:aws-cn:acm:cn-northwest-1:6'
 ```
 
 ```
