@@ -18,5 +18,10 @@ See [AWS Three Tier Web Architecture](https://catalog.us-east-1.prod.workshops.a
 ## [Part 5](part5.md)
 ## [Part 6](part6.md)
 
-访问ALB DNS时，会出现![下图](/Screenshot 2023-07-12 at 12.14.47.png) 表明成功。
+## Check result
+```
+aws elbv2 describe-load-balancers --query 'LoadBalancers[*].[LoadBalancerName,DNSName]' --output table
+```
+Get Web LB DNS NAME in webbrowser
+![下图](/Screenshot 2023-07-12 at 12.14.47.png) 表明成功。
 
