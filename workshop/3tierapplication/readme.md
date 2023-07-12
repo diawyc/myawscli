@@ -18,25 +18,5 @@ See [AWS Three Tier Web Architecture](https://catalog.us-east-1.prod.workshops.a
 ## [Part 5](part5.md)
 ## [Part 6](part6.md)
 
-AppTier Inforamtion
-```
-tgarn=arn:aws-cn:elasticloadbalancing:cn-northwest-1:337075903349:targetgroup/AppTierTargetGroup/600f78217667ede8
-vpcid=vpc-06b52efb9f0dd54f7
-lbarn=arn:aws-cn:elasticloadbalancing:cn-northwest-1:337075903349:loadbalancer/app/app-tier-internal-lb/b960d1bde66b4465
-lt=lt-0f0fd715fec3a3c60
-ImageId='ami-09bbd796941eecbe7'
-```
-```
-aws ec2 describe-subnets --query 'Subnets[?VpcId==`vpc-06b52efb9f0dd54f7`].[Tags[0].Value,SubnetId]' --output table
-aws ec2 describe-security-groups --query 'SecurityGroups[?VpcId==`vpc-06b52efb9f0dd54f7`].[GroupName,GroupId]' --output table
-aws ec2 describe-launch-templates --query 'LaunchTemplates[*].[LaunchTemplateName,LaunchTemplateId]' --output table
-aws elbv2 describe-load-balancers --query 'LoadBalancers[*].DNSName' --output table
+访问ALB DNS时，会出现下图
 
-```
-WebTier Inforamtion
-
-```
-tgarn='arn:aws-cn:elasticloadbalancing:cn-northwest-1:337075903349:targetgroup/WebTierTargetGroup/297340c7e341f9d4'
-lbarn='arn:aws-cn:elasticloadbalancing:cn-northwest-1:337075903349:loadbalancer/app/web-tier-external-lb/5676738e64e4f677'
-lt='lt-04c981b53f95b1c6c'
-```
