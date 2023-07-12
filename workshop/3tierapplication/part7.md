@@ -3,6 +3,12 @@
 ## Configure https for ALB
 
 ### SSL/TLS certificate
+```
+dns='alb.wyc.people.a2z.org.cn'
+```
+```
+certarn=$(aws acm request-certificate --domain-name $dns --validation-method DNS --query 'CertificateArn' --output text)
+```
 
 ### create https listener
 ```
