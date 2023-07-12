@@ -38,7 +38,15 @@ aws elbv2 create-listener --load-balancer-arn $lbarn \
 
 ```
 aws elbv2 describe-load-balancers --query 'LoadBalancers[*].[LoadBalancerName,SecurityGroups[0]]' --output table
-sg='sg-0d08aeec68c3dfe93'
+groupid='sg-0d08aeec68c3dfe93'
+```
+```
+
+aws ec2 authorize-security-group-ingress \
+    --group-id $groupid \
+    --protocol tcp \
+    --port 443 \
+    --cidr 0.0.0.0/0
 ```
 ## WAF
 
