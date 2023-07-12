@@ -10,7 +10,7 @@ dns='alb.wyc.people.a2z.org.cn'
 certarn=$(aws acm request-certificate --domain-name $dns --validation-method DNS --query 'CertificateArn' --output text)
 echo $certarn
 ```
-
+valida in route53, no CLI ,must use console
 ### create https listener
 ```
 aws elbv2 describe-load-balancers --query 'LoadBalancers[*].[LoadBalancerName,LoadBalancerArn]' --output table
