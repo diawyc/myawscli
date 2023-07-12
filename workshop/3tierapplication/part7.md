@@ -1,6 +1,10 @@
 # Part 7 Security
 
-## Configure https
+## Configure https for ALB
+
+### SSL/TLS certificate
+
+### https listener
 
 ## WAF
 
