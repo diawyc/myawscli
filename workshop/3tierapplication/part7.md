@@ -66,6 +66,6 @@ http://alb.wyc.people.a2z.org.cn/
 无法访问
 https://alb.wyc.people.a2z.org.cn/#/
 
-[显示如下](Screenshot 2023-07-12 at 12.14.47.png)
+![显示如下](Screenshot 2023-07-12 at 12.14.47.png)
 
 [Back to readme](readme.md)
