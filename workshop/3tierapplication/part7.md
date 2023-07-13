@@ -61,8 +61,9 @@ aws ec2 authorize-security-group-ingress \
     --port 443 \
     --cidr 0.0.0.0/0
 ```
-## WAF
-
-
+## 查看结果
+http://alb.wyc.people.a2z.org.cn/#/
+https://alb.wyc.people.a2z.org.cn/#/
+[显示](url)
 
 [Back to readme](readme.md)
