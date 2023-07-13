@@ -1,6 +1,8 @@
 # Part 7 Security
 
 ## Configure https for ALB
+###  Custome Domain Name
+在route53上创建一条A record，选择ALB
 
 ### SSL/TLS certificate
 ```
@@ -29,6 +31,16 @@ aws elbv2 create-listener --load-balancer-arn $lbarn \
 --protocol HTTPS --port 443  \
 --default-actions Type=forward,TargetGroupArn=$tgarn \
 --certificates CertificateArn=$certarn
+```
+删除旧的http listener
+```
+oldtarn=
+```
+```
+
+aws elbv2 delete-listener \
+    --listener-arn $oldtarn
+
 ```
 
 [reference](https://docs.aws.amazon.com/cli/latest/reference/elbv2/create-listener.html#:~:text=%2D%2D-,certificates,-(list))
