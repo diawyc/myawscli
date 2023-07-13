@@ -34,12 +34,12 @@ aws elbv2 create-listener --load-balancer-arn $lbarn \
 ```
 删除旧的http listener
 ```
-oldtarn=
+httparn=
 ```
 ```
 
 aws elbv2 delete-listener \
-    --listener-arn $oldtarn
+    --listener-arn $httparn
 
 ```
 
