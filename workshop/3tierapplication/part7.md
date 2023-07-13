@@ -65,7 +65,6 @@ aws ec2 authorize-security-group-ingress \
 http://alb.wyc.people.a2z.org.cn/
 无法访问
 https://alb.wyc.people.a2z.org.cn/#/
-
-![显示如下](Screenshot 2023-07-12 at 12.14.47.png)
+![如图](webpage.png)
 
 [Back to readme](readme.md)
