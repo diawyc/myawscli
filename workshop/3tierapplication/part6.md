@@ -102,6 +102,6 @@ aws autoscaling create-auto-scaling-group \
 aws elbv2 describe-load-balancers --query 'LoadBalancers[*].[LoadBalancerName,DNSName]' --output table
 ```
 
-![如图](/Screenshot 2023-07-12 at 12.14.47.png)
+![如图](workshop/3tierapplication/Screenshot 2023-07-12 at 12.14.47.png)
 
 [Back to readme](readme.md)
