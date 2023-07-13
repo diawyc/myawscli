@@ -34,6 +34,7 @@ aws elbv2 create-listener --load-balancer-arn $lbarn \
 ```
 删除旧的http listener
 ```
+aws elbv2 describe-listeners --load-balancer-arn $lbarn --query 'Listeners[*].[ListenerArn,Protocol]' --output table
 httparn=
 ```
 ```
