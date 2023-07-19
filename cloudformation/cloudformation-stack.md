@@ -14,9 +14,9 @@ done
 # Create Cloudformation Stack
 ## create stack with parameter from a local template
 ```
-stackname=exportsechub2s31
-region=eu-west-2
-template=Arch1-template.yaml
+stackname=aossiem
+region=us-east-1
+template=siem-on-amazon-opensearch-service.template
 ```
 ```
 
