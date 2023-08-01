@@ -1,0 +1,8 @@
+{
+  "ConfigRuleName": "AOS-VPC",
+  "Description": "Checks AOS compliance.",
+  "Source": {
+    "Owner": "AWS",
+    "SourceIdentifier": "ELASTICSEARCH_IN_VPC_ONLY"
+  }
+}

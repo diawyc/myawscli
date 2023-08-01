@@ -1,0 +1,8 @@
+{
+  "ConfigRuleName": "AOS-encryption",
+  "Description": "Checks AOS compliance.",
+  "Source": {
+    "Owner": "AWS",
+    "SourceIdentifier": "ELASTICSEARCH_ENCRYPTED_AT_REST"
+  }
+}

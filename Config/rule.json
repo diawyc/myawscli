@@ -1,0 +1,8 @@
+{
+  "ConfigRuleName": "AOS-transit",
+  "Description": "Checks AOS compliance.",
+  "Source": {
+    "Owner": "AWS",
+    "SourceIdentifier": "ELASTICSEARCH_NODE_TO_NODE_ENCRYPTION_CHECK"
+  }
+}
