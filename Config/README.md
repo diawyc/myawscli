@@ -1,4 +1,16 @@
 # [Config](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/index.html#cli-aws-configservice)
+## create a AWS managed rule
+
+```
+packname=cliEc2app
+templatename='TestConformancePack.yaml'
+region=cn-northwest-1
+
+```
+```
+aws configservice put-config-rule --config-rule --config-rule file://rule.json
+```
+
 ## 查看config是否开启
 ```
 regions=($(aws ec2 describe-regions --query 'Regions[*].RegionName' --output text --region=us-east-1))
