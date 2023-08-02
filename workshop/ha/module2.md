@@ -14,6 +14,8 @@ dbname='threetierdb'
 type=aurora-mysql
 sg=sg-0d10449341610d9bf
 name='threetierdb'
+username='jessica'
+password='password'
 ```
 
 ```
@@ -21,8 +23,8 @@ dbendpoint=$(aws rds create-db-cluster \
     --db-cluster-identifier $dbname \
     --engine $type \
     --engine-version 5.7 \
-    --master-username admin \
-    --master-user-password secret99 \
+    --master-username $username \
+    --master-user-password $password \
     --db-subnet-group-name $name \
 --no-publicly-accessible \
     --vpc-security-group-ids $sg \
