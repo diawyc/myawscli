@@ -3,6 +3,7 @@
 create 1 VPC and 6 Subnets in 2 AZs
 
 | Basic Information|
+| --- | 
 | VPC ,IGW,Name Tag| 
 | Wordpress-Workshop| 
 
