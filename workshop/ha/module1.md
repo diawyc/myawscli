@@ -2,14 +2,16 @@
 ## 1.create 1 VPC and 6 Subnets in 2 AZs
 EnvironmentName:	Wordpress-Workshop
 
-Subnet Name Tag
-Wordpress-Workshop App Subnet A (AZ1)
-Wordpress-Workshop App Subnet B (AZ2)
-Wordpress-Workshop Data Subnet A (AZ1)
-Wordpress-Workshop Data Subnet B (AZ2)
-Wordpress-Workshop Public Subnet A (AZ1)
-Wordpress-Workshop Public Subnet A (AZ1) 
-Wordpress-Workshop App Subnet B (AZ2)
+
+| Subnet Name Tag|
+| --- | 
+|Wordpress-Workshop App Subnet A (AZ1)|
+|Wordpress-Workshop App Subnet B (AZ2)|
+|Wordpress-Workshop Data Subnet A (AZ1)|
+|Wordpress-Workshop Data Subnet B (AZ2)|
+|Wordpress-Workshop Public Subnet A (AZ1)|
+|Wordpress-Workshop Public Subnet A (AZ1) |
+|Wordpress-Workshop App Subnet B (AZ2)|
 
 
 
@@ -21,8 +23,8 @@ DataSubnetBCIDR='192.168.5.0/24'
 PublicSubnetACIDR='192.168.0.0/24'
 PublicSubnetBCIDR='192.168.1.0/24
 VpcCIDR='192.168.0.0/16'
-az1=
-az2=
+az1='us-east-1a'
+az2='us-east-1b'
 ```
 
 
