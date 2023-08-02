@@ -10,13 +10,8 @@ In this architecture, a public-facing Application Load Balancer forwards client 
 See [Highly Available Web App](https://catalog.us-east-1.prod.workshops.aws/workshops/5ceb632a-c07f-44a5-a3bd-b8f616a631c0/en-US/introduction/overview))
 
 # CLI
-## [Part 0](part0.md)
-## [Part 1](part1.md)
-## [Part 2](part2.md)
-## [Part 3](part3.md)
-## [Part 4](part4.md)
-## [Part 5](part5.md)
-## [Part 6](part6.md)
-## [Additional Security](part7.md)
+## [Module 1](module1.md)
+## [Module 2](module2.md)
+
 
 
