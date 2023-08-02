@@ -1,5 +1,6 @@
 # [Module 1: Configure the Network](https://catalog.us-east-1.prod.workshops.aws/workshops/5ceb632a-c07f-44a5-a3bd-b8f616a631c0/en-US/introduction/lab1)
-## 1.create 1 VPC and 6 Subnets in 2 AZs
+## 1.VPC
+create 1 VPC and 6 Subnets in 2 AZs
 VPC ,IGW,Name Tag:	Wordpress-Workshop
 
 
@@ -41,7 +42,7 @@ pubsub1=$(aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $PublicSubnetACIDR 
 pubsub2=$(aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $PublicSubnetBCIDR --availability-zone=$az2  --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Wordpress-Workshop App Subnet B (AZ2)}]' --no-cli-pager --query 'Subnet.SubnetId' --output text)
 echo $pubsub1 $pubsub2
 ```
-## 2.Internet Connectivity
+## 2.Internet GatewayHeader anchor link
 ```
 igwid=$(aws ec2 create-internet-gateway \
     --tag-specifications 'ResourceType=internet-gateway,Tags=[{Key=Name,Value=Wordpress-Workshop}]'\
@@ -53,7 +54,7 @@ aws ec2 attach-internet-gateway \
     --internet-gateway-id $igwid\
     --vpc-id $vpcid 
 ```
-#### NAT Gateway
+## 3.NAT Gateways
 
 ```
 subnet=$pubsub1
