@@ -111,7 +111,7 @@ aws ec2 associate-route-table --route-table-id $rtb2 --subnet-id $private2
 
 ```
 ## 4.Security Groups
-[cli](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-security-group.html)https://docs.aws.amazon.com/cli/latest/reference/ec2/create-security-group.html)
+[cli](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-security-group.html)
 #### step1-2
 ```
 sgname='internet-lb'
