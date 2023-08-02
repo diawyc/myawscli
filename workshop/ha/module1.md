@@ -1,6 +1,6 @@
 # [Module 1: Configure the Network](https://catalog.us-east-1.prod.workshops.aws/workshops/5ceb632a-c07f-44a5-a3bd-b8f616a631c0/en-US/introduction/lab1)
 ## 1.create 1 VPC and 6 Subnets in 2 AZs
-EnvironmentName:	Wordpress-Workshop
+VPC ,IGW,Name Tag:	Wordpress-Workshop
 
 
 | Subnet Name Tag|
@@ -37,13 +37,14 @@ aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $AppSubnetACIDR --availabilit
 aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $AppSubnetBCIDR --availability-zone=$az2 --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Wordpress-Workshop App Subnet B (AZ2)}]' --no-cli-pager
 aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $DataSubnetACIDR --availability-zone=$az1 --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Wordpress-Workshop Data Subnet A (AZ1)}]' --no-cli-pager
 aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $DataSubnetBCIDR --availability-zone=$az2  --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Wordpress-Workshop Data Subnet B (AZ2)}]' --no-cli-pager
-aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $PublicSubnetACIDR --availability-zone=$az1  --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Wordpress-Workshop App Subnet A (AZ1)}]' --no-cli-pager
-aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $PublicSubnetBCIDR --availability-zone=$az2  --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Wordpress-Workshop App Subnet B (AZ2)}]' --no-cli-pager
+pubsub1=$(aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $PublicSubnetACIDR --availability-zone=$az1  --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Wordpress-Workshop App Subnet A (AZ1)}]' --no-cli-pager --query 'Subnet.SubnetId' --output text)
+pubsub2=$(aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $PublicSubnetBCIDR --availability-zone=$az2  --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Wordpress-Workshop App Subnet B (AZ2)}]' --no-cli-pager --query 'Subnet.SubnetId' --output text)
+echo $pubsub1 $pubsub2
 ```
 ## 2.Internet Connectivity
 ```
 igwid=$(aws ec2 create-internet-gateway \
-    --tag-specifications 'ResourceType=internet-gateway,Tags=[{Key=Name,Value=3tier-workshop-igw}]'\
+    --tag-specifications 'ResourceType=internet-gateway,Tags=[{Key=Name,Value=Wordpress-Workshop}]'\
     --query 'InternetGateway.InternetGatewayId' --output text)
 echo $igwid
 ```
@@ -53,20 +54,18 @@ aws ec2 attach-internet-gateway \
     --vpc-id $vpcid 
 ```
 #### NAT Gateway
-列出之前创建的6个subnetsID,找到两个public的
+重复一次，需要两个NAT
 ```
-aws ec2 describe-subnets --query 'Subnets[?VpcId==`vpc-06b52efb9f0dd54f7`].[Tags[0].Value,SubnetId]' --output table 
+subnet=$pubsub1
 ```
 ```
 eip=$(aws ec2 allocate-address --query 'AllocationId' --output text )
 echo $eip
-subnet=
-```
-```
 nat=$(aws ec2 create-nat-gateway \
     --subnet-id $subnet \
     --allocation-id $eip --query 'NatGateway.NatGatewayId' --output text)
 echo $nat
+subnet=$pubsub2
 ```
 ## 3.Routing Configuration
 ```
