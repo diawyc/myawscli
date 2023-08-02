@@ -2,6 +2,17 @@
 ## 1.create 1 VPC and 6 Subnets in 2 AZs
 EnvironmentName:	Wordpress-Workshop
 
+Subnet Name Tag
+Wordpress-Workshop App Subnet A (AZ1)
+Wordpress-Workshop App Subnet B (AZ2)
+Wordpress-Workshop Data Subnet A (AZ1)
+Wordpress-Workshop Data Subnet B (AZ2)
+Wordpress-Workshop Public Subnet A (AZ1)
+Wordpress-Workshop Public Subnet A (AZ1) 
+Wordpress-Workshop App Subnet B (AZ2)
+
+
+
 ```
 AppSubnetACIDR='192.168.2.0/24'
 AppSubnetBCIDR='192.168.3.0/24'
@@ -10,6 +21,8 @@ DataSubnetBCIDR='192.168.5.0/24'
 PublicSubnetACIDR='192.168.0.0/24'
 PublicSubnetBCIDR='192.168.1.0/24
 VpcCIDR='192.168.0.0/16'
+az1=
+az2=
 ```
 
 
@@ -18,12 +31,12 @@ vpcid=$(aws ec2 create-vpc \
     --cidr-block $VpcCIDR \
     --tag-specifications 'ResourceType=vpc,Tags=[{Key=Name,Value=Wordpress-Workshop}]'\
     --query 'Vpc.VpcId' --output text)
-aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $AppSubnetACIDR --availability-zone=cn-northwest-1a --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=}]' --no-cli-pager
-aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $AppSubnetBCIDR --availability-zone=cn-northwest-1a --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=}]' --no-cli-pager
-aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $DataSubnetACIDR --availability-zone=cn-northwest-1a --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=}]' --no-cli-pager
-aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $DataSubnetBCIDR --availability-zone=cn-northwest-1b --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=}]' --no-cli-pager
-aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $PublicSubnetACIDR --availability-zone=cn-northwest-1b --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Private-App-2}]' --no-cli-pager
-aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $PublicSubnetBCIDR --availability-zone=cn-northwest-1b --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Private-DB-2}]' --no-cli-pager
+aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $AppSubnetACIDR --availability-zone=$az1 --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Wordpress-Workshop App Subnet A (AZ1)}]' --no-cli-pager
+aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $AppSubnetBCIDR --availability-zone=$az2 --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Wordpress-Workshop App Subnet B (AZ2)}]' --no-cli-pager
+aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $DataSubnetACIDR --availability-zone=$az1 --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Wordpress-Workshop Data Subnet A (AZ1)}]' --no-cli-pager
+aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $DataSubnetBCIDR --availability-zone=$az2  --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Wordpress-Workshop Data Subnet B (AZ2)}]' --no-cli-pager
+aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $PublicSubnetACIDR --availability-zone=$az1  --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Wordpress-Workshop App Subnet A (AZ1)}]' --no-cli-pager
+aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $PublicSubnetBCIDR --availability-zone=$az2  --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Wordpress-Workshop App Subnet B (AZ2)}]' --no-cli-pager
 ```
 ## 2.Internet Connectivity
 ```
