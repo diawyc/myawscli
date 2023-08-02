@@ -43,7 +43,7 @@ aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $DataSubnetACIDR --availabili
 aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $DataSubnetBCIDR --availability-zone=$az2  --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Wordpress-Workshop Data Subnet B (AZ2)}]' --no-cli-pager
 pubsub1=$(aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $PublicSubnetACIDR --availability-zone=$az1  --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Wordpress-Workshop App Subnet A (AZ1)}]' --no-cli-pager --query 'Subnet.SubnetId' --output text)
 pubsub2=$(aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $PublicSubnetBCIDR --availability-zone=$az2  --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Wordpress-Workshop App Subnet B (AZ2)}]' --no-cli-pager --query 'Subnet.SubnetId' --output text)
-echo $pubsub1 $pubsub2
+echo $vpcid $pubsub1 $pubsub2
 ```
 ## 2.Internet GatewayHeader anchor link
 ```
@@ -51,8 +51,7 @@ igwid=$(aws ec2 create-internet-gateway \
     --tag-specifications 'ResourceType=internet-gateway,Tags=[{Key=Name,Value=Wordpress-Workshop}]'\
     --query 'InternetGateway.InternetGatewayId' --output text)
 echo $igwid
-```
-```
+
 aws ec2 attach-internet-gateway \
     --internet-gateway-id $igwid\
     --vpc-id $vpcid 
