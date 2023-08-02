@@ -4,9 +4,20 @@ cloudformation中有错误，要将aurora修改为aurora-mysql
 vpcid是使用前一个module1的输出
 ## RDS
 
+## create DB subnet group 
+[CLI reference](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-subnet-group.html)
+
 ```
-aws ec2 describe-security-groups --query 'SecurityGroups[?VpcId==`vpc-06b52efb9f0dd54f7`].[GroupName,GroupId]' --output table
-aws rds describe-db-subnet-groups --query 'DBSubnetGroups[*].DBSubnetGroupName' --output table
+module2-databasesubnetgroup
+des='subnetgroup for database mysql'
+```
+```
+aws rds create-db-subnet-group \
+    --db-subnet-group-name $name \
+    --db-subnet-group-description $des \
+    --subnet-ids '["subnet-0877032c0c23c7368","subnet-0c979a57817ecb053"]' 
+
+```
 
 ```
 ```
@@ -37,26 +48,16 @@ aws rds create-db-instance --db-instance-identifier $dbname \
      --db-cluster-identifier $dbname --engine aurora-mysql --db-instance-class db.r5.large
 ```
 
-## Security Groups
+
 
 ```
 
 dbsg='WP Database SG'
 serversg='WP Database Client SG'
-des='subnetgroup for database mysql'
-
-```
-
-[CLI reference](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-subnet-group.html)
 
 
 ```
-aws rds create-db-subnet-group \
-    --db-subnet-group-name $dbsg \
-    --db-subnet-group-description $des \
-    --subnet-ids '["subnet-0877032c0c23c7368","subnet-0c979a57817ecb053"]' 
 
-```
 
 
 [reference](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.CreateInstance.html)
