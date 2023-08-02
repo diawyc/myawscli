@@ -31,7 +31,7 @@ v1=jessica
 p2=RDSDBName
 v2=rdsbjsm
 ```
-
+? 像是一个选择的list怎么写参数呢？
 ```
 aws cloudformation create-stack --stack-name $stackname --template-body file://$template \
 --parameters  \
