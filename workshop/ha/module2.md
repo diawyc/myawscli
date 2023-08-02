@@ -3,3 +3,10 @@
 cloudformation中有错误，要将aurora修改为aurora-mysql
 ## RDS
 ## Security Groups
+
+```
+
+dbsg='WP Database SG'
+serversg='WP Database Client SG'
+
+```
