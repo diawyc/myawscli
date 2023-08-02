@@ -14,8 +14,8 @@ create 1 VPC and 6 Subnets in 2 AZs
 |Wordpress-Workshop Data Subnet A (AZ1)|
 |Wordpress-Workshop Data Subnet B (AZ2)|
 |Wordpress-Workshop Public Subnet A (AZ1)|
-|Wordpress-Workshop Public Subnet A (AZ1) |
-|Wordpress-Workshop App Subnet B (AZ2)|
+|Wordpress-Workshop Public Subnet B (AZ1) |
+
 
 
 
