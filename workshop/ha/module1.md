@@ -1,5 +1,5 @@
-# Module1: Network
-## 1.1 VPC and 6 Subnets in 2 AZs
+# [Module 1: Configure the Network](https://catalog.us-east-1.prod.workshops.aws/workshops/5ceb632a-c07f-44a5-a3bd-b8f616a631c0/en-US/introduction/lab1)
+## 1.create 1 VPC and 6 Subnets in 2 AZs
 EnvironmentName:	Wordpress-Workshop
 
 ```
