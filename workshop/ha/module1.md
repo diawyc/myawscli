@@ -1,5 +1,5 @@
-# Part 1: Networking and Security
-## 1.VPC and Subnets
+# Module1: Network
+## 1.1 VPC and 6 Subnets in 2 AZs
 ```
 vpcid=$(aws ec2 create-vpc \
     --cidr-block 10.0.0.0/16 \
