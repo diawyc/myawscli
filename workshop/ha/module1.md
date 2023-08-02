@@ -1,13 +1,26 @@
 # Module1: Network
 ## 1.1 VPC and 6 Subnets in 2 AZs
+
+```
+AppSubnetACIDR='192.168.2.0/24'
+AppSubnetBCIDR='192.168.3.0/24'
+DataSubnetACIDR='192.168.4.0/24'
+DataSubnetBCIDR='192.168.5.0/24'
+EnvironmentName	Wordpress-Workshop	-
+PublicSubnetACIDR	192.168.0.0/24	-
+PublicSubnetBCIDR	192.168.1.0/24	-
+VpcCIDR='192.168.0.0/16'
+```
+
+
 ```
 vpcid=$(aws ec2 create-vpc \
-    --cidr-block 10.0.0.0/16 \
-    --tag-specifications 'ResourceType=vpc,Tags=[{Key=Name,Value=awsthreetierworkshop}]'\
+    --cidr-block $VpcCIDR \
+    --tag-specifications 'ResourceType=vpc,Tags=[{Key=Name,Value=Wordpress-Workshop}]'\
     --query 'Vpc.VpcId' --output text)
-aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.1.0/28 --availability-zone=cn-northwest-1a --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Public-Web-1}]' --no-cli-pager
-aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.2.0/28 --availability-zone=cn-northwest-1a --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Private-App-1}]' --no-cli-pager
-aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.3.0/28 --availability-zone=cn-northwest-1a --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Private-DB-1}]' --no-cli-pager
+aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $AppSubnetACIDR --availability-zone=cn-northwest-1a --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Public-Web-1}]' --no-cli-pager
+aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $AppSubnetBCIDR --availability-zone=cn-northwest-1a --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Private-App-1}]' --no-cli-pager
+aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $DataSubnetACIDR --availability-zone=cn-northwest-1a --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Private-DB-1}]' --no-cli-pager
 aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.4.0/28 --availability-zone=cn-northwest-1b --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Public-Web-2}]' --no-cli-pager
 aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.5.0/28 --availability-zone=cn-northwest-1b --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Private-App-2}]' --no-cli-pager
 aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.6.0/28 --availability-zone=cn-northwest-1b --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Private-DB-2}]' --no-cli-pager
