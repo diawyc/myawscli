@@ -54,7 +54,7 @@ aws ec2 attach-internet-gateway \
     --vpc-id $vpcid 
 ```
 #### NAT Gateway
-重复一次，需要两个NAT
+
 ```
 subnet=$pubsub1
 ```
@@ -65,6 +65,9 @@ nat=$(aws ec2 create-nat-gateway \
     --subnet-id $subnet \
     --allocation-id $eip --query 'NatGateway.NatGatewayId' --output text)
 echo $nat
+```
+重复一次，需要两个NAT
+```
 subnet=$pubsub2
 ```
 ## 3.Routing Configuration
