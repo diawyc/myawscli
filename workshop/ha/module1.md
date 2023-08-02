@@ -45,7 +45,7 @@ pubsub1=$(aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $PublicSubnetACIDR 
 pubsub2=$(aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $PublicSubnetBCIDR --availability-zone=$az2  --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Wordpress-Workshop App Subnet B (AZ2)}]' --no-cli-pager --query 'Subnet.SubnetId' --output text)
 echo $vpcid $pubsub1 $pubsub2
 ```
-## 2.Internet GatewayHeader anchor link
+## 2.Internet Gateway
 ```
 igwid=$(aws ec2 create-internet-gateway \
     --tag-specifications 'ResourceType=internet-gateway,Tags=[{Key=Name,Value=Wordpress-Workshop}]'\
