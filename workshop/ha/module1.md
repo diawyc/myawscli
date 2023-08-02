@@ -73,6 +73,6 @@ echo $nat
 ```
 subnet=$pubsub2
 ```
-
+echo $vpcid $pubsub1 $pubsub2 $igwid > infor.text
 
 [back](readme.md)
