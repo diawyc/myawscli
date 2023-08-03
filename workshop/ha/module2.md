@@ -24,12 +24,18 @@ aws rds create-db-subnet-group \
 dbsg='WP Database SG'
 serversg='WP Database Client SG'
 
+```
+
+```
+
+dbsg='WP Database SG'
+serversg='WP Database Client SG'
 
 ```
 
 ## create database
 ```
-dbname='threetierdb'
+dbname='wordpressb'
 type=aurora-mysql
 sg=?
 name='threetierdb'
@@ -45,9 +51,9 @@ dbendpoint=$(aws rds create-db-cluster \
     --master-username $username \
     --master-user-password $password \
     --db-subnet-group-name $sngname \
---no-publicly-accessible \
+    --no-publicly-accessible \
     --vpc-security-group-ids $sg \
---query 'DBCluster.Endpoint' --output text)
+    --query 'DBCluster.Endpoint' --output text)
 
 echo $dbendpoint
 ```
