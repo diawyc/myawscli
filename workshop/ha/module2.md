@@ -17,12 +17,54 @@ aws rds create-db-subnet-group \
     --subnet-ids '["subnet-0877032c0c23c7368","subnet-0c979a57817ecb053"]' 
 
 ```
-## create a security group for DB
+## create a security group for DB and client
+
+```
+sourcesg=$groupid
+echo $sourcesg
+sgname='WP Database Client SG'
+des='sg for the private app tier instance'
+```
+```
+groupid=$(aws ec2 create-security-group --group-name $sgname --description $des --vpc-id $vpcid --tag-specifications 'ResourceType=security-group,Tags=[{Key=Name,Value=5.Private-instance}]' --query 'GroupId' --output text)
+echo $groupid
+```
+
+```
+aws ec2 authorize-security-group-ingress \
+    --group-id $groupid \
+    --protocol tcp \
+    --port 4000 \
+    --cidr 0.0.0.0/0
 
 ```
 
-dbsg='WP Database SG'
-serversg='WP Database Client SG'
+
+```
+sourcesg=$groupid
+echo $sourcesg
+sgname='WP Database SG'
+des='sg for the private database'
+```
+```
+groupid=$(aws ec2 create-security-group --group-name $sgname --description $des --vpc-id $vpcid --tag-specifications 'ResourceType=security-group,Tags=[{Key=Name,Value=6.DB-private}]' --query 'GroupId' --output text)
+echo $groupid
+```
+```
+
+aws ec2 authorize-security-group-ingress \
+    --group-id $groupid \
+    --protocol tcp \
+    --port 3306 \
+    --source-group $sourcesg
+```
+```
+aws ec2 describe-security-groups --query 'SecurityGroups[?VpcId==`vpc-`].[GroupName,GroupId]' --output table
+```
+```
+
+dbsg=''
+serversg=''
 
 ```
 
