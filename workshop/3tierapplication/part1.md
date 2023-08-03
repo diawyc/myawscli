@@ -1,5 +1,5 @@
 # Part 1: Networking and Security
-## 1.VPC and Subnets
+## 1.[VPC and Subnets](https://catalog.us-east-1.prod.workshops.aws/workshops/85cd2bb2-7f79-4e96-bdee-8078e469752a/en-US/part1/vpcsubnetcreation)
 ```
 vpcid=$(aws ec2 create-vpc \
     --cidr-block 10.0.0.0/16 \
@@ -76,7 +76,7 @@ aws ec2 create-route --route-table-id $rtb2 --destination-cidr-block 0.0.0.0/0 -
 aws ec2 associate-route-table --route-table-id $rtb2 --subnet-id $private2
 
 ```
-## 4.Security Groups
+## 4.[Security Groups](https://catalog.us-east-1.prod.workshops.aws/workshops/85cd2bb2-7f79-4e96-bdee-8078e469752a/en-US/part1/securitygroups)
 [cli](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-security-group.html)
 #### step1-2
 ```
