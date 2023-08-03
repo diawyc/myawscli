@@ -156,6 +156,7 @@ echo $groupid
 ```
 
 ```
+这个地方为啥有两条，需要check
 aws ec2 authorize-security-group-ingress \
     --group-id $groupid \
     --protocol tcp \
