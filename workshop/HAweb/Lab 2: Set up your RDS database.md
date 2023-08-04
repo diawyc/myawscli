@@ -1,4 +1,4 @@
-# Part 2: Database Deployment
+# [Lab 2: Set up your RDS database]([url](https://catalog.us-east-1.prod.workshops.aws/workshops/3de93ad5-ebbe-4258-b977-b45cdfe661f1/en-US/database/lab2))
 ## Subnet Groups
 [CLI](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-subnet-group.html)
 ```
