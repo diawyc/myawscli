@@ -102,7 +102,7 @@ aws resourcegroupstaggingapi tag-resources \
 rtb1=$( aws ec2 create-route-table --vpc-id $vpcid --query 'RouteTable.RouteTableId' --output text)
 echo $rtb1
 aws ec2 create-route --route-table-id $rtb1 --destination-cidr-block 0.0.0.0/0 --gateway-id $nat1
-aws ec2 associate-route-table --route-table-id $rtb1 --subnet-id $privatesub1
+aws ec2 associate-route-table --route-table-id $rtb1 --subnet-id $appsub1
 
 ```
 
@@ -118,5 +118,12 @@ echo $arn2
 aws resourcegroupstaggingapi tag-resources \
     --resource-arn-list $natarn2 \
     --tags Name=$tag2
+```
+```
+rtb2=$( aws ec2 create-route-table --vpc-id $vpcid --query 'RouteTable.RouteTableId' --output text)
+echo $rtb2
+aws ec2 create-route --route-table-id $rtb2 --destination-cidr-block 0.0.0.0/0 --gateway-id $nat2
+aws ec2 associate-route-table --route-table-id $rtb2 --subnet-id $appsub2
+
 ```
 [back](readme.md)
