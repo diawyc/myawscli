@@ -37,10 +37,10 @@ echo $datasub1 $datasub2
 aws rds create-db-subnet-group \
     --db-subnet-group-name $name \
     --db-subnet-group-description $des \
-    --subnet-ids '["<datasub1>","<datasub2>"]' 
+    --subnet-ids $datasub1 $datasub2
 
 ```
-? 有什么办法带参数进去？
+
 ## Create the Aurora database cluster
 ```
 dbname='Wordpress-Workshop'
