@@ -9,41 +9,46 @@ create 1 VPC and 6 Subnets in 2 AZs
 
 | Subnet Name Tag|
 | --- | 
-|Wordpress-Workshop App Subnet A (AZ1)|
-|Wordpress-Workshop App Subnet B (AZ2)|
-|Wordpress-Workshop Data Subnet A (AZ1)|
-|Wordpress-Workshop Data Subnet B (AZ2)|
-|Wordpress-Workshop Public Subnet A (AZ1)|
-|Wordpress-Workshop Public Subnet B (AZ1) |
-
-
+|Wordpress-Workshop-VPC|
+|Public Subnet A|
+|Public Subnet B|
+|Application Subnet A|
+|Application Subnet B|
+|Data Subnet A|
+|Data Subnet B|
 
 
 ```
-AppSubnetACIDR='192.168.2.0/24'
-AppSubnetBCIDR='192.168.3.0/24'
-DataSubnetACIDR='192.168.4.0/24'
-DataSubnetBCIDR='192.168.5.0/24'
-PublicSubnetACIDR='192.168.0.0/24'
-PublicSubnetBCIDR='192.168.1.0/24'
-VpcCIDR='192.168.0.0/16'
-az1='us-east-1a'
-az2='us-east-1b'
+region=eu-west-1
+VpcCIDR='10.2.0.0/16'
+PublicSubnetACIDR='10.2.0.0/24'
+PublicSubnetBCIDR='10.2.1.0/24'
+AppSubnetACIDR='10.2.2.0/24'
+AppSubnetBCIDR='10.2.3.00/24'
+DataSubnetACIDR='10.2.4.0/24'
+DataSubnetBCIDR='10.2.5.0/24'
+az1='eu-west-1a'
+az2='eu-west-1b'
 ```
 
 
 ```
 vpcid=$(aws ec2 create-vpc \
     --cidr-block $VpcCIDR \
-    --tag-specifications 'ResourceType=vpc,Tags=[{Key=Name,Value=Wordpress-Workshop}]'\
+    --tag-specifications 'ResourceType=vpc,Tags=[{Key=Name,Value=Wordpress-Workshop-VPC}]'\
     --query 'Vpc.VpcId' --output text)
-aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $AppSubnetACIDR --availability-zone=$az1 --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Wordpress-Workshop App Subnet A (AZ1)}]' --no-cli-pager
-aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $AppSubnetBCIDR --availability-zone=$az2 --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Wordpress-Workshop App Subnet B (AZ2)}]' --no-cli-pager
-aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $DataSubnetACIDR --availability-zone=$az1 --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Wordpress-Workshop Data Subnet A (AZ1)}]' --no-cli-pager
-aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $DataSubnetBCIDR --availability-zone=$az2  --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Wordpress-Workshop Data Subnet B (AZ2)}]' --no-cli-pager
-pubsub1=$(aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $PublicSubnetACIDR --availability-zone=$az1  --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Wordpress-Workshop Public Subnet A (AZ1)}]' --no-cli-pager --query 'Subnet.SubnetId' --output text)
-pubsub2=$(aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $PublicSubnetBCIDR --availability-zone=$az2  --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Wordpress-Workshop Public Subnet B (AZ2)}]' --no-cli-pager --query 'Subnet.SubnetId' --output text)
-echo $vpcid $pubsub1 $pubsub2
+echo $vpcid
+```
+```
+pubsub1=$(aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $PublicSubnetACIDR --availability-zone=$az1  --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Public Subnet A}]' --no-cli-pager --query 'Subnet.SubnetId' --output text)
+pubsub2=$(aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $PublicSubnetBCIDR --availability-zone=$az2  --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Public Subnet B}]' --no-cli-pager --query 'Subnet.SubnetId' --output text)
+aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $AppSubnetACIDR --availability-zone=$az1 --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Application Subnet A}]' --no-cli-pager
+aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $AppSubnetBCIDR --availability-zone=$az2 --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Application Subnet B}]' --no-cli-pager
+aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $DataSubnetACIDR --availability-zone=$az1 --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Data Subnet A}]' --no-cli-pager
+aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $DataSubnetBCIDR --availability-zone=$az2  --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Data Subnet B}]' --no-cli-pager
+
+echo  $pubsub1 $pubsub2
+
 ```
 ## 2.Internet Gateway
 ```
