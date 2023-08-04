@@ -43,12 +43,12 @@ echo $vpcid
 ```
 pubsub1=$(aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $PublicSubnetACIDR --availability-zone=$az1  --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Public Subnet A}]' --no-cli-pager --query 'Subnet.SubnetId' --output text)
 pubsub2=$(aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $PublicSubnetBCIDR --availability-zone=$az2  --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Public Subnet B}]' --no-cli-pager --query 'Subnet.SubnetId' --output text)
-aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $AppSubnetACIDR --availability-zone=$az1 --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Application Subnet A}]' --no-cli-pager
-aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $AppSubnetBCIDR --availability-zone=$az2 --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Application Subnet B}]' --no-cli-pager
-aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $DataSubnetACIDR --availability-zone=$az1 --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Data Subnet A}]' --no-cli-pager
-aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $DataSubnetBCIDR --availability-zone=$az2  --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Data Subnet B}]' --no-cli-pager
+appsub1=$(aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $AppSubnetACIDR --availability-zone=$az1 --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Application Subnet A}]' --no-cli-pager --query 'Subnet.SubnetId' --output text)
+appsub2=$(aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $AppSubnetBCIDR --availability-zone=$az2 --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Application Subnet B}]' --no-cli-pager --query 'Subnet.SubnetId' --output text)
+datasub1=(aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $DataSubnetACIDR --availability-zone=$az1 --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Data Subnet A}]' --no-cli-pager  --query 'Subnet.SubnetId' --output text)
+datasub2=(aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $DataSubnetBCIDR --availability-zone=$az2  --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Data Subnet B}]' --no-cli-pager  --query 'Subnet.SubnetId' --output text)
 
-echo  $pubsub1 $pubsub2
+echo  $pubsub1 $pubsub2 $appsub1 $appsub2 $datasub1 $datasub2
 
 ```
 ### Check the result
@@ -98,6 +98,14 @@ aws resourcegroupstaggingapi tag-resources \
     --tags Name=$tag1
 
 ```
+```
+rtb1=$( aws ec2 create-route-table --vpc-id $vpcid --query 'RouteTable.RouteTableId' --output text)
+echo $rtb1
+aws ec2 create-route --route-table-id $rtb1 --destination-cidr-block 0.0.0.0/0 --gateway-id $nat1
+aws ec2 associate-route-table --route-table-id $rtb1 --subnet-id $privatesub1
+
+```
+
 ```
 eip=$(aws ec2 allocate-address --query 'AllocationId' --output text )
 echo $eip
