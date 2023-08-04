@@ -10,8 +10,10 @@ echo $groupid
 sourcesg=$groupid
 
 ```
+
+```
 sgname='WP FS SG'
-des='Allow NFS traffic from client  to FS'
+des='Allow NFS traffic from client to FS'
 port='2049'
 groupid=$(aws ec2 create-security-group --group-name $sgname --description $des --query 'GroupId' --output text)
 aws ec2 authorize-security-group-ingress \
@@ -19,6 +21,6 @@ aws ec2 authorize-security-group-ingress \
     --protocol tcp \
     --port $port \
     --source-group $sourcesg
-sg=$groupid
+```
 
 ## Create the EFS cluster
