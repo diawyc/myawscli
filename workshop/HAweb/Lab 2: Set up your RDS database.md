@@ -1,9 +1,7 @@
 # [Lab 2: Set up your RDS database]([url](https://catalog.us-east-1.prod.workshops.aws/workshops/3de93ad5-ebbe-4258-b977-b45cdfe661f1/en-US/database/lab2))
-## Subnet Groups
+## Create an RDS subnet groupHeader anchor link
 [CLI](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-subnet-group.html)
-```
-aws ec2 describe-subnets --query 'Subnets[?VpcId==`vpc-06b52efb9f0dd54f7`].[Tags[0].Value,SubnetId]' --output table 
-```
+
 ```
 name='threetierdb'
 des='subnetgroup for database mysql '
