@@ -91,9 +91,10 @@ echo $eip
 nat1=$(aws ec2 create-nat-gateway \
     --subnet-id $pubsub1 \
     --allocation-id $eip --query 'NatGateway.NatGatewayId' --output text)
+arn1=arn:aws:ec2:$region:$aid:natgateway/$nat1
 echo $natarn1
 aws resourcegroupstaggingapi tag-resources \
-    --resource-arn-list $natarn1 \
+    --resource-arn-list $arn1 \
     --tags Name=$tag1
 
 ```
@@ -104,7 +105,7 @@ nat2=$(aws ec2 create-nat-gateway \
     --subnet-id $pubsub2 \
     --allocation-id $eip --query 'NatGateway.NatGatewayId' --output text)
 echo $nat2
-arn2=arn:aws:ec2:$region:$accoundid:natgateway/$nat2
+arn2=arn:aws:ec2:$region:$aid:natgateway/$nat2
 echo $arn2
 aws resourcegroupstaggingapi tag-resources \
     --resource-arn-list $natarn2 \
