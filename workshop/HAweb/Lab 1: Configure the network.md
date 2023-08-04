@@ -79,33 +79,29 @@ aws ec2 associate-route-table --route-table-id $rtb --subnet-id $pubsub2
 ```
 
 ## 3.NAT Gateways
-tag=WP-Natgateway-A
 
 ```
-subnet=$pubsub1
+tag1=WP-Natgateway-A
+eip=$(aws ec2 allocate-address --query 'AllocationId' --output text )
+echo $eip
+natarn1=$(aws ec2 create-nat-gateway \
+    --subnet-id $pubsub1 \
+    --allocation-id $eip --query 'NatGateway.NatGatewayId' --output text)
+echo $natarn1
+aws resourcegroupstaggingapi tag-resources \
+    --resource-arn-list $natarn1 \
+    --tags Name=$tag1
+
 ```
 ```
 eip=$(aws ec2 allocate-address --query 'AllocationId' --output text )
 echo $eip
-nat=$(aws ec2 create-nat-gateway \
-    --subnet-id $subnet \
+natarn2=$(aws ec2 create-nat-gateway \
+    --subnet-id $pubsub2 \
     --allocation-id $eip --query 'NatGateway.NatGatewayId' --output text)
-echo $nat
-```
-重复一次，需要两个NAT
-```
-subnet=$pubsub2
-```
-arn=
-tag=WP-Natgateway-A
-
-```
-
-```
+echo $natarn2
 aws resourcegroupstaggingapi tag-resources \
-    --resource-arn-list $arn \
-    --tags Name=$tag
-
+    --resource-arn-list $natarn2 \
+    --tags Name=$tag2
 ```
-
 [back](readme.md)
