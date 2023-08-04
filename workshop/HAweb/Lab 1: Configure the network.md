@@ -2,12 +2,9 @@
 ## 1.VPC
 create 1 VPC and 6 Subnets in 2 AZs
 
-| Basic Information|
-| --- | 
-| VPC ,IGW,Name Tag| 
-| Wordpress-Workshop| 
 
-| Subnet Name Tag|
+
+| Network Name Tag Table|
 | --- | 
 |Wordpress-Workshop-VPC|
 |Public Subnet A|
@@ -56,9 +53,12 @@ aws ec2 describe-subnets --query 'Subnets[?VpcId==`vpc-`].[Tags[0].Value,SubnetI
 
 ```
 ## 2.Internet Gateway
+| Name Tag|
+| --- | 
+| WP Internet Gateway| 
 ```
 igwid=$(aws ec2 create-internet-gateway \
-    --tag-specifications 'ResourceType=internet-gateway,Tags=[{Key=Name,Value=Wordpress-Workshop}]'\
+    --tag-specifications 'ResourceType=internet-gateway,Tags=[{Key=Name,Value=WP Internet Gateway}]'\
     --query 'InternetGateway.InternetGatewayId' --output text)
 echo $igwid
 
@@ -66,6 +66,13 @@ aws ec2 attach-internet-gateway \
     --internet-gateway-id $igwid\
     --vpc-id $vpcid 
 ```
+## 3.Route Table
+| Name Tag|
+| --- | 
+| Wordpress Public| 
+```
+```
+
 ## 3.NAT Gateways
 
 ```
