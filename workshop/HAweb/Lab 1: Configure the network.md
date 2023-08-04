@@ -50,6 +50,11 @@ aws ec2 create-subnet --vpc-id=$vpcid --cidr-block $DataSubnetBCIDR --availabili
 echo  $pubsub1 $pubsub2
 
 ```
+### Check the result
+```
+aws ec2 describe-subnets --query 'Subnets[?VpcId==`vpc-`].[Tags[0].Value,SubnetId]' --output table
+
+```
 ## 2.Internet Gateway
 ```
 igwid=$(aws ec2 create-internet-gateway \
