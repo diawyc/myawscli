@@ -79,9 +79,7 @@ aws ec2 associate-route-table --route-table-id $rtb --subnet-id $pubsub2
 ```
 
 ## 3.NAT Gateways
-| Name Tag|
-| --- | 
-| WP-Natgateway-A| 
+tag=WP-Natgateway-A
 
 ```
 subnet=$pubsub1
@@ -98,6 +96,16 @@ echo $nat
 ```
 subnet=$pubsub2
 ```
+arn=
+tag=WP-Natgateway-A
 
+```
+
+```
+aws resourcegroupstaggingapi tag-resources \
+    --resource-arn-list $arn \
+    --tags Name=$tag
+
+```
 
 [back](readme.md)
