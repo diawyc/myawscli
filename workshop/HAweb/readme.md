@@ -7,4 +7,4 @@ aws ec2 describe-security-groups --query 'SecurityGroups[?VpcId==`vpc-`].[GroupN
 aws rds describe-db-subnet-groups --query 'DBSubnetGroups[*].DBSubnetGroupName' --output table
 
 ```
-## [Lab 1: Configure the network](Lab 1: Configure the network.md)
+## [Lab 1: Configure the network](/Lab 1: Configure the network.md)
