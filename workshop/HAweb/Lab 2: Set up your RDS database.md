@@ -5,16 +5,16 @@
 ```
 name='Aurora-Wordpress'
 des='RDS subnet group used by Wordpress '
-echo 
+echo $datasub1 $datasub2
 ```
 ```
 aws rds create-db-subnet-group \
     --db-subnet-group-name $name \
     --db-subnet-group-description $des \
-    --subnet-ids '["subnet-056292e902d22a7e1","subnet-036b90652a69b55ec"]' 
+    --subnet-ids '["<datasub1>","<datasub2>"]' 
 
 ```
-
+? 有什么办法带参数进去？
 ## Database Deployment
 ```
 aws ec2 describe-security-groups --query 'SecurityGroups[?VpcId==`vpc-06b52efb9f0dd54f7`].[GroupName,GroupId]' --output table
