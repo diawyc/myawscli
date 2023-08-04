@@ -32,5 +32,5 @@ des='subnet group used by elasticache'
 aws elasticache create-cache-subnet-group \
     --cache-subnet-group-name $name \
     --cache-subnet-group-description $des \
-    --subnet-ids "subnet-0877032c0c23c7368" "subnet-0c979a57817ecb053"
+    --subnet-ids $dbsubnet1 $dbsubnet2
 ```
