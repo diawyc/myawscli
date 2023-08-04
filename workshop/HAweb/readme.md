@@ -10,7 +10,7 @@ aws rds describe-db-subnet-groups --query 'DBSubnetGroups[*].DBSubnetGroupName' 
 
 ## [Lab 1: Configure the network](lab1.md)
 ## [Lab 2: Set up your RDS database](lab2.md)
-## [Part 2](part2.md)
+## [Lab 3: Set up Elasticache for Memcached](lab3.md)
 ## [Part 3](part3.md)
 ## [Part 4](part4.md)
 ## [Part 5](part5.md)
