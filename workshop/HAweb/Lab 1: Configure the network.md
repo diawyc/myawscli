@@ -1,4 +1,8 @@
 # [Module 1: Configure the Network](https://catalog.us-east-1.prod.workshops.aws/workshops/5ceb632a-c07f-44a5-a3bd-b8f616a631c0/en-US/introduction/lab1)
+```
+aid=$(aws sts get-caller-identity --query 'Account' --output text)
+region=eu-west-1
+```
 ## 1.VPC
 create 1 VPC and 6 Subnets in 2 AZs
 
@@ -16,7 +20,7 @@ create 1 VPC and 6 Subnets in 2 AZs
 
 
 ```
-region=eu-west-1
+
 VpcCIDR='10.2.0.0/16'
 PublicSubnetACIDR='10.2.0.0/24'
 PublicSubnetBCIDR='10.2.1.0/24'
@@ -84,7 +88,7 @@ aws ec2 associate-route-table --route-table-id $rtb --subnet-id $pubsub2
 tag1=WP-Natgateway-A
 eip=$(aws ec2 allocate-address --query 'AllocationId' --output text )
 echo $eip
-natarn1=$(aws ec2 create-nat-gateway \
+nat1=$(aws ec2 create-nat-gateway \
     --subnet-id $pubsub1 \
     --allocation-id $eip --query 'NatGateway.NatGatewayId' --output text)
 echo $natarn1
@@ -96,10 +100,12 @@ aws resourcegroupstaggingapi tag-resources \
 ```
 eip=$(aws ec2 allocate-address --query 'AllocationId' --output text )
 echo $eip
-natarn2=$(aws ec2 create-nat-gateway \
+nat2=$(aws ec2 create-nat-gateway \
     --subnet-id $pubsub2 \
     --allocation-id $eip --query 'NatGateway.NatGatewayId' --output text)
-echo $natarn2
+echo $nat2
+arn2=arn:aws:ec2:$region:$accoundid:natgateway/$nat2
+echo $arn2
 aws resourcegroupstaggingapi tag-resources \
     --resource-arn-list $natarn2 \
     --tags Name=$tag2
