@@ -5,7 +5,7 @@ sgname='WP Cache SG'
 
 ```
 
-
+```
 des='external load banlancer security group'
 port=''
 groupid=$(aws ec2 create-security-group --group-name $sgname --description $des --vpc-id $vpcid --tag-specifications 'ResourceType=security-group,Tags=[{Key=Name,Value=DBSG}]' --query 'GroupId' --output text)
@@ -18,6 +18,7 @@ aws ec2 authorize-security-group-ingress \
     --source-group $sourcesg
 ```
 ## create subnet group
-
+```
 
 sgname='Wordpress-Elasticache'
+```
