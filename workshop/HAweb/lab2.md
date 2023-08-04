@@ -1,10 +1,21 @@
 # [Lab 2: Set up your RDS database]([url](https://catalog.us-east-1.prod.workshops.aws/workshops/3de93ad5-ebbe-4258-b977-b45cdfe661f1/en-US/database/lab2))
 ## Create an RDS subnet group
 
-
+```
+sgname='WP Database Client SG'
+des='DB client security group'
+```
+```
+groupid=$(aws ec2 create-security-group --group-name $sgname --description $des --vpc-id $vpcid --tag-specifications 'ResourceType=security-group,Tags=[{Key=Name,Value=6.DB-private}]' --query 'GroupId' --output text)
+echo $groupid
+sourcesg=$groupid
+```
+```
 sgname='WP Database SG'
-des=''
-sourcesg
+des='allow rds/aurora traffic'
+port=3306
+```
+
 ```
 groupid=$(aws ec2 create-security-group --group-name $sgname --description $des --vpc-id $vpcid --tag-specifications 'ResourceType=security-group,Tags=[{Key=Name,Value=DBSG}]' --query 'GroupId' --output text)
 echo $groupid
@@ -12,7 +23,7 @@ echo $groupid
 aws ec2 authorize-security-group-ingress \
     --group-id $groupid \
     --protocol tcp \
-    --port 3306 \
+    --port $port \
     --source-group $sourcesg
 ```
 ```
