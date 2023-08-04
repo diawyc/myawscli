@@ -22,5 +22,5 @@ aws ec2 authorize-security-group-ingress \
     --port $port \
     --source-group $sourcesg
 ```
-
+rule Type 为NFS没有地方设置啊
 ## Create the EFS cluster
