@@ -11,12 +11,15 @@ sourcesg=$groupid
 ```
 ```
 sgname='WP Cache SG'
+des='WP cache sg'
 port='11211'
+groupid=$(aws ec2 create-security-group --group-name $sgname --description $des --vpc-id $vpcid  --query 'GroupId' --output text)
 aws ec2 authorize-security-group-ingress \
     --group-id $groupid \
     --protocol tcp \
     --port $port \
     --source-group $sourcesg
+sg=$groupid
 ```
 
 
