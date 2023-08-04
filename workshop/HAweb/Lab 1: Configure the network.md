@@ -79,6 +79,9 @@ aws ec2 associate-route-table --route-table-id $rtb --subnet-id $pubsub2
 ```
 
 ## 3.NAT Gateways
+| Name Tag|
+| --- | 
+| WP-Natgateway-A| 
 
 ```
 subnet=$pubsub1
@@ -95,6 +98,6 @@ echo $nat
 ```
 subnet=$pubsub2
 ```
-echo $vpcid $pubsub1 $pubsub2 $igwid > infor.text
+
 
 [back](readme.md)
