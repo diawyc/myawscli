@@ -3,9 +3,9 @@
 [CLI](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-subnet-group.html)
 
 ```
-name='threetierdb'
-des='subnetgroup for database mysql '
-
+name='Aurora-Wordpress'
+des='RDS subnet group used by Wordpress '
+echo 
 ```
 ```
 aws rds create-db-subnet-group \
