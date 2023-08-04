@@ -1,5 +1,5 @@
 # [Lab 2: Set up your RDS database]([url](https://catalog.us-east-1.prod.workshops.aws/workshops/3de93ad5-ebbe-4258-b977-b45cdfe661f1/en-US/database/lab2))
-## Create an RDS subnet group
+## Create security group rule
 
 ```
 sgname='WP Database Client SG'
@@ -10,6 +10,7 @@ groupid=$(aws ec2 create-security-group --group-name $sgname --description $des 
 echo $groupid
 sourcesg=$groupid
 ```
+此处没加rule啊
 ```
 sgname='WP Database SG'
 des='allow rds/aurora traffic'
@@ -26,6 +27,7 @@ aws ec2 authorize-security-group-ingress \
     --port $port \
     --source-group $sourcesg
 ```
+## Create an RDS subnet group
 ```
 name='Aurora-Wordpress'
 des='RDS subnet group used by Wordpress '
@@ -40,28 +42,27 @@ aws rds create-db-subnet-group \
 ```
 ? 有什么办法带参数进去？
 ## Create the Aurora database cluster
-
 ```
 dbname='Wordpress-Workshop'
 type=aurora-mysql
-sg=?
 username='jessica'
 password='password123'
 engine='aurora-mysql'
 inclass='db.r5.large'
+version='5.7'
 ```
 
 ```
 dbendpoint=$(aws rds create-db-cluster \
     --db-cluster-identifier $dbname \
     --engine $type \
-    --engine-version 5.7 \
+    --engine-version $version \
     --master-username $username \
     --master-user-password $password \
     --db-subnet-group-name $name \
---no-publicly-accessible \
-    --vpc-security-group-ids $sg \
---query 'DBCluster.Endpoint' --output text)
+    --no-publicly-accessible \
+    --vpc-security-group-ids $sourcesg \
+    --query 'DBCluster.Endpoint' --output text)
 
 echo $dbendpoint
 ```
