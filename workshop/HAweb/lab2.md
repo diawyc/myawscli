@@ -2,7 +2,19 @@
 ## Create an RDS subnet group
 
 
-SBname='WP Database SG'
+sgname='WP Database SG'
+des=''
+sourcesg
+```
+groupid=$(aws ec2 create-security-group --group-name $sgname --description $des --vpc-id $vpcid --tag-specifications 'ResourceType=security-group,Tags=[{Key=Name,Value=DBSG}]' --query 'GroupId' --output text)
+echo $groupid
+
+aws ec2 authorize-security-group-ingress \
+    --group-id $groupid \
+    --protocol tcp \
+    --port 3306 \
+    --source-group $sourcesg
+```
 ```
 name='Aurora-Wordpress'
 des='RDS subnet group used by Wordpress '
