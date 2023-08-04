@@ -1,7 +1,5 @@
 # [Lab 2: Set up your RDS database]([url](https://catalog.us-east-1.prod.workshops.aws/workshops/3de93ad5-ebbe-4258-b977-b45cdfe661f1/en-US/database/lab2))
-## Create an RDS subnet groupHeader anchor link
-[CLI](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-subnet-group.html)
-
+## Create an RDS subnet group
 ```
 name='Aurora-Wordpress'
 des='RDS subnet group used by Wordpress '
@@ -15,12 +13,9 @@ aws rds create-db-subnet-group \
 
 ```
 ? 有什么办法带参数进去？
-## Database Deployment
-```
-aws ec2 describe-security-groups --query 'SecurityGroups[?VpcId==`vpc-06b52efb9f0dd54f7`].[GroupName,GroupId]' --output table
-aws rds describe-db-subnet-groups --query 'DBSubnetGroups[*].DBSubnetGroupName' --output table
+## Create the Aurora database cluster
 
-```
+
 ```
 dbname='threetierdb'
 type=aurora-mysql
