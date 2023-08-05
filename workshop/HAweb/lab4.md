@@ -27,13 +27,13 @@ rule Type 为NFS没有地方设置啊
 ```
 name='Wordpress-EFS'
 echo $appsub1 $appsub2
-fileid='fs-041d9808847f4f634'
+
 ```
 ```
-aws efs create-file-system \
+fileid =$(aws efs create-file-system \
     --performance-mode generalPurpose \
     --throughput-mode bursting \
-    --encrypted 
+    --encrypted --query 'FileSystemId' --output text)
 ```
 ```
 aws efs create-mount-target \
