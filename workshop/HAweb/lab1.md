@@ -117,7 +117,7 @@ echo $nat2
 arn2=arn:aws:ec2:$region:$aid:natgateway/$nat2
 echo $arn2
 aws resourcegroupstaggingapi tag-resources \
-    --resource-arn-list $natarn2 \
+    --resource-arn-list $arn2 \
     --tags Name=$tag2
 ```
 ```
