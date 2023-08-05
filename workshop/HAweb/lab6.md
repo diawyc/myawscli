@@ -40,10 +40,10 @@ user data edit
 ```
 #!/bin/bash
 
-DB_NAME="wordpress"
-DB_USERNAME="wpadmin"
-DB_PASSWORD=""
-DB_HOST="wordpress-workshop.cluster-ctdnyvvewl6s.eu-west-1.rds.amazonaws.com"
+DB_NAME="wordpress-workshop"
+DB_USERNAME="jessica"
+DB_PASSWORD="password"
+DB_HOST="wordpress-workshop.c6anrexnofve.eu-west-1.rds.amazonaws.com"
 
 yum update -y
 
