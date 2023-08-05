@@ -28,6 +28,7 @@ sg=$groupid
 name='Wordpress-Elasticache'
 des='subnet group used by elasticache'
 ```
+name会变成小写的wordpress-elasticache
 ```
 aws elasticache create-cache-subnet-group \
     --cache-subnet-group-name $name \
@@ -46,5 +47,6 @@ aws elasticache create-cache-cluster \
     --cache-cluster-id $name \
     --engine $engine \
     --cache-node-type $type \
-    --num-cache-nodes $node
+    --num-cache-nodes $node \
+    --cache-subnet-group-name wordpress-elasticache
 ```
