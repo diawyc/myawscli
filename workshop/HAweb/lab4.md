@@ -34,9 +34,14 @@ aws efs create-file-system \
     --performance-mode generalPurpose \
     --throughput-mode bursting \
     --encrypted 
-
+```
+```
 aws efs create-mount-target \
     --file-system-id $fileid \
-    --subnet-id $appsub1 $appsub2\
+    --subnet-id $appsub1 \
+    --security-groups $groupid
+aws efs create-mount-target \
+    --file-system-id $fileid \
+    --subnet-id $appsub2 \
     --security-groups $groupid
 ```
