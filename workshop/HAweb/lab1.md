@@ -54,7 +54,7 @@ echo  $pubsub1 $pubsub2 $appsub1 $appsub2 $datasub1 $datasub2
 ```
 ### Check the result
 ```
-aws ec2 describe-subnets --query 'Subnets[?VpcId==`vpc-`].[Tags[0].Value,SubnetId]' --output table
+aws ec2 describe-subnets --query 'Subnets[*].[Tags[0].Value,SubnetId]' --output table
 
 ```
 ## 2.Internet Gateway
