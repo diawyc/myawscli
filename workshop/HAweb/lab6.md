@@ -1,6 +1,22 @@
 # [Lab 6: Create a launch Template](https://catalog.us-east-1.prod.workshops.aws/workshops/3de93ad5-ebbe-4258-b977-b45cdfe661f1/en-US/application/lab6)
 
+
+
+```
 sgname='WP Wordpress SG'
+port=80
+des='Wordpress server security group'
+```
+```
+groupid=$(aws ec2 create-security-group --group-name $sgname --description $des --vpc-id $vpcid --query 'GroupId' --output text)
+echo $groupid
+aws ec2 authorize-security-group-ingress \
+    --group-id $groupid \
+    --protocol tcp \
+    --port $port \
+    --source-group $sourcesg
+```
+
 
 ## Launch Template
 ```
