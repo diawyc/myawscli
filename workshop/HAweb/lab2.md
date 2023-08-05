@@ -20,6 +20,7 @@ port=3306
 ```
 groupid=$(aws ec2 create-security-group --group-name $sgname --description $des --vpc-id $vpcid --tag-specifications 'ResourceType=security-group,Tags=[{Key=Name,Value=DBSG}]' --query 'GroupId' --output text)
 echo $groupid
+dbsg=$groupid
 
 aws ec2 authorize-security-group-ingress \
     --group-id $groupid \
