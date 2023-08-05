@@ -24,17 +24,19 @@ aws ec2 authorize-security-group-ingress \
 ```
 rule Type 为NFS没有地方设置啊
 ## Create the EFS cluster
+```
 name='Wordpress-EFS'
-$appsub1 $appsub2
+echo $appsub1 $appsub2
 
-
+```
+```
 aws efs create-file-system \
     --performance-mode generalPurpose \
     --throughput-mode bursting \
     --encrypted 
 
-
 aws efs create-mount-target \
     --file-system-id $fileid \
     --subnet-id subnet-02bf4c428bexample \
     --security-groups sg-068f739363example
+```
