@@ -37,6 +37,6 @@ aws efs create-file-system \
 
 aws efs create-mount-target \
     --file-system-id $fileid \
-    --subnet-id subnet-02bf4c428bexample \
+    --subnet-id $appsub1 $appsub2\
     --security-groups $groupid
 ```
