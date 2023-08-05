@@ -6,10 +6,12 @@
 sgname='WP Wordpress SG'
 port=80
 des='Wordpress server security group'
+sourcesg=$lbsg
 ```
 ```
 groupid=$(aws ec2 create-security-group --group-name $sgname --description $des --vpc-id $vpcid --query 'GroupId' --output text)
 echo $groupid
+wpsg=$groupid
 aws ec2 authorize-security-group-ingress \
     --group-id $groupid \
     --protocol tcp \
