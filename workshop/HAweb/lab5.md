@@ -18,31 +18,13 @@ aws ec2 authorize-security-group-ingress \
 
 ## Create load balancer and application security groups
 
-```
-aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId,Tags[?Key==`Name`].Value]' --output text
-name=WebTierImage
-des='Web tier ec2 image with running app'
 
-```
-```
-ec2id='i-081bc7776c51b1fb4'
-```
-```
-
-aws ec2 create-image \
-    --instance-id $ec2id \
-    --name $name \
-    --description $des
-```
-
- "ImageId": "ami-0ad640263352b6473"
 
 
 ## Target Group
 
 ```
 name='WebTierTargetGroup'
-vpcid=vpc-06b52efb9f0dd54f7
 ```
 
 ```
@@ -57,20 +39,16 @@ echo $tgarn
 ## Internet Facing Load Balancer 
 
 ```
-name='web-tier-external-lb'
+name='wordpress-alb'
 
 ```
-```
-sub1=subnet-01b6fb1492d8d49a3
-sub2=subnet-0f9190f6ac6207318
-sg=sg-0d08aeec68c3dfe93
-```
+
 
 ```
 lbarn=$(aws elbv2 create-load-balancer \
     --name $name \
     --subnets $sub1 $sub2 \
-    --security-groups $sg --query 'LoadBalancers[].LoadBalancerArn' --output text)
+    --security-groups $groupid --query 'LoadBalancers[].LoadBalancerArn' --output text)
 echo $lbarn
 ```
 
@@ -82,7 +60,7 @@ aws elbv2 create-listener --load-balancer-arn $lbarn \
 ```
 ## Launch Template
 ```
-name=WebTierLaunchTemplate
+name=
 ImageId=ami-0ad640263352b6473
 security group  :sg-084acd7997e0276f3
 instancerole name:workshopec2role
