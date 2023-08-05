@@ -1,7 +1,12 @@
-# Part 6: External Load Balancer and Auto Scaling
+# [Lab 5: Create the load balancer](https://catalog.us-east-1.prod.workshops.aws/workshops/3de93ad5-ebbe-4258-b977-b45cdfe661f1/en-US/application/lab5)
 
 
-## Web Tier AMI
+
+ WP Load Balancer SG
+ port=80
+ 
+
+## Create load balancer and application security groups
 
 ```
 aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId,Tags[?Key==`Name`].Value]' --output text
