@@ -3,8 +3,9 @@
 
 
 ```
-aws ec2 describe-security-groups --query 'SecurityGroups[?VpcId==`vpc-`].[GroupName,GroupId]' --output table
+aws ec2 describe-security-groups --query 'SecurityGroups[*].[GroupName,GroupId]' --output table
 aws rds describe-db-subnet-groups --query 'DBSubnetGroups[*].DBSubnetGroupName' --output table
+aws ec2 describe-subnets --query 'Subnets[*].[Tags[0].Value,SubnetId]' --output table
 
 ```
 
