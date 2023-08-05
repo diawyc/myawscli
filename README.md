@@ -6,6 +6,7 @@
 aws configure list-profiles
 export AWS_PROFILE=cnrole
 aws ec2 describe-regions
+aws sts get-caller-identity --query 'Account' --output text
 ```
 
 ## use role instead of user
@@ -101,9 +102,6 @@ done
 aws sts get-caller-identity
 ```
 
-```
-aws sts get-caller-identity --query 'Account' --output table
-```
 ## sns
 ```
 region=eu-west-2
