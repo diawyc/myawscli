@@ -52,7 +52,7 @@ engine='aurora-mysql'
 inclass='db.r5.large'
 version='5.7'
 ```
-
+    --no-publicly-accessible 要去掉，aurora不支持的
 ```
 dbendpoint=$(aws rds create-db-cluster \
     --db-cluster-identifier $dbname \
@@ -61,7 +61,7 @@ dbendpoint=$(aws rds create-db-cluster \
     --master-username $username \
     --master-user-password $password \
     --db-subnet-group-name $name \
-    --no-publicly-accessible \
+
     --vpc-security-group-ids $sourcesg \
     --query 'DBCluster.Endpoint' --output text)
 
