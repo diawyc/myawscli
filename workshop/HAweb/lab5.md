@@ -8,7 +8,7 @@
 ```
 groupid=$(aws ec2 create-security-group --group-name $sgname --description $des --vpc-id $vpcid --query 'GroupId' --output text)
 echo $groupid
-sourcesg=$groupid
+lbsg=$groupid
 
 aws ec2 authorize-security-group-ingress \
     --group-id $groupid \
