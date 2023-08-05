@@ -16,5 +16,5 @@ aws ec2 describe-subnets --query 'Subnets[*].[Tags[0].Value,SubnetId]' --output 
 
 ## [Lab 5: Create the load balancer](lab5.md)
 ## [Lab 6: Create a launch Template](lab6.md)
-## [Lab 5: Create the load balancer](lab7.md)
+## [Lab 7: Create the app server](lab7.md)
 ## [Lab 5: Create the load balancer](lab8.md)
