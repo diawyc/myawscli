@@ -1,10 +1,20 @@
 # [Lab 5: Create the load balancer](https://catalog.us-east-1.prod.workshops.aws/workshops/3de93ad5-ebbe-4258-b977-b45cdfe661f1/en-US/application/lab5)
 
-
-
- WP Load Balancer SG
+```
+ sgname='WP Load Balancer SG'
  port=80
- 
+ des='Load balancer security group'
+```
+```
+groupid=$(aws ec2 create-security-group --group-name $sgname --description $des --vpc-id $vpcid --query 'GroupId' --output text)
+echo $groupid
+
+aws ec2 authorize-security-group-ingress \
+    --group-id $groupid \
+    --protocol tcp \
+    --port $port \
+    --cidr 0.0.0.0/0
+```
 
 ## Create load balancer and application security groups
 
