@@ -76,7 +76,7 @@ aws ec2 attach-internet-gateway \
 | --- | 
 | Wordpress Public| 
 ```
-rtb=$( aws ec2 create-route-table --vpc-id $vpcid --tag-specifications 'ResourceType=natgateway,Tags=[{Key=Name,Value= Wordpress Public}] --query 'RouteTable.RouteTableId' --output text)
+rtb=$(aws ec2 create-route-table --vpc-id $vpcid --tag-specifications 'ResourceType=natgateway,Tags=[{Key=Name,Value= Wordpress Public}]' --query 'RouteTable.RouteTableId' --output text)
 echo $rtb
 aws ec2 create-route --route-table-id $rtb --destination-cidr-block 0.0.0.0/0 --gateway-id $igwid
 aws ec2 associate-route-table --route-table-id $rtb --subnet-id $pubsub1
