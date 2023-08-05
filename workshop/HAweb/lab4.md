@@ -27,7 +27,7 @@ rule Type 为NFS没有地方设置啊
 ```
 name='Wordpress-EFS'
 echo $appsub1 $appsub2
-
+fileid='fs-041d9808847f4f634'
 ```
 ```
 aws efs create-file-system \
@@ -38,5 +38,5 @@ aws efs create-file-system \
 aws efs create-mount-target \
     --file-system-id $fileid \
     --subnet-id subnet-02bf4c428bexample \
-    --security-groups sg-068f739363example
+    --security-groups $groupid
 ```
