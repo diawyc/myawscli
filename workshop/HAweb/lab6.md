@@ -18,7 +18,17 @@ aws ec2 authorize-security-group-ingress \
 ```
 ## make image
 ```
-aws ec2 run-instances --image-id $imageid --count 1 --instance-type t2.micro --security-group-ids sg-04b0c1c71e7264d33,sg-00ba6b7cd44402d08,sg-086113b195d1f0e8d --subnet-id $appsub1
+imageid ='ami-06e0ce9d3339cb039'
+num=1
+type='t2.micro'
+```
+```
+aws ec2 run-instances \
+--image-id $imageid \
+--count $num \
+--instance-type $type \
+--security-group-ids $dbsg $fssg $cachesg\
+--subnet-id $appsub1
 ```
 
 
