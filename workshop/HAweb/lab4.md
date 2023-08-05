@@ -8,6 +8,7 @@ des='file system client sg'
 groupid=$(aws ec2 create-security-group --group-name $sgname --description $des --vpc-id $vpcid  --query 'GroupId' --output text)
 echo $groupid
 sourcesg=$groupid
+fssg=$groupid
 
 ```
 
