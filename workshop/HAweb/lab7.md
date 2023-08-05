@@ -11,4 +11,4 @@ aws autoscaling create-auto-scaling-group \
     --health-check-grace-period 600 \
     --min-size 0 \
     --max-size 2 \
-    --vpc-zone-identifier $pubsub1,$pubsub2
+    --vpc-zone-identifier $appsub1,$appsub2
