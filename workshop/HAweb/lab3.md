@@ -8,6 +8,7 @@ des='Elasticache client'
 groupid=$(aws ec2 create-security-group --group-name $sgname --description $des --vpc-id $vpcid  --query 'GroupId' --output text)
 echo $groupid
 sourcesg=$groupid
+cachesg=$groupid
 ```
 ```
 sgname='WP Cache SG'
