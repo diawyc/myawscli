@@ -30,18 +30,18 @@ echo $appsub1 $appsub2
 
 ```
 ```
-fileid =$(aws efs create-file-system \
+fsid=$(aws efs create-file-system \
     --performance-mode generalPurpose \
     --throughput-mode bursting \
     --encrypted --query 'FileSystemId' --output text)
 ```
 ```
 aws efs create-mount-target \
-    --file-system-id $fileid \
+    --file-system-id $fsid \
     --subnet-id $appsub1 \
     --security-groups $groupid
 aws efs create-mount-target \
-    --file-system-id $fileid \
+    --file-system-id $fsid \
     --subnet-id $appsub2 \
     --security-groups $groupid
 ```
