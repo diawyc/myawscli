@@ -33,11 +33,12 @@ name='Aurora-Wordpress'
 des='RDS subnet group used by Wordpress '
 echo $datasub1 $datasub2
 ```
+生成后会把name变成小写的
 ```
-aws rds create-db-subnet-group \
+name=$(aws rds create-db-subnet-group \
     --db-subnet-group-name $name \
     --db-subnet-group-description $des \
-    --subnet-ids $datasub1 $datasub2
+    --subnet-ids $datasub1 $datasub2  --query 'DBSubnetGroup.DBSubnetGroupName' --output text)
 
 ```
 
