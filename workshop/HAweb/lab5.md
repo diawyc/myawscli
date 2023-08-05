@@ -24,7 +24,7 @@ aws ec2 authorize-security-group-ingress \
 ## Target Group
 
 ```
-name='WebTierTargetGroup'
+name='wordpress-targetgroup'
 ```
 
 ```
@@ -47,7 +47,7 @@ name='wordpress-alb'
 ```
 lbarn=$(aws elbv2 create-load-balancer \
     --name $name \
-    --subnets $sub1 $sub2 \
+    --subnets $pubsub1 $pubsub2 \
     --security-groups $groupid --query 'LoadBalancers[].LoadBalancerArn' --output text)
 echo $lbarn
 ```
