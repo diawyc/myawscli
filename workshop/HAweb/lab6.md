@@ -20,9 +20,8 @@ aws ec2 authorize-security-group-ingress \
 
 ## Launch Template
 ```
-name=
-ImageId=ami-0ad640263352b6473
-security group  :sg-084acd7997e0276f3
+name='wordpress-lt'
+ImageId=ami-06e0ce9d3339cb039
 instancerole name:workshopec2role
 ```
 
@@ -30,7 +29,7 @@ instancerole name:workshopec2role
 lt=$(aws ec2 create-launch-template \
     --launch-template-name $name \
     --version-description WebVersion1 \
-    --launch-template-data '{"IamInstanceProfile": {"Name": "workshopec2role"},"NetworkInterfaces":[{"DeviceIndex":0,"Groups":["sg-084acd7997e0276f3"]}],"ImageId":"ami-0ad640263352b6473","InstanceType":"t2.micro"}' \
+    --launch-template-data '{"IamInstanceProfile": {"Name": "workshopec2role"},"NetworkInterfaces":[{"DeviceIndex":0,"Groups":["sg-084acd7997e0276f3"]}],"ImageId":"ami-0ad640263352b6473","InstanceType":"t2.small"}' \
     --query 'LaunchTemplate.LaunchTemplateId' --output text)
 echo $lt
 ```
