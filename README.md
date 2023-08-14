@@ -1,10 +1,14 @@
 # [I love aws cli](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/index.html#cli-aws)
 ```
 arn=
+k1=customer
+v1=hmct
+k2=data
+v2=pii
 ```
 
 ```
-aws opensearch add-tags --arn $arn --tag-list Key=customer,Value=hmct Key=datalevel,Value=vincode
+aws opensearch add-tags --arn $arn --tag-list Key=$k1,Value=$v1 Key=$k2,Value=$v2
 ```
 ## 选profile
 
