@@ -1,4 +1,10 @@
 # [I love aws cli](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/index.html#cli-aws)
+
+排序查看便宜的RI
+
+```
+aws opensearch describe-reserved-instance-offerings --query 'sort_by (ReservedInstanceOfferings,&FixedPrice)[?FixedPrice!=`0.0`].[InstanceType,FixedPrice,Duration]'  --output table
+```
 ```
 arn=
 k1=customer
@@ -6,9 +12,7 @@ v1=hmct
 k2=data
 v2=pii
 ```
-```
- aws opensearch describe-reserved-instance-offerings --query 'sort_by (ReservedInstanceOfferings,&FixedPrice)[].[InstanceType,FixedPrice,Duration]'  --output table
-```
+
 ```
 aws opensearch add-tags --arn $arn --tag-list Key=$k1,Value=$v1 Key=$k2,Value=$v2
 ```
