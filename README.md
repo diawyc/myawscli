@@ -6,7 +6,9 @@ v1=hmct
 k2=data
 v2=pii
 ```
-
+```
+ aws opensearch describe-reserved-instance-offerings --query 'sort_by (ReservedInstanceOfferings,&FixedPrice)[].[InstanceType,FixedPrice,Duration]'  --output table
+```
 ```
 aws opensearch add-tags --arn $arn --tag-list Key=$k1,Value=$v1 Key=$k2,Value=$v2
 ```
