@@ -1,9 +1,4 @@
 # AWS Translate
-## list all jobs
-
-```
-aws translate list-text-translation-jobs
-```
 
 
 ## [Batch translation job](https://docs.aws.amazon.com/cli/latest/reference/translate/start-text-translation-job.html)
@@ -60,6 +55,12 @@ aws translate start-text-translation-job --job-name $jobname \
 --source-language-code $scode \
 --target-language-codes $tcode
 
+```
+
+## list all jobs
+
+```
+aws translate list-text-translation-jobs --filter JobName=$jobname
 ```
 ### download files
 
