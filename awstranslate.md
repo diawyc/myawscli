@@ -70,6 +70,7 @@ aws s3 sync $output $localfolder
 ### delete input folder
 ```
 aws s3 rm $input --recursive
+aws s3 rm $output --recursive
 ```
 
 ```
