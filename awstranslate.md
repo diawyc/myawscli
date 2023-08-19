@@ -4,10 +4,7 @@
 ```
 aws translate list-text-translation-jobs
 ```
-文件夹名字是excel/ppt,上传里边所有的文件
-```
-aws s3 cp $filename $input --recursive
-```
+
 
 ## [Batch translation job](https://docs.aws.amazon.com/cli/latest/reference/translate/start-text-translation-job.html)
 
@@ -42,7 +39,10 @@ filename='Desktop/html'
 type='text/html'
 jobname='htmljob'
 ```
-
+文件夹名字是excel/ppt,上传里边所有的文件
+```
+aws s3 cp $filename $input --recursive
+```
 ### translate job
 ```
 output='s3://endoc/'
@@ -66,6 +66,10 @@ aws translate start-text-translation-job --job-name $jobname \
 
 ```
 aws s3 sync $output $localfolder
+```
+### delete input folder
+```
+aws s3 rm $input --recursive
 ```
 
 ```
