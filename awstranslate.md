@@ -47,7 +47,7 @@ jobname='htmljob'
 ```
 output='s3://endoc/'
 localfolder=en
-iamrole='arn:aws:iam::295158943844:role/translateall-DataAccessRole-678VEQ8P4V6U'
+iamrole='arn:aws:iam::295158943844:role/service-role/AmazonTranslateServiceRole-awstranslate'
 scode=ja
 tcode=en
 
