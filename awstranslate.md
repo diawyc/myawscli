@@ -41,7 +41,7 @@ aws s3 cp $filename $input --recursive
 ### translate job
 ```
 output='s3://endoc/'
-localfolder=en
+localfolder='Desktop/en'
 iamrole='arn:aws:iam::295158943844:role/service-role/AmazonTranslateServiceRole-awstranslate'
 scode=ja
 tcode=en
