@@ -67,3 +67,18 @@ aws translate start-text-translation-job --job-name $jobname \
 ```
 aws s3 sync $output $localfolder
 ```
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "translate.amazonaws.com"
+            },
+            "Action": "sts:AssumeRole"
+        }
+    ]
+}
+```
