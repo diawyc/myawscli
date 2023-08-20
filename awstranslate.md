@@ -7,25 +7,28 @@
 ### excel
 ```
 input='s3://jadoc/excel/'
+
+type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
 filename='Desktop/excel'
 jobname='exceljob'
-type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
 ```
 
 ### ppt
 
 ```
 input='s3://jadoc/ppt/'
-filename='Desktop/ppt'
+
 type='application/vnd.openxmlformats-officedocument.presentationml.presentation'
 jobname='pptjob'
+filename='Desktop/ppt'
 ```
 ### word
 ```
 input='s3://jadoc/word/'
-filename='Desktop/word'
+
 type='application/vnd.openxmlformats-officedocument.wordprocessingml.document'
 jobname='wordjob'
+filename='Desktop/word'
 ```
 ### html
 ```
