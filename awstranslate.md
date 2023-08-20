@@ -7,7 +7,6 @@
 ### excel
 ```
 input='s3://jadoc/excel/'
-
 type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
 filename='Desktop/excel'
 jobname='exceljob'
@@ -17,7 +16,6 @@ jobname='exceljob'
 
 ```
 input='s3://jadoc/ppt/'
-
 type='application/vnd.openxmlformats-officedocument.presentationml.presentation'
 jobname='pptjob'
 filename='Desktop/ppt'
@@ -25,7 +23,6 @@ filename='Desktop/ppt'
 ### word
 ```
 input='s3://jadoc/word/'
-
 type='application/vnd.openxmlformats-officedocument.wordprocessingml.document'
 jobname='wordjob'
 filename='Desktop/word'
