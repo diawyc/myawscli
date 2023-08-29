@@ -12,6 +12,10 @@ echo $region
 aws lambda list-functions  --region=$region --no-cli-pager
 done
 ```
+list function name
+```
+aws lambda list-functions --query 'Functions[].FunctionName' --output table
+```
 ## create lambda function
 ```
 lambdaarn=$(aws lambda create-function \
