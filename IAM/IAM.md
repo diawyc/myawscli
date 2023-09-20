@@ -28,7 +28,7 @@ rolearn=$(aws iam create-role --role-name $rolename --assume-role-policy-documen
 
 ```
 
-aws iam put-role-policy --role-name=$rolename --policy-name $rolepolicy --policy-document file://$rolepolicyfile
+aws iam put-role-policy --role-name=$rolename --policy-name $policyname --policy-document file://$rolepolicyfile
 ```
 ## [with managed policy](https://docs.aws.amazon.com/cli/latest/reference/iam/attach-role-policy.html)
 
