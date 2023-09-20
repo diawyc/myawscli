@@ -24,7 +24,7 @@ policyname=AdministratorAccess
 ```
 rolearn=$(aws iam create-role --role-name $rolename --assume-role-policy-document file://$trustfile --query 'Role.Arn' --output text)
 ```
-## [with local policy files](https://docs.aws.amazon.com/cli/latest/reference/iam/put-role-policy.html)
+## [with local policy files to create inline policy](https://docs.aws.amazon.com/cli/latest/reference/iam/put-role-policy.html)
 
 ```
 
