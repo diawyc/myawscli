@@ -1,14 +1,23 @@
 {
-  "Role": "IAM-role-ARN",
+  "Role": "arn:aws-cn:iam::337075903349:role/s3replicationRole",
   "Rules": [
     {
       "Status": "Enabled",
-      "Priority": 1,
+      "SourceSelectionCriteria": {
+                    "SseKmsEncryptedObjects": {
+                        "Status": "Enabled"
+                    }
+                },
+      "Priority": 0,
       "DeleteMarkerReplication": { "Status": "Disabled" },
-      "Filter" : { "Prefix": "Tax"},
+      "Filter" : { },
       "Destination": {
-        "Bucket": "arn:aws-cn:s3:::destination-bucket"
-      }
+                    "Bucket": "arn:aws-cn:s3:::dr-aos-beijing-snapshot",
+                    "EncryptionConfiguration": {
+                        "ReplicaKmsKeyID": "arn:aws-cn:kms:cn-north-1:337075903349:key/4ba6242a-4ab2-42c0-9dfe-fe81915e9dfe"
+                    }
+                },
+
     }
   ]
 }
