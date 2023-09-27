@@ -1,5 +1,5 @@
 {
-  "Role": "arn:aws-cn:iam::337075903349:role/s3replicationRole",
+  "Role": "arn:aws-cn:iam::<accoundid>:role/s3replicationRole",
   "Rules": [
     {
       "Status": "Enabled",
@@ -14,7 +14,7 @@
       "Destination": {
                     "Bucket": "arn:aws-cn:s3:::dr-aos-beijing-snapshot",
                     "EncryptionConfiguration": {
-                        "ReplicaKmsKeyID": "arn:aws-cn:kms:cn-north-1:337075903349:key/4ba6242a-4ab2-42c0-9dfe-fe81915e9dfe"
+                        "ReplicaKmsKeyID": "arn:aws-cn:kms:cn-north-1:<accoundid>:key/4ba6242a-4ab2-42c0-9dfe-fe81915e9dfe"
                     }
                 },
 
