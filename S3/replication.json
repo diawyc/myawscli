@@ -16,7 +16,7 @@
                     "EncryptionConfiguration": {
                         "ReplicaKmsKeyID": "arn:aws-cn:kms:cn-north-1:<accoundid>:key/4ba6242a-4ab2-42c0-9dfe-fe81915e9dfe"
                     }
-                },
+                }
 
     }
   ]
