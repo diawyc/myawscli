@@ -1,0 +1,14 @@
+{
+  "Role": "IAM-role-ARN",
+  "Rules": [
+    {
+      "Status": "Enabled",
+      "Priority": 1,
+      "DeleteMarkerReplication": { "Status": "Disabled" },
+      "Filter" : { "Prefix": "Tax"},
+      "Destination": {
+        "Bucket": "arn:aws-cn:s3:::destination-bucket"
+      }
+    }
+  ]
+}
