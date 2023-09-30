@@ -1,0 +1,24 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [{
+      "Action": [
+        "s3:ListBucket"
+      ],
+      "Effect": "Allow",
+      "Resource": [
+        "arn:aws-cn:s3:::dr-aos-beijing-snapshot"
+      ]
+    },
+    {
+      "Action": [
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:DeleteObject"
+      ],
+      "Effect": "Allow",
+      "Resource": [
+        "arn:aws-cn:s3:::dr-aos-beijing-snapshot/*"
+      ]
+    }
+  ]
+}
