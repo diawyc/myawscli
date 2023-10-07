@@ -87,3 +87,10 @@ outputs=($(aws cloudformation describe-stacks --stack-name $stackname --region=$
 ```
 aws cloudformation delete-stack --stack-name $stackname
 ```
+# [Update stack](https://docs.aws.amazon.com/cli/latest/reference/cloudformation/update-stack.html)
+```
+aws cloudformation update-stack --stack-name $stackname \
+--template-body file://$template\
+--capabilities CAPABILITY_NAMED_IAM \
+--region=$region
+```
