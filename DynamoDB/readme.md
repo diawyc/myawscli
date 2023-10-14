@@ -7,11 +7,11 @@ region=cn-northwest-1
 ```
 
 ```
-aws dynamodb put-item --table-name $name --item '{"PK": {"S": "COMPANY#1001"}, "SK": {"S": "PRODUCT#CHOCOLATE#DARK"},"company_id": {"N": "1000"}}'\
+aws dynamodb put-item --table-name $name --item '{"PK": {"S": "001"}, "SK": {"S": "test"},"company_id": {"N": "200"}}'\
  --region $region
 
 ```
 ```
-aws dynamodb delete-item --table-name $name --key '{"PK": {"S": "COMPANY#1001"}, "SK": {"S": "PRODUCT#CHOCOLATE#DARK"}}' --region $region
+aws dynamodb delete-item --table-name $name --key '{"PK": {"S": "001"}, "SK": {"S": "test"}}' --region $region
 
 ```
