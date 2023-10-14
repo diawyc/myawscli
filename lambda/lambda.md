@@ -43,3 +43,10 @@ cd foldername
 pip install --target ./package requests
 pip install --target ./package requests_aws4auth
 ```
+
+```
+
+pip3 install --target ./package -r requirements.txt
+cd package
+zip -r ../lambda.zip .
+```
