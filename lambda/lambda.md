@@ -36,3 +36,10 @@ aws lambda add-permission \
 --source-arn $rulearn --region=$region
 aws events put-targets --rule $rulename  --targets "Id"="1","Arn"=$lambdaarn --region=$region
 ```
+## [download requirement](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/integrations.html#integrations-s3-lambda-deployment-package)
+```
+cd s3-to-opensearch
+
+pip install --target ./package requests
+pip install --target ./package requests_aws4auth
+```
