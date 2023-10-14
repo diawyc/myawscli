@@ -50,3 +50,13 @@ pip3 install --target ./package -r requirements.txt
 cd package
 zip -r ../lambda.zip .
 ```
+```
+fname='ddb-lambda-aos-ddbaosesgithub-8rZa1DESAWdy'
+zname='lambda.zip'
+```
+```
+aws lambda update-function-code \
+    --function-name  $fname \
+    --zip-file fileb://$zname --region=$region
+
+```
