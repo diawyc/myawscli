@@ -7,7 +7,7 @@ region=cn-northwest-1
 ```
 
 ```
-aws dynamodb put-item --table-name $name --item '{"id": {"S": "001"}, "sk": {"S": "test"},"company_id": {"N": "200"}}'\
+aws dynamodb put-item --table-name $name --item '{"PK": {"S": "001"}, "SK": {"S": "test"},"company_id": {"N": "200"}}'\
  --region $region
 
 ```
