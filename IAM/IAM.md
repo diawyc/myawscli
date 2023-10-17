@@ -4,9 +4,11 @@ https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sts/assume-ro
 rolearn='arn:aws-cn:iam::337075903349:role/adminrole'
 sessionname=test
 ```
+
 ```
 aws sts assume-role --role-arn $rolearn --role-session-name $sessionname
 ```
+配置user assume role policy 见assume-role.json
 
 ## create user
 ```
