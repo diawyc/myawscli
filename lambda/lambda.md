@@ -65,7 +65,7 @@ aws lambda update-function-code \
 ```
 aws lambda update-function-code \
     --function-name  $fname \
-    --environment "Variables={DB_HASH_KEY='logid',ES_HOST='https://search-lambda-wu67m6l2am5kopbmzs43vejag4.cn-northwest-1.es.amazonaws.com.cn',ES_INDEX=test,BUCKET=my-bucket,KEY=mapping.json}"
+    --environment "Variables={DB_HASH_KEY='logid',ES_HOST='https://search-lambda-wu67m6l2am5kopbmzs43vejag4.cn-northwest-1.es.amazonaws.com.cn',ES_INDEX_1=test-gb,ES_INDEX_2=test-db,S3_name=lvliserver-info,KEY=mapping.json}"
    
 
 ```
