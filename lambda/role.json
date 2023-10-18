@@ -1,0 +1,40 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "logs:CreateLogGroup",
+            "Resource": "arn:aws-cn:logs:cn-northwest-1:<accountid>:*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": [
+                "arn:aws-cn:logs:cn-northwest-1:<accountid>:log-group:/aws/lambda/<fname>:*"
+            ]
+        },
+        {
+            "Action": [
+                "dynamodb:DescribeStream",
+                "dynamodb:GetRecords",
+                "dynamodb:GetShardIterator",
+                "dynamodb:ListStreams"
+            ],
+            "Resource": "arn:aws-cn:dynamodb:cn-northwest-1:<accountid>:table/<tablename>/*",
+            "Effect": "Allow"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "es:ESHttpPost",
+                "es:ESHttpPut",
+                "es:ESHttpHead",
+                "es:ESHttpGet"
+            ],
+            "Resource": "arn:aws-cn:es:cn-northwest-1:<accountid>:domain/<domainname>"
+        }
+    ]
+}
