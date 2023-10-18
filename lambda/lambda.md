@@ -50,6 +50,7 @@ pip3 install --target ./package -r requirements.txt
 cd package
 zip -r ../lambda.zip .
 ```
+### upload function code
 ```
 fname='ddb-lambda-aos-ddbaosesgithub-8rZa1DESAWdy'
 zname='lambda.zip'
@@ -60,3 +61,12 @@ aws lambda update-function-code \
     --zip-file fileb://$zname --region=$region
 
 ```
+### add env variables
+```
+aws lambda update-function-code \
+    --function-name  $fname \
+--environment Variables={DB_HASH_KEY='logid',ES_HOST='https://search-lambda-wu67m6l2am5kopbmzs43vejag4.cn-northwest-1.es.amazonaws.com.cn',ES_INDEX=test}
+   
+
+```
+
