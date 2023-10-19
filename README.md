@@ -1,5 +1,9 @@
 # [I love aws cli](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/index.html#cli-aws)
 
+
+```
+aws identitystore list-users --identity-store-id $id
+```
 排序查看便宜的RI
 
 ```
