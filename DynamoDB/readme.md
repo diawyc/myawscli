@@ -5,6 +5,9 @@ name=
 region=cn-northwest-1
 
 ```
+```
+aws dynamodb describe-table --table-name $name
+```
 
 ```
 aws dynamodb put-item --table-name $name --item '{"PK": {"S": "001"}, "SK": {"S": "test"},"company_id": {"N": "200"}}'\
