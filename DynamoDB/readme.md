@@ -6,8 +6,17 @@ region=cn-northwest-1
 
 ```
 ```
-aws dynamodb describe-table --table-name $name
+aws dynamodb describe-table --table-name $name --no-cli-pager
 ```
+```
+aws dynamodb put-item --table-name $name --item '{"log_id": {"S": "001"}, "vin": {"S": "test"}}'\
+ --region $region
+aws dynamodb  delete-item --table-name $name --item '{"log_id": {"S": "001"}, "vin": {"S": "test"}}'\
+ --region $region
+
+```
+
+
 
 ```
 aws dynamodb put-item --table-name $name --item '{"PK": {"S": "001"}, "SK": {"S": "test"},"company_id": {"N": "200"}}'\
