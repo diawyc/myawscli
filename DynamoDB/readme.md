@@ -18,7 +18,10 @@ aws dynamodb put-item --table-name $name --item '{"log_id": {"S": "009"}, "vin":
  --region $region
 aws dynamodb  delete-item --table-name $name --key '{"log_id": {"S": "009"}}'\
  --region $region
-
+aws dynamodb put-item --table-name $name --item '{"log_id": {"S": "008"}, "vin": {"S": "JHFGR987795000035"},"date_created_epoch": {"N": "1698056260"}}'\
+ --region $region
+aws dynamodb  delete-item --table-name $name --key '{"log_id": {"S": "008"}}'\
+ --region $region
 ```
 #JV车，正确，错误
 ```
