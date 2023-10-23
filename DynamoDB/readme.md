@@ -1,7 +1,7 @@
 ## add new item
 
 ```
-name=
+name=result_update
 region=cn-northwest-1
 
 ```
