@@ -1,32 +1,18 @@
 # [I love aws cli](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/index.html#cli-aws)
-
-
+```
+aws sts get-caller-identity --query 'Account' --output text
+```
 ```
 aws identitystore list-users --identity-store-id $id
 ```
-排序查看便宜的RI
 
-```
-aws opensearch describe-reserved-instance-offerings --query 'sort_by (ReservedInstanceOfferings,&FixedPrice)[?FixedPrice!=`0.0`].[InstanceType,FixedPrice,Duration]'  --output table
-```
-```
-arn=
-k1=customer
-v1=hmct
-k2=data
-v2=pii
-```
-
-```
-aws opensearch add-tags --arn $arn --tag-list Key=$k1,Value=$v1 Key=$k2,Value=$v2
-```
 ## 选profile
 
 ```
 aws configure list-profiles
 export AWS_PROFILE=cnrole
 aws ec2 describe-regions
-aws sts get-caller-identity --query 'Account' --output text
+
 ```
 
 ## use role instead of user
