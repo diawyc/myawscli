@@ -10,7 +10,7 @@ aws dynamodb describe-table --table-name $name --no-cli-pager
 ```
 
 ```
-aws dynamodb put-item --table-name $name --item '{"log_id": {"S": "001"}, "vin": {"S": "JH1TG687785000035"},"date_created_epoch": {"N": "1699888500"}}'\
+aws dynamodb put-item --table-name $name --item '{"log_id": {"S": "001"}, "vin": {"S": "JH1TG687785000035"},"date_created_epoch": {"N": "1698056260"}}'\
  --region $region
 aws dynamodb  delete-item --table-name $name --key '{"log_id": {"S": "001"}}'\
  --region $region
