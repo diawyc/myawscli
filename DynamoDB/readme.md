@@ -7,6 +7,7 @@ region=cn-northwest-1
 ```
 ```
 aws dynamodb describe-table --table-name $name --no-cli-pager
+streamarn=$(aws dynamodb describe-table --table-name $name --no-cli-pager --query 'Table.LatestStreamArn' --output text)
 ```
 # 进口车正确
 ```
