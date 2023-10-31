@@ -18,10 +18,16 @@ aws lambda list-functions --query 'Functions[].FunctionName' --output table
 ```
 ## create lambda function
 ```
+name='lvli-event-dev'
+runtime='python3.11'
+filename='lambda.zip'
+rolearn=''
+region='cn=northwest-1'
+```
 lambdaarn=$(aws lambda create-function \
-    --function-name $function \
-    --runtime python3.9 \
-    --zip-file fileb://index.zip \
+    --function-name $name \
+    --runtime $runtime \
+    --zip-file fileb://$filename \
     --handler index.lambda_handler \
     --role $rolearn --region=$region --no-cli-pager --query 'FunctionArn' --output text)
 echo $lambdaarn
