@@ -35,7 +35,7 @@ lambdaarn=$(aws lambda create-function \
     --runtime $runtime \
     --zip-file fileb://$filename \
     --handler index.lambda_handler \
-    --environment Variables={$K1=$V1,$K2=$V2}
+    --environment Variables={$K1=$V1,$K2=$V2} \
     --role $rolearn --region=$region --no-cli-pager --query 'FunctionArn' --output text)
 echo $lambdaarn
 ```
