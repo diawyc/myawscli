@@ -16,7 +16,7 @@ list function name
 ```
 aws lambda list-functions --query 'Functions[].FunctionName' --output table
 ```
-## [create lambda function] (https://docs.aws.amazon.com/cli/latest/reference/lambda/create-function.html)
+## [create lambda function](https://docs.aws.amazon.com/cli/latest/reference/lambda/create-function.html)
 ```
 name='lvli-event-dev'
 runtime='python3.11'
