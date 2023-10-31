@@ -24,6 +24,8 @@ filename='lambda.zip'
 rolearn='arn:aws-cn:iam::804868868204:role/service-role/lvli_result_dev-role-cvews8zh'
 region='cn-northwest-1'
 ```
+
+```
 lambdaarn=$(aws lambda create-function \
     --function-name $name \
     --runtime $runtime \
