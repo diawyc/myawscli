@@ -1,4 +1,4 @@
-## add new item
+## check the table status
 
 ```
 name=result_update
