@@ -21,7 +21,7 @@ aws lambda list-functions --query 'Functions[].FunctionName' --output table
 name='lvli-event-dev'
 runtime='python3.11'
 filename='lambda.zip'
-rolearn='arn:aws-cn:iam::804868868204:role/service-role/lvli_result_dev-role-cvews8zh'
+rolearn='arn:aws-cn:iam::'$accountid':role/service-role/'$rolename
 region='cn-northwest-1'
 vdic={k1=v1,k2=v2}
 ```
