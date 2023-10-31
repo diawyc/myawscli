@@ -23,6 +23,10 @@ runtime='python3.11'
 filename='lambda.zip'
 rolearn='arn:aws-cn:iam::804868868204:role/service-role/lvli_result_dev-role-cvews8zh'
 region='cn-northwest-1'
+K1='Batch_Number'
+V1=50
+K2='DB_HASH_KEY'
+V2='log_id'
 ```
 
 ```
@@ -31,6 +35,7 @@ lambdaarn=$(aws lambda create-function \
     --runtime $runtime \
     --zip-file fileb://$filename \
     --handler index.lambda_handler \
+    --environment Variables={$K1=$V1,$K2=$V2}
     --role $rolearn --region=$region --no-cli-pager --query 'FunctionArn' --output text)
 echo $lambdaarn
 ```
