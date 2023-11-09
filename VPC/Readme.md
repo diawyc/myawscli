@@ -22,7 +22,9 @@ aws ec2 describe-nat-gateways --quer 'NatGateways[*].[NatGatewayId,SubnetId,VpcI
 
 aws ec2 describe-network-acls --query 'NetworkAcls[*].Entries' --output table
 ```
-
+```
+aws cloudtrail describe-trails --quer 'trailList[*].[Name,S3BucketName,LogFileValidationEnabled]' --output table
+```
 # -------------------------
 ## create a defaul VPC
 ```
