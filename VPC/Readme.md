@@ -1,4 +1,8 @@
 https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-vpc.html
+## check VPC
+```
+aws ec2 describe-vpcs --quer 'Vpcs[*].VpcId' --output table
+```
 
 ## create a defaul VPC
 ```
