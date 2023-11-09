@@ -14,10 +14,14 @@ aws ec2 describe-subnets --query 'Subnets[*].[Tags[0].Value,SubnetId,VpcId]' --o
 ```
 
 ## 安全区域边界
+```
 
 aws ec2 describe-nat-gateways --quer 'NatGateways[*].[NatGatewayId,SubnetId,VpcId]' --output table
+```
+```
 
-
+aws ec2 describe-network-acls --query 'NetworkAcls[*].Entries' --output table
+```
 
 # -------------------------
 ## create a defaul VPC
