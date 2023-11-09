@@ -1,9 +1,17 @@
 https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-vpc.html
+
+# 等级保护
+## 安全通信网络
+
 ## check VPC
 ```
 aws ec2 describe-vpcs --quer 'Vpcs[*].VpcId' --output table
-```
 
+```
+## Check subnets
+```
+aws ec2 describe-subnets --query 'Subnets[*].[Tags[0].Value,SubnetId,VpcId]' --output table
+```
 ## create a defaul VPC
 ```
 vpcid=$(aws ec2 create-default-vpc --query 'Vpc.Vpcid' --output text)  
