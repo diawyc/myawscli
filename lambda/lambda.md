@@ -16,7 +16,9 @@ aws iam list-attached-role-policies \
 aws iam list-attached-role-policies \
     --role-name $name --quer 'AttachedPolicies[*].PolicyArn' --output table
 ```
-
+```
+ aws iam get-policy-version --policy-arn $arn --version-id v1  
+```
 # I love aws cli
 
 
