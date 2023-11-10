@@ -2,10 +2,14 @@
 ## 数据库访问权限
 ```
 aws lambda list-functions --quer 'Functions[*].[FunctionName,Role]' --output table
-
 ```
-
-
+```
+```
+name=
+```
+aws iam list-role-policies \                                      
+    --role-name $name
+```
 
 # I love aws cli
 
