@@ -12,6 +12,10 @@ aws iam list-role-policies --role-name $name
 aws iam list-attached-role-policies \
     --role-name $name --quer 'AttachedPolicies[*].PolicyName' --output table
 ```
+```
+aws iam list-attached-role-policies \
+    --role-name $name --quer 'AttachedPolicies[*].PolicyArn' --output table
+```
 
 # I love aws cli
 
