@@ -8,8 +8,7 @@ aws lambda list-functions --quer 'Functions[*].[FunctionName,Role]' --output tab
 name=
 ```
 ```
-aws iam list-role-policies \                                      
-    --role-name $name
+aws iam list-role-policies --role-name $name 
 ```
 
 # I love aws cli
