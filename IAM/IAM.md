@@ -52,7 +52,7 @@ aws iam add-role-to-instance-profile --role-name $rolename --instance-profile-na
 ```
  aws iam get-role --role-name $rolename --query 'Role.Arn' --output text
 ```
-## get policy
+## get group policy
 ### parameter
 ```
 groupname=
