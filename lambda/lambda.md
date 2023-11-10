@@ -3,7 +3,7 @@
 ```
 aws lambda list-functions --quer 'Functions[*].[FunctionName,Role]' --output table
 ```
-```
+
 ```
 name=
 ```
