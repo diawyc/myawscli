@@ -1,4 +1,17 @@
+# 等级保护
+## 数据库访问权限
+```
+aws lambda list-functions --quer 'Functions[*].[FunctionName,Role]' --output table
+
+```
+
+
+
 # I love aws cli
+
+
+
+
 
 ## 查看所有regions中lambda functions
 ```
