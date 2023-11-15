@@ -7,6 +7,7 @@ SELECT host, user, authentication_string FROM mysql.user;
 show variables like '%have_ssl%';
 show variables like '%max_connect_errors%';
 show variables like '%connect_timeout%';
+SHOW GRANTS FOR username;
 ```
 ## regions
 ```
