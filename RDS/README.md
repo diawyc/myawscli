@@ -3,6 +3,7 @@
 ```
 show variables like '%have_ssl%';
 show variables like '%max_connect_errors%';
+show variables like '%connect_timeout%';
 ```
 ## regions
 ```
