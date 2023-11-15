@@ -1,6 +1,9 @@
 # RDS 非常贵，记得要删除
-
 ```
+mysql -h 'name-rds-cluster.cluster-c5l3kdtfcmv3.rds.region.amazonaws.com.cn' -p --user='rds_admin'
+```
+```
+SELECT host, user, authentication_string FROM mysql.user;
 show variables like '%have_ssl%';
 show variables like '%max_connect_errors%';
 show variables like '%connect_timeout%';
