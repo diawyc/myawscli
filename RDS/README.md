@@ -1,5 +1,9 @@
 # RDS 非常贵，记得要删除
 
+```
+show variables like '%have_ssl%';
+show variables like '%max_connect_errors%';
+```
 ## regions
 ```
 regions=($(aws ec2 describe-regions --query 'Regions[*].RegionName' --output text --region=us-east-1))
