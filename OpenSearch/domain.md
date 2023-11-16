@@ -26,6 +26,10 @@ aws opensearch create-domain \
   --region $region
 ```
 
+
+aws opensearch describe-domains --domain-names $name --quer 'DomainStatusList[*].['created:'Created,'inprogress:'Processing]' --output table
+
+
 排序查看便宜的RI
 
 ```
