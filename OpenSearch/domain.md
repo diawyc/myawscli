@@ -27,7 +27,10 @@ aws opensearch create-domain \
 ```
 
 
-aws opensearch describe-domains --domain-names $name --quer 'DomainStatusList[*].['created:'Created,'inprogress:'Processing]' --output table
+```
+aws opensearch describe-domains --domain-names $name --quer 'DomainStatusList[*].{created:Created,inprogress:Processing}' --output table 
+
+```
 
 
 排序查看便宜的RI
