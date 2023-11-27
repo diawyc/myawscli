@@ -57,7 +57,7 @@ lambdaarn=$(aws lambda create-function \
     --role $rolearn --region=$region --no-cli-pager --query 'FunctionArn' --output text)
 echo $lambdaarn
 ```
-## add to trigger permission
+## add Resource-based policy statements to lambda
 ```
 des='eb-rule '
 triggersource='events.amazonaws.com'
