@@ -58,20 +58,32 @@ lambdaarn=$(aws lambda create-function \
 echo $lambdaarn
 ```
 ## add Resource-based policy statements to lambda
+
 ```
-des='eb-rule '
-triggersource='events.amazonaws.com'
-sourcearn=''
+des='dynamodbstream'
+trigger='dynamodb.amazonaws.com'
+name='event_update'
+fname='lvli_result_qt'
+region=cn-northwest-1
+sourcearn=$(aws dynamodb describe-table --table-name $name --no-cli-pager --query 'Table.LatestStreamArn' --output text)
 ```
 ```
 aws lambda add-permission \
---function-name $function \
+--function-name $fname \
 --statement-id $des \
 --action 'lambda:InvokeFunction' \
---principal $triggersource \
+--principal $trigger \
 --source-arn $sourcearn --region=$region
 ```
-关联source trigger到lambda
+## Add DynamoDB stream trigger
+
+aws lambda create-event-source-mapping \
+    --region $region \
+    --function-name $fname \
+    --event-source $sourcearn \
+    --batch-size 1 \
+    --starting-position TRIM_HORIZON
+## 从eventbridge 关联source trigger到lambda
 ```
 aws events put-targets --rule $rulename  --targets "Id"="1","Arn"=$lambdaarn --region=$region
 ```
