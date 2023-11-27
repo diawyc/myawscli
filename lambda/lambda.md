@@ -70,9 +70,9 @@ aws lambda add-permission \
 --action 'lambda:InvokeFunction' \
 --principal $triggersource \
 --source-arn $sourcearn --region=$region
-``
+```
 关联source trigger到lambda
-``
+```
 aws events put-targets --rule $rulename  --targets "Id"="1","Arn"=$lambdaarn --region=$region
 ```
 ## [download requirement](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/integrations.html#integrations-s3-lambda-deployment-package)
