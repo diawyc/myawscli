@@ -87,6 +87,13 @@ aws lambda create-event-source-mapping \
 ```
 aws events put-targets --rule $rulename  --targets "Id"="1","Arn"=$lambdaarn --region=$region
 ```
+## 查看现有的mapping
+```
+aws lambda get-event-source-mapping \
+    --uuid "f221ba63-6a11-45cb-8850-7a477f1c0e95"
+```
+
+
 ## [download requirement](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/integrations.html#integrations-s3-lambda-deployment-package)
 ```
 cd foldername
