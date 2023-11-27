@@ -21,10 +21,6 @@ aws iam list-attached-role-policies \
 ```
 # I love aws cli
 
-
-
-
-
 ## 查看所有regions中lambda functions
 ```
 regions=($(aws ec2 describe-regions --query 'Regions[*].RegionName' --output text --region=us-east-1))
@@ -61,14 +57,22 @@ lambdaarn=$(aws lambda create-function \
     --role $rolearn --region=$region --no-cli-pager --query 'FunctionArn' --output text)
 echo $lambdaarn
 ```
-## add to a eventbridge rule to trigger
+## add to trigger permission
+```
+des='eb-rule '
+triggersource='events.amazonaws.com'
+sourcearn=''
+```
 ```
 aws lambda add-permission \
 --function-name $function \
---statement-id eb-rule \
+--statement-id $des \
 --action 'lambda:InvokeFunction' \
---principal events.amazonaws.com \
---source-arn $rulearn --region=$region
+--principal $triggersource \
+--source-arn $sourcearn --region=$region
+``
+关联source trigger到lambda
+``
 aws events put-targets --rule $rulename  --targets "Id"="1","Arn"=$lambdaarn --region=$region
 ```
 ## [download requirement](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/integrations.html#integrations-s3-lambda-deployment-package)
