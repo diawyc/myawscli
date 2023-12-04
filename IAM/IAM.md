@@ -32,6 +32,12 @@ aws iam list-roles --quer 'Roles[].RoleName' --output table
 
 aws iam list-roles --quer 'Roles[].[RoleName,AssumeRolePolicyDocument.Statement[].Principal.AWS]' --output json
 ```
+## list role policy
+```
+aws iam list-attached-role-policies --role-name $rolename
+aws iam list-role-policies \
+    --role-name $rolename
+```
 ## create a role 
 ### parameter
 ```
