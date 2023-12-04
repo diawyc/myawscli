@@ -1,9 +1,12 @@
 ## 为user配置 assume role权限
 [permission sample](assume-role.json)
 
+
 ## user to assume role
-
-
+```
+username='smc001'
+aws iam list-user-policies --user-name $username
+```
 https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sts/assume-role.html
 ```
 rolearn='arn:aws-cn:iam::337075903349:role/adminrole'
