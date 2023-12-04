@@ -22,6 +22,12 @@ aws sts assume-role --role-arn $rolearn --role-session-name $sessionname
 ```
 arn=$(aws iam create-user --user-name=$username --query 'User.Arn' --output text)
 ```
+## list all roles by names
+
+```
+aws iam list-roles --quer 'Roles[].RoleName' --output table
+```
+
 ## create a role 
 ### parameter
 ```
