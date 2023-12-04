@@ -27,7 +27,11 @@ arn=$(aws iam create-user --user-name=$username --query 'User.Arn' --output text
 ```
 aws iam list-roles --quer 'Roles[].RoleName' --output table
 ```
+## list all roles by assume role principal
+```
 
+aws iam list-roles --quer 'Roles[].[RoleName,AssumeRolePolicyDocument.Statement[].Principal.AWS]' --output json
+```
 ## create a role 
 ### parameter
 ```
