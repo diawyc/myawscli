@@ -1,3 +1,10 @@
+
+# batch import data from a file
+```
+aws dynamodb batch-write-item --request-items file://$filename
+
+```
+
 ## check the table status
 
 ```
