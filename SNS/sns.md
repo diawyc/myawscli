@@ -19,3 +19,7 @@ aws sns set-topic-attributes --topic-arn $nsarn --attribute-name KmsMasterKeyId 
 ```
 aws sns  list-topics
 ```
+## 查看SNS加密属性
+```
+aws sns get-topic-attributes --topic-arn $snsarn
+```
