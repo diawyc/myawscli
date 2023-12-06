@@ -28,7 +28,12 @@ POST /_bulk
 
 ## create a snapshot
 ```
-PUT _snapshot/my-snapshot-repo-name/4
-GET _snapshot/my-snapshot-repo-name/_all
+PUT _snapshot/dr-snapshot-repo/4
+```
+```
+GET _snapshot/dr-snapshot-repo/_all
 
+```
+```
+GET _snapshot/_status
 ```
