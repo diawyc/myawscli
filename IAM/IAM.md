@@ -9,12 +9,12 @@ policyname='pbforsmc'
 filename='pbforsmc.json'
 ```
 ```
-aws iam create-policy \
+policyarn=$(aws iam create-policy \
     --policy-name $policyname \
-    --policy-document file://$filename
+    --policy-document file://$filename --quer 'Policie[].Arn' --text))
 ```
 ```
-policyarn=$(aws iam list-policies --scope Local --quer 'Policies[?Policyname==`pbforsmc`].Arn' --text)
+aws iam list-policies --scope Local 
 ```
 ```
 aws iam put-user-permissions-boundary \
