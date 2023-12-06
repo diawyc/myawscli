@@ -37,3 +37,38 @@ GET _snapshot/dr-snapshot-repo/_all
 ```
 GET _snapshot/_status
 ```
+## 创建一个自动的SM policy
+```
+POST _plugins/_sm/policies/dr-auto-snapshot-auto
+{
+        
+        "description": "auto snapshot for dr recovery",
+        "creation": {
+          "schedule": {
+            "cron": {
+              "expression": "0 20 * * *",
+              "timezone": "Asia/Singapore"
+            }
+          }
+        },
+        "deletion": {
+          "schedule": {
+            "cron": {
+              "expression": "0 20 * * *",
+              "timezone": "Asia/Singapore"
+            }
+          },
+          "condition": {
+            "min_count": 1,
+            "max_count": 400
+          }
+        },
+        "snapshot_config": {
+          "indices": "*",
+          "ignore_unavailable": true,
+          "repository": "dr-snapshot-repo",
+          "partial": true
+        }
+
+}
+```
