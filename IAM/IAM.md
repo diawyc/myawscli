@@ -14,6 +14,9 @@ aws iam create-policy \
     --policy-document file://$filename
 ```
 ```
+policyarn=$(aws iam list-policies --scope Local --quer 'Policies[?Policyname==`pbforsmc`].Arn' --text)
+```
+```
 aws iam put-user-permissions-boundary \
     --permissions-boundary $policyarn\
     --user-name $username
