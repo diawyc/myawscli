@@ -2,6 +2,17 @@
 [permission sample](assume-role.json)
 
 
+create a policy
+```
+username='smc001'
+policyname='pbforsmc'
+filename='pbforsmc.json'
+```
+```
+aws iam create-policy \
+    --policy-name $policynam \
+    --policy-document file://$filename
+```
 ## user to assume role
 ```
 username='smc001'
