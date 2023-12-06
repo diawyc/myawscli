@@ -11,7 +11,7 @@ filename='pbforsmc.json'
 ```
 policyarn=$(aws iam create-policy \
     --policy-name $policyname \
-    --policy-document file://$filename --quer 'Policie[].Arn' --text))
+    --policy-document file://$filename --quer 'Policie[].Arn' --output text)
 ```
 ```
 aws iam list-policies --scope Local 
