@@ -10,8 +10,15 @@ filename='pbforsmc.json'
 ```
 ```
 aws iam create-policy \
-    --policy-name $policynam \
+    --policy-name $policyname \
     --policy-document file://$filename
+```
+```
+aws iam put-user-permissions-boundary \
+    --permissions-boundary $policyarn\
+    --user-name $username
+
+
 ```
 ## user to assume role
 ```
