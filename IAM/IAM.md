@@ -1,3 +1,9 @@
+
+## list SSO role in an account
+```
+
+aws iam list-roles --quer 'Roles[?RoleName<=`AWSReservedSSO_o`].Arn' --output table
+```
 ## 为user配置 assume role权限
 [permission sample](assume-role.json)
 
