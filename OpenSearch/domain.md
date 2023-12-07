@@ -1,7 +1,9 @@
-#  AOS domain
+#  AOS domain url
 ```
-
 aws opensearch describe-domains --domain-names $name --quer 'DomainStatusList[*].Endpoint' --output text
+```
+```
+aws opensearch upgrade-domain --domain-name $name --target-version OpenSearch_3.0
 ```
 ## create a domain
 
