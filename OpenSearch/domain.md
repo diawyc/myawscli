@@ -1,5 +1,8 @@
 #  AOS domain
+```
 
+aws opensearch describe-domains --domain-names $name --quer 'DomainStatusList[*].Endpoint' --output text
+```
 ## create a domain
 
 ```
