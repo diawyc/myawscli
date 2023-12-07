@@ -39,7 +39,7 @@ GET _snapshot/_status
 ```
 ## 创建一个自动的SM policy
 ```
-POST _plugins/_sm/policies/dr-auto-snapshot-auto
+POST _plugins/_sm/policies/dr-auto-snapshot
 {
         
         "description": "auto snapshot for dr recovery",
