@@ -72,3 +72,7 @@ POST _plugins/_sm/policies/dr-auto-snapshot
 
 }
 ```
+## 查看SM policy内容
+```
+GET _plugins/_sm/policies
+```
