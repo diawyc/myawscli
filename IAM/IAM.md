@@ -1,4 +1,11 @@
 
+## get a custom policy content
+```
+aws iam get-role-policy \
+    --role-name $rolename \
+    --policy-name $policyname
+
+```
 ## list SSO role in an account
 ```
 
