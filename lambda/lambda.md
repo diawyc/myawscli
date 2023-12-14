@@ -19,7 +19,7 @@ aws iam list-attached-role-policies \
 ```
  aws iam get-policy-version --policy-arn $arn --version-id v1  
 ```
-# I love aws cli
+# 日常使用
 
 ## 查看所有regions中lambda functions
 ```
