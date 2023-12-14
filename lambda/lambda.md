@@ -120,10 +120,7 @@ aws lambda update-function-code \
 
 ```
 ### add env variables
-```
-fname='lvli_result_prod'
-vdic={ES_INDEX_1=log-ghac-result,ES_INDEX_2=log-wdhac-result}
-```
+Variables必须是全部参数
 ```
 aws lambda update-function-configuration \
     --function-name  $fname \
