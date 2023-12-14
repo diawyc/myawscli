@@ -120,6 +120,13 @@ aws lambda update-function-code \
 
 ```
 ### add env variables
+
+
+```
+aws lambda update-function-configuration \
+    --function-name  $fname \
+    --environment Variables=$vdic
+```
 ```
 aws lambda update-function-configuration \
     --function-name  $fname \
