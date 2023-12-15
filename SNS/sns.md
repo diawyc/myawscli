@@ -15,6 +15,10 @@ aws sns subscribe --topic-arn $snsarn --protocol email --notification-endpoint  
 ```
 aws sns set-topic-attributes --topic-arn $nsarn --attribute-name KmsMasterKeyId --attribute-value $keyid
 ```
+```
+aws sns create-topic --name $rulename --attributes KmsMasterKeyId=$keyid --region $region
+```
+
 ## list all sns topics
 ```
 aws sns  list-topics
