@@ -27,6 +27,10 @@ aws dynamodb put-item --table-name $name --item '{"log_id": {"S": "008"}, "vin":
 aws dynamodb  delete-item --table-name $name --key '{"log_id": {"S": "008"}}'\
  --region $region
 ```
+```
+aws dynamodb put-item --table-name $name --item '{"log_id": {"S": "001"}, "vin": {"S": "JH1TG687785000038"},"date_created_epoch": {"N": "1698056060"},"json": {"S": "{\"campaignId\": \"HT011CMPHAT11001\", \"VIN\": \"HTC011VCLHAT00001\", \"updateSw\": [{\"serialNumber\": \"SERIAL_NUMBER_FI02001\", \"protocol\": \"Ether\", \"diagProtocol\": null, \"softwarePartNumber\": \"HT011-ES02-FJ02\", \"compatibleSoftwarePartNumber\": \"HT011-ES02-FJ01\", \"targetSoftwarePartNumber\": \"HT011-ES02-FJ02\", \"datetimeUpdateStart\": \"20200701T000041Z\", \"datetimeUpdateFinish\": \"20200701T000141Z\", \"datetimeActivate\": \"20200701T000241Z\", \"codeResult\": 2, \"codeError\": [\"HT001ERR01\"], \"dtc\": null}], \"typeUpdate\": 1, \"typeNetwork\": 1, \"ipAddress\": \"103.114.101.225\", \"trigger\": 2, \"typeActivation\": 2, \"sourceActivation\": 1, \"versionUpdateClient\": \"1.0.0\", \"versionOsClient\": \"1.0.0\", \"datetimeCreated\": \"20231031T063819Z\", \"apiVersion\": \"1.0\", \"vciName\": null, \"repairOrderNum\": null, \"dealerNumber\": null, \"isoCountryCode\": null, \"computerIdentificationInformation\": null, \"oddDetection\": null, \"dstiSerialNumber\": null}"}}'\
+ --region $region
+```
 # 进口车错误数据
 
 ```
@@ -51,6 +55,16 @@ aws dynamodb  delete-item --table-name $name --key '{"log_id": {"S": "003"}}'\
  --region $region
 
 ```
+
+```
+aws dynamodb put-item --table-name $name --item '{"log_id": {"S": "001"}, "vin": {"S": "LVHTG6877H5000070"},"date_created_epoch": {"N": "1698056060"},"json": {"S": "{\"campaignId\": \"HT011CMPHAT11001\", \"VIN\": \"HTC011VCLHAT00001\", \"updateSw\": [{\"serialNumber\": \"SERIAL_NUMBER_FI02001\", \"protocol\": \"Ether\", \"diagProtocol\": null, \"softwarePartNumber\": \"HT011-ES02-FJ02\", \"compatibleSoftwarePartNumber\": \"HT011-ES02-FJ01\", \"targetSoftwarePartNumber\": \"HT011-ES02-FJ02\", \"datetimeUpdateStart\": \"20200701T000041Z\", \"datetimeUpdateFinish\": \"20200701T000141Z\", \"datetimeActivate\": \"20200701T000241Z\", \"codeResult\": 2, \"codeError\": [\"HT001ERR01\"], \"dtc\": null}], \"typeUpdate\": 1, \"typeNetwork\": 1, \"ipAddress\": \"103.114.101.225\", \"trigger\": 2, \"typeActivation\": 2, \"sourceActivation\": 1, \"versionUpdateClient\": \"1.0.0\", \"versionOsClient\": \"1.0.0\", \"datetimeCreated\": \"20231031T063819Z\", \"apiVersion\": \"1.0\", \"vciName\": null, \"repairOrderNum\": null, \"dealerNumber\": null, \"isoCountryCode\": null, \"computerIdentificationInformation\": null, \"oddDetection\": null, \"dstiSerialNumber\": null}"}}'\
+ --region $region
+```
+```
+aws dynamodb put-item --table-name $name --item '{"log_id": {"S": "001"}, "vin": {"S": "LHGTG6877H5000070"},"date_created_epoch": {"N": "1698056060"},"json": {"S": "{\"campaignId\": \"HT011CMPHAT11001\", \"VIN\": \"HTC011VCLHAT00001\", \"updateSw\": [{\"serialNumber\": \"SERIAL_NUMBER_FI02001\", \"protocol\": \"Ether\", \"diagProtocol\": null, \"softwarePartNumber\": \"HT011-ES02-FJ02\", \"compatibleSoftwarePartNumber\": \"HT011-ES02-FJ01\", \"targetSoftwarePartNumber\": \"HT011-ES02-FJ02\", \"datetimeUpdateStart\": \"20200701T000041Z\", \"datetimeUpdateFinish\": \"20200701T000141Z\", \"datetimeActivate\": \"20200701T000241Z\", \"codeResult\": 2, \"codeError\": [\"HT001ERR01\"], \"dtc\": null}], \"typeUpdate\": 1, \"typeNetwork\": 1, \"ipAddress\": \"103.114.101.225\", \"trigger\": 2, \"typeActivation\": 2, \"sourceActivation\": 1, \"versionUpdateClient\": \"1.0.0\", \"versionOsClient\": \"1.0.0\", \"datetimeCreated\": \"20231031T063819Z\", \"apiVersion\": \"1.0\", \"vciName\": null, \"repairOrderNum\": null, \"dealerNumber\": null, \"isoCountryCode\": null, \"computerIdentificationInformation\": null, \"oddDetection\": null, \"dstiSerialNumber\": null}"}}'\
+ --region $region
+```
+ --
 # 国产车错误
 
 ```
