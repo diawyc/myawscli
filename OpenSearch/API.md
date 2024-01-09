@@ -1,5 +1,31 @@
 # console API
+## create a role
+```
+PUT _plugins/_security/api/roles/lambda-role
+{
+  "cluster_permissions": [
+    "indices:data/write/bulk*"
+  ],
+  "index_permissions": [{
+    "index_patterns": [
+      "gb*",
+"db*",
+          "error*"
+    ],
+    "dls": "",
+    "fls": [],
+    "masked_fields": [],
+    "allowed_actions": [
+      "create_index",
+"data_access"
 
+    ]
+  }],
+  "tenant_permissions": []
+
+
+}
+```
 ## create a index and input data
 ```
 PUT test-gb-result/_doc/1
