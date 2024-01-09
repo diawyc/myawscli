@@ -8,23 +8,15 @@ PUT _plugins/_security/api/roles/lambda-role
   ],
   "index_permissions": [{
     "index_patterns": [
-      "gb*",
-"db*",
-          "error*"
+      "gb*","db*","error*"
     ],
     "dls": "",
     "fls": [],
     "masked_fields": [],
     "allowed_actions": [
-      "create_index",
-"data_access"
-
-    ]
+      "create_index","data_access"]
   }],
   "tenant_permissions": []
-
-
-}
 ```
 ## create a index and input data
 ```
