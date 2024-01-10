@@ -1,5 +1,7 @@
 # console API
 ## create a user
+https://opensearch.org/docs/latest/security/access-control/api/#get-user
+
 ```
 ```
 
