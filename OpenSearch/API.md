@@ -5,7 +5,17 @@ https://opensearch.org/docs/latest/security/access-control/api/#get-user
 ```
 GET _plugins/_security/api/internalusers/jessica
 ```
-
+```
+PUT _plugins/_security/api/internalusers/<username>
+{
+  "hash": "",
+  "opendistro_security_roles": ["security_manager"],
+  "backend_roles": [],
+    "attributes": {
+      "company": "ghac"
+    }
+}
+```
 
 ## create a role
 ```
