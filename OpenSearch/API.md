@@ -1,4 +1,9 @@
 # console API
+## create a user
+```
+```
+
+
 ## create a role
 ```
 PUT _plugins/_security/api/roles/lambda-role
