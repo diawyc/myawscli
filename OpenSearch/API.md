@@ -72,7 +72,19 @@ POST /_bulk
 { "create" : { "_index" : "veggies"} }
 {"campaignId": "ZZ18010001001","sessionID": "ZZ18010001001","VIN车辆识别码": "LVHTG6877H5000037"}
 ```
-
+```
+POST /_bulk
+{ "create" : { "_index" : "veggies", "_id" : "1"  } }
+{"datetimeCreated": "2024/01/11 10:23:35" }
+{ "create" : { "_index" : "veggies", "_id" : "2" } }
+{"datetimeCreated": "2024/01/11 10:23:35" }
+{ "create" : { "_index" : "veggies", "_id" : "3" } }
+{"campaignId": "ZZ18010001003","sessionID": "ZZ18010001003","VIN车辆识别码": "LVHTG6877H5000057"}
+{ "create" : { "_index" : "veggies"} }
+{"campaignId": "ZZ18010001004","sessionID": "ZZ18010001004","VIN车辆识别码": "LVHTG6877H5000125"}
+{ "create" : { "_index" : "veggies"} }
+{"campaignId": "ZZ18010001001","sessionID": "ZZ18010001001","VIN车辆识别码": "LVHTG6877H5000037"}
+```
 ## create a snapshot
 ```
 PUT _snapshot/dr-snapshot-repo/4
