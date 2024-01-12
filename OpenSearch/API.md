@@ -1,10 +1,21 @@
 # console API
+## update role mapping
+```
+PUT _plugins/_security/api/rolesmapping/security_manager
+{
+  "backend_roles" : [ ],
+  "hosts" : [  ],
+  "users" : ["user1",
+      "user2" ]
+}
+```
 ## create a user
 https://opensearch.org/docs/latest/security/access-control/api/#get-user
 
 ```
 GET _plugins/_security/api/internalusers/jessica
 ```
+这个role不好使
 ```
 PUT _plugins/_security/api/internalusers/<username>
 {
