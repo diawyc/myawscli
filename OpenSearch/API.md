@@ -9,6 +9,17 @@ PUT _plugins/_security/api/rolesmapping/security_manager
       "user2" ]
 }
 ```
+## clear a role mapping
+```
+
+PUT _plugins/_security/api/rolesmapping/manage_snapshots
+{
+  "backend_roles" : [ ],
+  "hosts" : [  ],
+  "users" : [ ]
+}
+
+```
 ## create a user
 https://opensearch.org/docs/latest/security/access-control/api/#get-user
 
