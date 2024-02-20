@@ -166,3 +166,32 @@ POST _plugins/_sm/policies/dr-auto-snapshot
 ```
 GET _plugins/_sm/policies
 ```
+## create index template
+```
+PUT _index_template/lvli_logs
+{
+  "index_patterns": [
+    "logs-*"
+  ],
+  "template": {
+
+    "settings": {
+      "number_of_shards": 1,
+      "number_of_replicas": 1
+    },
+    "mappings": {
+      "properties": {
+        "date_created": {
+          "type": "string"
+        },
+        "campaignId": {
+          "type": "string"
+        },
+        "datetimeEvent": {
+          "type": "string"
+        },
+      }
+    }
+  }
+}
+```
