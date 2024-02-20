@@ -66,6 +66,18 @@ PUT test-gb-result/_doc/1
    "VIN车辆识别码":"LHGGK5754F20891762"
 }
 ```
+## create new index with custome shards
+```
+PUT sample-data-1-1
+{
+  "settings": {
+  "index": {
+    "number_of_shards": 1,
+    "number_of_replicas": 1
+  }
+  }
+}
+```
 ## create custom snapshot repository
 
 ## bulk create doc for index
