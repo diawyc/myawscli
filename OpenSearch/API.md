@@ -108,6 +108,14 @@ POST /_bulk
 { "create" : { "_index" : "veggies"} }
 {"campaignId": "ZZ18010001001","sessionID": "ZZ18010001001","VIN车辆识别码": "LVHTG6877H5000037"}
 ```
+```
+"_shards": {
+          "total": 2,
+          "successful": 1,
+          "failed": 0
+        }
+```
+
 ## create a snapshot
 ```
 PUT _snapshot/dr-snapshot-repo/4
