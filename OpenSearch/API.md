@@ -84,7 +84,7 @@ PUT sample-data-1-1
 
 ```
 POST /_bulk
-{ "create" : { "_index" : "veggies", "_id" : "1"  } }
+{ "create" : { "_index" : "test", "_id" : "1" ,"_shards":2  } }
 {"campaignId": "ZZ18010001001","sessionID": "ZZ18010001001","VIN车辆识别码": "LVHTG6877H5000035" }
 { "create" : { "_index" : "veggies", "_id" : "2" } }
 {"campaignId": "ZZ18010001002","sessionID": "ZZ18010001002","VIN车辆识别码": "LVHTG6877H5000047"}
