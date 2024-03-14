@@ -73,7 +73,6 @@ https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/run-insta
 ami='ami-0f8ca7e3caf65286e'
 num=1
 type='t2.micro'
-key=
 sg='sg-06885e46ad85c2417'
 subnet=''
 region=cn-north-1
@@ -85,7 +84,6 @@ aws ec2 run-instances \
     --image-id $ami \
     --count $num \
     --instance-type $type \
-    --key-name $key \
     --security-group-ids $sg \
     --subnet-id $subnet \
     --block-device-mappings "[{\"DeviceName\":\"/dev/sdf\",\"Ebs\":{\"VolumeSize\":30,\"DeleteOnTermination\":false}}]" \
