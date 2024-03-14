@@ -69,12 +69,12 @@ aws ec2 describe-network-acls --output text --query 'NetworkAcls[0].[Entries]' -
 ```
 ## create 一台带httpt web的EC2
 ```
-ami=
-num=
-type=
+ami=''
+num=1
+type='t2.micro'
 key=
-sg=
-subnet=
+sg=''
+subnet=''
 region=cn-north-1
 
 ```
