@@ -1,4 +1,7 @@
 # Inspector
+## Enable multi-account
+https://github.com/aws-samples/inspector2-enablement-with-cli
+
 ## check each region's number of unmanaged ec2
 ```
 regions=($(aws ec2 describe-regions --query 'Regions[*].RegionName' --output text))
