@@ -14,7 +14,7 @@ echo $region
 aws ec2 describe-instances  --region=$region --query 'Reservations[].Instances[].InstanceId' --output table         
 done
 ```
-#取到一台机器的IAM role arn
+## 取到一台机器的IAM role arn
 ```
 iid=i-0cc97b29f9c0448ed 
 ```
@@ -68,9 +68,28 @@ https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-acls.html
 aws ec2 describe-network-acls --output text --query 'NetworkAcls[0].[Entries]' --region=$region
 ```
 ## create 一台带httpt web的EC2
+```
+ami=
+num=
+type=
+key=
+sg=
+subnet=
+region=cn-north-1
 
 ```
-aws ec2 describe-network-acls --output text --query 'NetworkAcls[0].[Entries]' --region=$region
+
+```
+aws ec2 run-instances \
+    --image-id $ami \
+    --count $num \
+    --instance-type $type \
+    --key-name $key \
+    --security-group-ids $sg \
+    --subnet-id $subnet \
+    --block-device-mappings "[{\"DeviceName\":\"/dev/sdf\",\"Ebs\":{\"VolumeSize\":30,\"DeleteOnTermination\":false}}]" \
+    --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=demo-server}]' 'ResourceType=volume,Tags=[{Key=Env,Value=Prod}]'
+ --region=$region
 ```
 user data
 ```
