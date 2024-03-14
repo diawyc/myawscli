@@ -74,7 +74,7 @@ ami='ami-0f8ca7e3caf65286e'
 num=1
 type='t2.micro'
 sg='sg-06885e46ad85c2417'
-subnet=''
+subnet='subnet-03ef7dc117005ce02'
 region=cn-north-1
 
 ```
