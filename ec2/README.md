@@ -68,6 +68,7 @@ https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-acls.html
 aws ec2 describe-network-acls --output text --query 'NetworkAcls[0].[Entries]' --region=$region
 ```
 ## create 一台带httpt web的EC2
+https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/run-instances.html
 ```
 ami='ami-0f8ca7e3caf65286e'
 num=1
