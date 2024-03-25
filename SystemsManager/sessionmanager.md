@@ -12,3 +12,6 @@ sudo ln -s /usr/local/sessionmanagerplugin/bin/session-manager-plugin /usr/local
 ```
 session-manager-plugin
 ```
+```
+aws ssm start-session --target $id --region=$region
+```
