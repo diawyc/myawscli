@@ -2,7 +2,11 @@
 ## 查看现有的
 https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-vpc-endpoints.html
 ```
-aws ec2 describe-vpc-endpoints --region=$region
+aws ec2 describe-vpc-endpoints --region=$region --quer 'VpcEndpoints[*].[ServiceName,VpcEndpointType,SubnetIds[0],SubnetIds[1]]' --output table
+```
+```
+aws ec2 describe-vpc-endpoints --region=$region --quer 'VpcEndpoints[*].Groups[*].GroupId' --output table
+
 ```
 
 
