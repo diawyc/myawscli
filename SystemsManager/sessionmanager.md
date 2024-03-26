@@ -18,7 +18,7 @@ aws ssm start-session --target $id --region=$region
 ## create three vpc endpoint
 10.0.0.0/16
 ```
-services=$(com.amazonaws.cn-north-1.ssm,com.amazonaws.cn-north-1.ec2messages,com.amazonaws.cn-north-1.ssmmessages)
+services=(com.amazonaws.cn-north-1.ssm,com.amazonaws.cn-north-1.ec2messages,com.amazonaws.cn-north-1.ssmmessages)
 service='com.amazonaws.cn-north-1.ssm'
 type='Interface'
 vpcid='vpc-003715ce49b2f6846'
