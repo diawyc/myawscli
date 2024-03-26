@@ -15,3 +15,17 @@ session-manager-plugin
 ```
 aws ssm start-session --target $id --region=$region
 ```
+## create three vpc endpoint
+```
+service=''
+type=''
+vpcid=''
+subnet=
+```
+```
+aws ec2 create-vpc-endpoint \
+    --service-name $service \
+    --vpc-endpoint-type $type \
+    --vpc-id $vpcid \
+    --subnet-ids $subnet --region=$region
+```
