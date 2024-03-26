@@ -80,7 +80,7 @@ region=cn-north-1
 ```
 Ningxia AMI
 ```
-ami='ami-0610f4d2b2175bc30'
+ami='ami-013b17ac5bd852e31'
 ```
 ```
 aws ec2 run-instances \
