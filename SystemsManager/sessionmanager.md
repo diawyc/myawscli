@@ -17,10 +17,10 @@ aws ssm start-session --target $id --region=$region
 ```
 ## create three vpc endpoint
 ```
-service=''
-type=''
-vpcid=''
-subnet=
+service='com.amazonaws.cn-north-1.ssm'
+type='Interface'
+vpcid='vpc-003715ce49b2f6846'
+subnet='subnet-0b935470ad865db74,subnet-027119a649703f154'
 ```
 ```
 aws ec2 create-vpc-endpoint \
