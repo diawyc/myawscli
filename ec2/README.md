@@ -78,7 +78,10 @@ subnet='subnet-03ef7dc117005ce02'
 region=cn-north-1
 
 ```
-
+beijing amazon linux ID
+```
+ami-0610f4d2b2175bc30
+```
 ```
 aws ec2 run-instances \
     --image-id $ami \
