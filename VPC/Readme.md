@@ -1,3 +1,13 @@
+## vpc endpoint
+## 查看现有的
+https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-vpc-endpoints.html
+```
+aws ec2 describe-vpc-endpoints --region=$region
+```
+
+
+
+
 https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-vpc.html
 
 # 等级保护
