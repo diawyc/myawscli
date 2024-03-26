@@ -22,7 +22,7 @@ services=(com.amazonaws.cn-north-1.ssm com.amazonaws.cn-north-1.ec2messages com.
 echo $services[1]
 service='com.amazonaws.cn-north-1.ssm'
 type='Interface'
-vpcid='vpc-003715ce49b2f6846'
+vpcid='vpc-0ac032201f5e21c5a'
 subnet='subnet-0331e3311fa8b7cfe'
 
 sg='sg-036b311429333a646'
