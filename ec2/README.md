@@ -70,7 +70,7 @@ aws ec2 describe-network-acls --output text --query 'NetworkAcls[0].[Entries]' -
 ## create 一台带httpt web的EC2
 https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/run-instances.html
 ```
-ami='ami-0f8ca7e3caf65286e'
+ami='ami-0610f4d2b2175bc30'
 num=1
 type='t2.micro'
 sg='sg-06885e46ad85c2417'
@@ -78,9 +78,9 @@ subnet='subnet-03ef7dc117005ce02'
 region=cn-north-1
 
 ```
-beijing amazon linux ID
+Ningxia AMI
 ```
-ami-0610f4d2b2175bc30
+ami='ami-0610f4d2b2175bc30'
 ```
 ```
 aws ec2 run-instances \
@@ -90,7 +90,7 @@ aws ec2 run-instances \
     --security-group-ids $sg \
     --subnet-id $subnet \
     --block-device-mappings "[{\"DeviceName\":\"/dev/sdf\",\"Ebs\":{\"VolumeSize\":30,\"DeleteOnTermination\":false}}]" \
-    --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=demo-server}]' 'ResourceType=volume,Tags=[{Key=Env,Value=Prod}]'
+    --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=demo-server}]' 'ResourceType=volume,Tags=[{Key=Env,Value=Prod}]' \
  --region=$region
 ```
 user data
