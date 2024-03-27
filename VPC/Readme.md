@@ -8,9 +8,11 @@ aws ec2 describe-vpc-endpoints --region=$region --quer 'VpcEndpoints[*].[Service
 aws ec2 describe-vpc-endpoints --region=$region --quer 'VpcEndpoints[*].Groups[*].GroupId' --output table
 
 ```
+## Delete VPC
+```
+aws ec2 delete-vpc --vpc-id $vpcid --region=$region 
 
-
-
+```
 
 https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-vpc.html
 
