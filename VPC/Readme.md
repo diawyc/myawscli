@@ -59,3 +59,7 @@ vpcid=$(aws ec2 create-vpc \
 value=myvpc
 aws ec2 create-tags --resources $vpcid --tags Key=Name,Value=$value
 ```
+## create subnets
+```
+aws ec2 create-subnet --vpc-id=$vpcid --cidr-block 10.0.1.0/28 --availability-zone=cn-northwest-1a --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=Public-Web-1}]' --no-cli-pager
+```
