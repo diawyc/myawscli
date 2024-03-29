@@ -73,9 +73,12 @@ https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/run-insta
 ami='ami-0610f4d2b2175bc30'
 num=1
 type='t2.micro'
+region=cn-north-1
+```
+```
 sg='sg-06885e46ad85c2417'
 subnet='subnet-03ef7dc117005ce02'
-region=cn-north-1
+
 
 ```
 Ningxia AMI
