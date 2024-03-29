@@ -92,9 +92,10 @@ aws ec2 run-instances \
     --instance-type $type \
     --security-group-ids $sg \
     --subnet-id $subnet \
+    --region=$region \
     --block-device-mappings "[{\"DeviceName\":\"/dev/sdf\",\"Ebs\":{\"VolumeSize\":30,\"DeleteOnTermination\":false}}]" \
     --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=demo-server}]' 'ResourceType=volume,Tags=[{Key=Env,Value=Prod}]' \
- --region=$region
+
 ```
 user data
 ```
