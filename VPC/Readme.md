@@ -44,7 +44,7 @@ aws cloudtrail describe-trails --quer 'trailList[*].[Name,S3BucketName,LogFileVa
 # -------------------------
 ## create a default VPC
 ```
-vpcid=$(aws ec2 create-default-vpc --query 'Vpc.Vpcid' --output text)  
+vpcid=$(aws ec2 create-default-vpc --query 'Vpc.VpcId' --output text)  
 ```
 ## delete the default VPC
 ```
