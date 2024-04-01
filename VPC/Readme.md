@@ -51,8 +51,13 @@ vpcid=$(aws ec2 create-default-vpc --query 'Vpc.VpcId' --output text)
 ```
 aws ec2 describe-vpcs --filters "Name=isDefault,Values=true" --quer 'Vpcs[*].VpcId' --output text
 ```
+
+
 ```
 vpcid=$(aws ec2 describe-vpcs --quer 'Vpcs[?IsDefault!=`true`].VpcId' --output text)
+subnets=($(aws ec2 describe-subnets --filters "Name=vpc-id,Values=$vpcid"  --quer 'Subnets[*].SubnetId' --output text))
+```
+```
 aws ec2 delete-vpc --vpc-id $vpcid
 ```
 ## [create a VPC]([url](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-vpc.html))
