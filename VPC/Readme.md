@@ -47,8 +47,10 @@ aws cloudtrail describe-trails --quer 'trailList[*].[Name,S3BucketName,LogFileVa
 vpcid=$(aws ec2 create-default-vpc --query 'Vpc.VpcId' --output text)  
 ```
 ## delete the default VPC
+
 ```
-aws ec2 delete-vpc --vpc-id vpc-046b0a7df30fbe47e
+vpcid=$(aws ec2 describe-vpcs --quer 'Vpcs[?IsDefault!=`true`].VpcId' --output text)
+aws ec2 delete-vpc --vpc-id $vpcid
 ```
 ## [create a VPC]([url](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-vpc.html))
 tag打不上，有问题，sample少了个S,没有加上引号。
