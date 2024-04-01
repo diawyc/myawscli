@@ -49,12 +49,14 @@ vpcid=$(aws ec2 create-default-vpc --query 'Vpc.VpcId' --output text)
 ## delete the default VPC
 ### get VPCID
 ```
-aws ec2 describe-vpcs --filters "Name=isDefault,Values=true" --quer 'Vpcs[*].VpcId' --output text
+vpcid=$(aws ec2 describe-vpcs --filters "Name=isDefault,Values=true" --quer 'Vpcs[*].VpcId' --output text)
 ```
-
-
+二选一
 ```
 vpcid=$(aws ec2 describe-vpcs --quer 'Vpcs[?IsDefault!=`true`].VpcId' --output text)
+```
+### get subnets
+```
 subnets=($(aws ec2 describe-subnets --filters "Name=default-for-az,Values=true"  --quer 'Subnets[*].SubnetId' --output text))
 len=${#subnets[*]}
 echo $len
@@ -71,10 +73,26 @@ igw=$(aws ec2 describe-internet-gateways --region=$region --filters "Name=attach
 aws ec2 detach-internet-gateway --internet-gateway-id $igw --vpc-id $vpcid --region=$region
 aws ec2 delete-internet-gateway --internet-gateway-id $igw --region=$region
 ```
-
+### delete the empty VPC
 ```
 aws ec2 delete-vpc --vpc-id $vpcid
 ```
+### full script
+```
+vpcid=$(aws ec2 describe-vpcs --filters "Name=isDefault,Values=true" --quer 'Vpcs[*].VpcId' --output text)
+subnets=($(aws ec2 describe-subnets --filters "Name=default-for-az,Values=true"  --quer 'Subnets[*].SubnetId' --output text))
+len=${#subnets[*]}
+echo $len
+for ((i=1; i<=len; i++));do
+aws ec2 delete-subnet --subnet-id $subnets[i] --region=$region
+done
+igw=$(aws ec2 describe-internet-gateways --region=$region --filters "Name=attachment.vpc-id,Values=$vpcid" --quer 'InternetGateways[].InternetGatewayId' --output text)
+aws ec2 detach-internet-gateway --internet-gateway-id $igw --vpc-id $vpcid --region=$region
+aws ec2 delete-internet-gateway --internet-gateway-id $igw --region=$region
+aws ec2 delete-vpc --vpc-id $vpcid
+```
+
+
 ## [create a VPC]([url](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-vpc.html))
 tag打不上，有问题，sample少了个S,没有加上引号。
 ```
