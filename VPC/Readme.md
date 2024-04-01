@@ -56,10 +56,10 @@ aws ec2 describe-vpcs --filters "Name=isDefault,Values=true" --quer 'Vpcs[*].Vpc
 ```
 vpcid=$(aws ec2 describe-vpcs --quer 'Vpcs[?IsDefault!=`true`].VpcId' --output text)
 subnets=($(aws ec2 describe-subnets --filters "Name=vpc-id,Values=$vpcid"  --quer 'Subnets[*].SubnetId' --output text))
-```
 len=${#subnets[*]}
 echo $len
 ```
+## delete all subnets
 ```
 for ((i=1; i<=len; i++));do
 aws ec2 delete-subnet --subnet-id $subnets[i] --region=$region
@@ -67,7 +67,6 @@ done
 ```
 
 
-```
 ```
 aws ec2 delete-vpc --vpc-id $vpcid
 ```
