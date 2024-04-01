@@ -65,7 +65,12 @@ for ((i=1; i<=len; i++));do
 aws ec2 delete-subnet --subnet-id $subnets[i] --region=$region
 done
 ```
-
+## delete IGW
+```
+igw=$(aws ec2 describe-internet-gateways --region=$region --filters "Name=attachment.vpc-id,Values=$vpcid" --quer 'InternetGateways[].InternetGatewayId' --output text)
+aws ec2 detach-internet-gateway --internet-gateway-id $igw --vpc-id $vpcid --region=$region
+aws ec2 delete-internet-gateway --internet-gateway-id $igw --region=$region
+```
 
 ```
 aws ec2 delete-vpc --vpc-id $vpcid
