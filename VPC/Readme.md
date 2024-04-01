@@ -42,9 +42,13 @@ aws ec2 describe-network-acls --query 'NetworkAcls[*].Entries' --output table
 aws cloudtrail describe-trails --quer 'trailList[*].[Name,S3BucketName,LogFileValidationEnabled]' --output table
 ```
 # -------------------------
-## create a defaul VPC
+## create a default VPC
 ```
 vpcid=$(aws ec2 create-default-vpc --query 'Vpc.Vpcid' --output text)  
+```
+## delete the default VPC
+```
+aws ec2 delete-vpc --vpc-id vpc-046b0a7df30fbe47e
 ```
 ## [create a VPC]([url](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-vpc.html))
 tag打不上，有问题，sample少了个S,没有加上引号。
