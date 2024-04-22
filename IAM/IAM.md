@@ -1,3 +1,11 @@
+## create user
+
+```
+username='brclient'
+```
+```
+arn=$(aws iam create-user --user-name=$username --query 'User.Arn' --output text --region=$region)
+```
 
 ## get a custom policy content
 ```
