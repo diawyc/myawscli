@@ -1,13 +1,15 @@
 {
+         "Version": "2012-10-17",
+          "Statement": [{
                         "Sid": "InvokeModel",
                         "Effect": "Allow",
                         "Action": [
                                 "bedrock:InvokeModelWithResponseStream",
                                 "bedrock:InvokeModel"
                         ],
-                        "Resource": "arn:aws:bedrock:*::foundation-model/*"
-                },
+                        "Resource": "arn:aws:bedrock:*::foundation-model/*"},
                 {
+                
                         "Sid": "ListFM",
                         "Effect": "Allow",
                         "Action": [
@@ -15,5 +17,7 @@
                         ],
                         "Resource": "*"
                 }
+        
         ]
 }
+
