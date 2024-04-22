@@ -1,0 +1,19 @@
+{
+                        "Sid": "InvokeModel",
+                        "Effect": "Allow",
+                        "Action": [
+                                "bedrock:InvokeModelWithResponseStream",
+                                "bedrock:InvokeModel"
+                        ],
+                        "Resource": "arn:aws:bedrock:*::foundation-model/*"
+                },
+                {
+                        "Sid": "ListFM",
+                        "Effect": "Allow",
+                        "Action": [
+                                "bedrock:ListFoundationModels"
+                        ],
+                        "Resource": "*"
+                }
+        ]
+}
