@@ -2,10 +2,16 @@
 
 ```
 username='brclient'
+policyname='pbforsmc'
+filename='pbforsmc.json'
 ```
 ```
 arn=$(aws iam create-user --user-name=$username --query 'User.Arn' --output text --region=$region)
+policyarn=$(aws iam create-policy \    
+    --policy-name $policyname \       
+    --policy-document file://$filename --quer 'Policy[].Arn' --output text)
 ```
+
 
 ## get a custom policy content
 ```
