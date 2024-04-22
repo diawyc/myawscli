@@ -9,7 +9,7 @@ region='us-east-1'
 ```
 arn=$(aws iam create-user --user-name=$username --query 'User.Arn' --output text --region=$region)
 policyarn=$(aws iam create-policy --policy-name $policyname --policy-document file://$filename --region=$region --quer 'Policy.Arn' --output text)
-aws iam attach-user-policy --user-name $arn --policy-arn $policyarn
+aws iam attach-user-policy --user-name $username --policy-arn $policyarn --region=$region
 
 ```
 
