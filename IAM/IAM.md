@@ -4,6 +4,7 @@
 username='brclient'
 policyname='BRClient-Policy'
 filename='policy.json'
+region='us-east-1'
 ```
 ```
 arn=$(aws iam create-user --user-name=$username --query 'User.Arn' --output text --region=$region)
