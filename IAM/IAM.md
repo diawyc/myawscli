@@ -2,8 +2,8 @@
 
 ```
 username='brclient'
-policyname='pbforsmc'
-filename='pbforsmc.json'
+policyname='BRClient-Policy'
+filename='policy.json'
 ```
 ```
 arn=$(aws iam create-user --user-name=$username --query 'User.Arn' --output text --region=$region)
