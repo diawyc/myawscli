@@ -1,3 +1,18 @@
+## 中国区instance profile
+```
+ipname=''
+rolename=''
+```
+ec2平台上出现的是ipname,
+IAM中的role,rolename中会显示一个instance profile arn
+```
+aws iam create-instance-profile \
+  --instance-profile-name $ipname
+aws iam add-role-to-instance-profile \
+  --instance-profile-name $ipname \
+  --role-name $rolename
+```
+
 ## create user
 
 ```
