@@ -21,6 +21,9 @@ iid=i-0cc97b29f9c0448ed
 ```
 iparn=$(aws ec2 describe-instances --instance-ids=$iid  --region=$region --output=text  --query='Reservations[].Instances[].IamInstanceProfile[].Arn')
 ```
+## 创建IAM instance profile
+https://github.com/diawyc/myawscli/blob/main/IAM/IAM.md#%E4%B8%AD%E5%9B%BD%E5%8C%BAinstance-profile
+
 ## 停机所有regions的所有机器
 ```
 regions=($(aws ec2 describe-regions --query 'Regions[*].RegionName' --output text --region=us-east-1))
